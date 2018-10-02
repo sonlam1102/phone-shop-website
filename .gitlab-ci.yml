@@ -10,4 +10,5 @@ phpunit:php7.0:mysql5.7:
   services:
   - mysql:5.7
   script:
+  - composer install
   - php bin/phpunit --colors
