@@ -1,25 +1,13 @@
-image: debian
 before_script:
-- cd sources
-- apt-get install php7*
-- php -v
-- git submodule update --init
-- php -v
-- composer --version
-- git --version
-- ls -lah
-- composer self-update
-- composer config --global github-oauth.github.com $GITHUB_TOKEN
-- composer install --no-interaction
-- php artisan env
-- touch database/testing.sqlite
-- php artisan migrate --database=testing --env=testing
+- bash .gitlab-ci.sh
 
-stages:
-- test
+variables:
+  MYSQL_DATABASE: project_name
+  MYSQL_ROOT_PASSWORD: secret
 
-test:
+phpunit:php7.0:mysql5.7:
+  image: php:7.0
+  services:
+  - mysql:5.7
   script:
-  - vendor/bin/phpunit
-  - vendor/bin/phpmd app/ text phpmd.xml
-  - vendor/bin/phpcs --standard=psr2 app
+  - php vendor/bin/phpunit --colors
