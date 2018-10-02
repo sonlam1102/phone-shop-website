@@ -1,16 +1,26 @@
-#!/bin/sh
+#!/bin/bash
 
-# Run some general commands so we're up-to-date
-composer self-update
-composer install --no-interaction --optimize-autoloader
+# Install dependencies only for Docker.
+[[ ! -e /.dockerinit ]] && exit 0
+set -xe
 
-# Setup db
-touch database/testing.sqlite
-echo "" > database/testing.sqlite
-php artisan migrate --database=testing --env=testing
+# Update packages and install composer and PHP dependencies.
+apt-get update -yqq
+apt-get install git libcurl4-gnutls-dev libicu-dev libmcrypt-dev libvpx-dev libjpeg-dev libpng-dev libxpm-dev zlib1g-dev libfreetype6-dev libxml2-dev libexpat1-dev libbz2-dev libgmp3-dev libldap2-dev unixodbc-dev libpq-dev libsqlite3-dev libaspell-dev libsnmp-dev libpcre3-dev libtidy-dev -yqq
 
-# Start tests
-vendor/bin/phpmd app/ text phpmd.xml
-vendor/bin/phpcbf --standard=psr2 app/
-vendor/bin/phpcs --standard=psr2 --colors app/
-vendor/bin/phpunit
+# Compile PHP, include these extensions.
+docker-php-ext-install mbstring mcrypt pdo_mysql curl json intl gd xml zip bz2 opcache
+
+# Install Composer and project dependencies.
+curl -sS https://getcomposer.org/installer | php
+php composer.phar install
+
+# Copy over testing configuration.
+cp .env.testing .env
+
+# Generate an application key. Re-cache.
+php artisan key:generate
+php artisan config:cache
+
+# Run database migrations.
+php artisan migrate
