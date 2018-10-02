@@ -1,4 +1,8 @@
+image: debian
 before_script:
+- cd sources
+- apt-get install php7*
+- php -v
 - git submodule update --init
 - php -v
 - composer --version
