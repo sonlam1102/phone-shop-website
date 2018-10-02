@@ -1,0 +1,27 @@
+version: "3"
+services:
+    web:
+        image: webdevops/php-nginx:7.1
+        ports:
+            - "8089:80"
+        volumes:
+            - /Users/sonlam1102/PhoneOnlineShoping:/app
+        environment:
+            - PHP_DEBUGGER=xdebug
+            - PHP_DISPLAY_ERRORS=1
+            - PHP_DATE_TIMEZONE=Asia/Ho_Chi_Minh
+            - WEB_DOCUMENT_ROOT=/app/public
+    database:
+        image: mysql:5.6
+        volumes:
+          - dbdata:/var/lib/mysql
+        environment:
+            - "MYSQL_DATABASE=shop_database"
+            - "MYSQL_USER=root"
+            - "MYSQL_PASSWORD=root"
+            - "MYSQL_ROOT_PASSWORD=root"
+        ports:
+            - "33061:3306"
+
+volumes:
+    dbdata:
