@@ -41,9 +41,8 @@ before_script:
 - php composer.phar install
 
 # Install Node dependencies.
-- curl https://npmjs.org/install.sh | sh
 # comment this out if you don't have a node dependency
-- npm install
+#- npm install
 
 # Copy over testing configuration.
 # Don't forget to set the database config in .env.testing correctly
@@ -78,4 +77,4 @@ test:
   # if you have any task for testing frontend
   # set it in your package.json script
   # comment this out if you don't have a frontend test
-  - npm test
+#  - npm test
