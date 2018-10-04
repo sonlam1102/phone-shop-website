@@ -59,11 +59,7 @@ php-laravel-build:
 npm-build:
   image: node:7
   script:
-    - npm -v
     - npm install
-    - npm run build
-    - npm test
-
 test:
   script:
   # run laravel tests
