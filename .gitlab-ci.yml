@@ -42,10 +42,6 @@ before_script:
 
 php-laravel-build:
   script:
-  - apt-get install -yq nodejs build-essential
-  - npm install -g npm
-  - npm -v
-
   # Copy over testing configuration.
   # Don't forget to set the database config in .env.testing correctly
   - cp .env.testing .env
