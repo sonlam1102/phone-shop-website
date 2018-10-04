@@ -41,7 +41,10 @@ before_script:
 - php composer.phar install
 
 php-laravel-build:
+  image: node:7
   script:
+  - npm -v
+
   # Copy over testing configuration.
   # Don't forget to set the database config in .env.testing correctly
   - cp .env.testing .env
@@ -56,12 +59,8 @@ php-laravel-build:
   # Run database seed
   - php artisan db:seed
 
-npm-build:
-  image: node:7
-  script:
-    - npm install
-test:
-  script:
-  # run laravel tests
+  #Run test
   - php vendor/bin/phpunit --coverage-text --colors=never
+
+
 
