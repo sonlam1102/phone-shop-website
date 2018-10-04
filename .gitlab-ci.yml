@@ -41,8 +41,9 @@ before_script:
 - php composer.phar install
 
 php-laravel-build:
-  image: node:7
   script:
+  - apt-get install -yq nodejs build-essential
+  - npm install -g npm
   - npm -v
 
   # Copy over testing configuration.
