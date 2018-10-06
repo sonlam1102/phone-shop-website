@@ -42,6 +42,7 @@ before_script:
 - php composer.phar install
 - nodejs -v
 - npm -v
+- npm intall
 
 php-laravel-build:
   script:
