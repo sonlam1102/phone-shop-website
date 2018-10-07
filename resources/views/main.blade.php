@@ -19,6 +19,29 @@
     <link href="/css/main.css" rel="stylesheet" />
 </head>
 <body>
+    <div class="container">
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <p>Some text in the modal.</p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -63,7 +86,7 @@
                                     </a>
                                 @else
                                     <li>
-                                        <a href="#"><strong>Update info</strong></a>
+                                        <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal" ><strong>Update info</strong></a>
                                     </li>
                                 @endif
                                 <li>
