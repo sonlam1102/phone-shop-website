@@ -45,8 +45,6 @@ php-laravel-build:
 
 php-laravel-test:
   script:
-  - php artisan config:clear
-  - php artisan config:cache
   - php vendor/bin/phpunit --coverage-text --colors=never
 
 
