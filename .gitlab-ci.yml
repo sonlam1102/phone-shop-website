@@ -44,6 +44,7 @@ php-laravel-build:
   - php artisan db:seed
 
 npm-watch:
+  script:
   - npm run watch
 
 php-laravel-test:
