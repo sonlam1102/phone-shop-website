@@ -48,16 +48,22 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ \Auth::user()->userinfo ?  \Auth::user()->userinfo->fullname : \Auth::user()->name }} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 @if (\Auth::user()->userinfo)
-                                    <li>
-                                        <img src="{{ \Auth::user()->userinfo->img ?  \Auth::user()->userinfo->img : '/img/avatar.jpg' }}" alt="" class="avatar">
-                                    </li>
+                                    <a href="#">
+                                        <li>
+                                            <img src="{{ \Auth::user()->userinfo->img ?  \Auth::user()->userinfo->img : '/img/avatar.jpg' }}" alt="" class="avatar">
+                                        </li>
 
-                                    <li>
-                                        Name: {{ \Auth::user()->userinfo->fullname }}
-                                    </li>
+                                        <li>
+                                            Name: {{ \Auth::user()->userinfo->fullname }}
+                                        </li>
 
+                                        <li>
+                                            City: {{ \Auth::user()->city->name }}
+                                        </li>
+                                    </a>
+                                @else
                                     <li>
-                                        City: {{ \Auth::user()->city->name }}
+                                        <a href="#"><strong>Update info</strong></a>
                                     </li>
                                 @endif
                                 <li>
