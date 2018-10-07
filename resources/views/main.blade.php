@@ -16,6 +16,7 @@
     <link href="/ItemSlider/css/main-style.css" rel="stylesheet" />
     <!-- custom CSS here -->
     <link href="/css/style.css" rel="stylesheet" />
+    <link href="/css/main.css" rel="stylesheet" />
 </head>
 <body>
     <nav class="navbar navbar-default" role="navigation">
@@ -46,33 +47,32 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ \Auth::user()->userinfo ?  \Auth::user()->userinfo->fullname : \Auth::user()->name }} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
+                                @if (\Auth::user()->userinfo)
+                                    <li>
+                                        <img src="{{ \Auth::user()->userinfo->img ?  \Auth::user()->userinfo->img : '/img/avatar.jpg' }}" alt="" class="avatar">
+                                    </li>
+
+                                    <li>
+                                        Name: {{ \Auth::user()->userinfo->fullname }}
+                                    </li>
+
+                                    <li>
+                                        City: {{ \Auth::user()->city->name }}
+                                    </li>
+                                @endif
                                 <li>
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                         <strong>Logout </strong>
                                     </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                                 </li>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
+
                             </ul>
                         </li>
                     @endif
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">24x7 Support <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><strong>Call: </strong>+09-456-567-890</a></li>
-                            <li><a href="#"><strong>Mail: </strong>info@yourdomain.com</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#"><strong>Address: </strong>
-                                <div>
-                                    234, New york Street,<br />
-                                    Just Location, USA
-                                </div>
-                            </a></li>
-                        </ul>
-                    </li>
                 </ul>
                 <form class="navbar-form navbar-right" role="search">
                     <div class="form-group">

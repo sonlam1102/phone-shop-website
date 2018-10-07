@@ -19,7 +19,7 @@ class CreateUserinfosTable extends Migration
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('fullname');
-            $table->string('address');
+            $table->string('address')->nullable();
             $table->string('cmnd');
             $table->unsignedInteger('city_id');
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
