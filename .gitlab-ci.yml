@@ -31,8 +31,6 @@ before_script:
 - curl -sS https://getcomposer.org/installer | php
 - php composer.phar install
 - nodejs -v
-- npm -v
-- npm install
 
 php-laravel-build:
   script:
@@ -45,7 +43,7 @@ php-laravel-build:
 
 npm-watch:
   script:
-  - npm run watch
+  - npm install
 
 php-laravel-test:
   script:
