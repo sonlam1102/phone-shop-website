@@ -24,7 +24,7 @@ class CreateUserinfosTable extends Migration
             $table->unsignedInteger('city_id');
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
             $table->date('birthday');
-            $table->string('img');
+            $table->string('img')->nullable();
         });
     }
 

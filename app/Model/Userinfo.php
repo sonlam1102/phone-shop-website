@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Userinfo extends Model
 {
+    protected $table = 'userinfos';
+
     protected $fillable = [
         'fullname', 'address', 'cmnd', 'birthday', 'img'
     ];

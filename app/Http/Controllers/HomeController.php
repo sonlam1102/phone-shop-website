@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Model\Userinfo;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -28,6 +30,7 @@ class HomeController extends Controller
 
     public function main()
     {
-        return view('main');
+        $userinfo = Auth::user()->userinfo ? Auth::user()->userinfo : null;
+        return view('main')->with('data', $userinfo);
     }
 }

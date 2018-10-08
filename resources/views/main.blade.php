@@ -23,51 +23,56 @@
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Thông tin người dùng </h4>
+                <form method="post" action="{{ route('update_info') }}">
+                    @csrf
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Thông tin người dùng </h4>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Tên </label>
+                                <input type="text" name="fullname" class="form-control validate" value="{{ $data ? $data->fullname : null }}">
+                            </div>
+
+                            <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Địa chỉ </label>
+                                <input type="text" name="address" class="form-control validate" value="{{ $data ? $data->address : null }}">
+                            </div>
+
+                            <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Thành phố sinh sống </label>
+                                <select class="form-control form-control-sm" name="city">
+                                    @if (\App\Model\City::all())
+                                        @foreach(\App\Model\City::all() as $item)
+                                            <option value="{{$item->id}}" {{$data ? $data->city->id == $item->id ? 'selected' : '' : ''}}>{{ $item->name }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+
+                            <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Số CMND </label>
+                                <input type="text" name="cmnd" class="form-control validate" value="{{ $data ? $data->cmnd : null }}">
+                            </div>
+
+                            <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Ngày sinh </label>
+                                <input type="date" name="birthday" class="form-control validate" value="{{ $data ? $data->birthday : null }}">
+                            </div>
+
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng </button>
+                            <button type="submit" class="btn btn-default" >Cập nhật  </button>
+                        </div>
+
                     </div>
-
-                    <div class="modal-body">
-                        <div class="md-form mb-5">
-                            <i class="fa fa-envelope prefix grey-text"></i>
-                            <input type="email" id="defaultForm-email" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">Tên </label>
-                        </div>
-
-                        <div class="md-form mb-5">
-                            <i class="fa fa-envelope prefix grey-text"></i>
-                            <input type="email" id="defaultForm-email" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">Địa chỉ </label>
-                        </div>
-
-                        <div class="md-form mb-5">
-                            <i class="fa fa-envelope prefix grey-text"></i>
-                            <input type="email" id="defaultForm-email" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">Thành phố sinh sống </label>
-                        </div>
-
-                        <div class="md-form mb-5">
-                            <i class="fa fa-envelope prefix grey-text"></i>
-                            <input type="email" id="defaultForm-email" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">Số CMND </label>
-                        </div>
-
-                        <div class="md-form mb-5">
-                            <i class="fa fa-envelope prefix grey-text"></i>
-                            <input type="email" id="defaultForm-email" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">Ngày sinh </label>
-                        </div>
-
-
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng </button>
-                    </div>
-
-                </div>
+                </form>
             </div>
         </div>
 
