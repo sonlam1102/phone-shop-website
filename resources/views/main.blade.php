@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Bootstrap E-Commerce Template- DIGI Shop mini</title>
+    <title>Điện thoại Online </title>
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.css" rel="stylesheet">
     <!-- Fontawesome core CSS -->
@@ -26,45 +26,45 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Modal Header</h4>
+                        <h4 class="modal-title">Thông tin người dùng </h4>
                     </div>
 
                     <div class="modal-body">
                         <div class="md-form mb-5">
                             <i class="fa fa-envelope prefix grey-text"></i>
                             <input type="email" id="defaultForm-email" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">Your fullname</label>
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Tên </label>
                         </div>
 
                         <div class="md-form mb-5">
                             <i class="fa fa-envelope prefix grey-text"></i>
                             <input type="email" id="defaultForm-email" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">Your address</label>
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Địa chỉ </label>
                         </div>
 
                         <div class="md-form mb-5">
                             <i class="fa fa-envelope prefix grey-text"></i>
                             <input type="email" id="defaultForm-email" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">Your city</label>
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Thành phố sinh sống </label>
                         </div>
 
                         <div class="md-form mb-5">
                             <i class="fa fa-envelope prefix grey-text"></i>
                             <input type="email" id="defaultForm-email" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">Your CMND</label>
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Số CMND </label>
                         </div>
 
                         <div class="md-form mb-5">
                             <i class="fa fa-envelope prefix grey-text"></i>
                             <input type="email" id="defaultForm-email" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">Your birthday</label>
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Ngày sinh </label>
                         </div>
 
 
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng </button>
                     </div>
 
                 </div>
@@ -91,38 +91,23 @@
 
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Đơn hàng </a></li>
 
                     @if (!\Auth::check())
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Register</a></li>
+                        <li><a href="{{ route('login') }}">Đăng nhập </a></li>
+                        <li><a href="{{ route('register') }}">Đăng ký </a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ \Auth::user()->userinfo ?  \Auth::user()->userinfo->fullname : \Auth::user()->name }} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                @if (\Auth::user()->userinfo)
-                                    <a href="#">
-                                        <li>
-                                            <img src="{{ \Auth::user()->userinfo->img ?  \Auth::user()->userinfo->img : '/img/avatar.jpg' }}" alt="" class="avatar">
-                                        </li>
+                                <li>
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal" ><strong>Cập nhật thông tin </strong></a>
+                                </li>
 
-                                        <li>
-                                            Name: {{ \Auth::user()->userinfo->fullname }}
-                                        </li>
-
-                                        <li>
-                                            City: {{ \Auth::user()->city->name }}
-                                        </li>
-                                    </a>
-                                @else
-                                    <li>
-                                        <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal" ><strong>Update info</strong></a>
-                                    </li>
-                                @endif
                                 <li>
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                                        <strong>Logout </strong>
+                                        <strong>Đăng xuất  </strong>
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
@@ -135,10 +120,10 @@
                 </ul>
                 <form class="navbar-form navbar-right" role="search">
                     <div class="form-group">
-                        <input type="text" placeholder="Enter Keyword Here ..." class="form-control">
+                        <input type="text" placeholder="Nhập vào từ khoá tìm kiếm  ..." class="form-control">
                     </div>
                     &nbsp; 
-                    <button type="submit" class="btn btn-primary">Search</button>
+                    <button type="submit" class="btn btn-primary">Tìm kiếm </button>
                 </form>
             </div>
             <!-- /.navbar-collapse -->
