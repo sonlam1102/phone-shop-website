@@ -45,9 +45,6 @@ npm-watch:
   script:
   - npm install
 
-php-laravel-test:
-  script:
-  - php vendor/bin/phpunit --coverage-text --colors=never
 
 
 
