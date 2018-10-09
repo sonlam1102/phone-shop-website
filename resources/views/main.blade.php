@@ -23,7 +23,7 @@
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
-                <form method="post" action="{{ route('update_info') }}">
+                <form method="post" action="{{ route('update_info') }}" enctype='multipart/form-data' >
                     @csrf
                     <div class="modal-content">
                         <div class="modal-header">
@@ -32,6 +32,19 @@
                         </div>
 
                         <div class="modal-body">
+
+                            <div class="avatar-upload">
+                                <div class="avatar-edit">
+                                    <input type='file' id="imageUpload" name="img" accept=".png, .jpg, .jpeg" />
+                                    <label for="imageUpload"></label>
+                                </div>
+                                <div class="avatar-preview">
+                                    <div id="imagePreview">
+
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="md-form mb-5">
                                 <label data-error="wrong" data-success="right" for="defaultForm-email">Tên </label>
                                 <input type="text" name="fullname" class="form-control validate" value="{{ $data ? $data->fullname : null }}">
@@ -56,6 +69,11 @@
                             <div class="md-form mb-5">
                                 <label data-error="wrong" data-success="right" for="defaultForm-email">Số CMND </label>
                                 <input type="text" name="cmnd" class="form-control validate" value="{{ $data ? $data->cmnd : null }}">
+                            </div>
+
+                            <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Điện thoại</label>
+                                <input type="text" name="phone" class="form-control validate" value="{{ $data ? $data->phone : null }}">
                             </div>
 
                             <div class="md-form mb-5">
@@ -623,7 +641,7 @@
     <!-- /.col -->
     <!--Footer end -->
     <!--Core JavaScript file  -->
-    <script src="/js/jquery-1.10.2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!--bootstrap JavaScript file  -->
     <script src="/js/bootstrap.js"></script>
     <!--Slider JavaScript file  -->
@@ -635,6 +653,23 @@
             $('#mi-slider').catslider();
 
         });
-		</script>
+    </script>
+
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+                    $('#imagePreview').hide();
+                    $('#imagePreview').fadeIn(650);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#imageUpload").change(function() {
+            readURL(this);
+        });
+    </script>
 </body>
 </html>

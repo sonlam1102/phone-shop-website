@@ -30,7 +30,12 @@ class HomeController extends Controller
 
     public function main()
     {
-        $userinfo = Auth::user()->userinfo ? Auth::user()->userinfo : null;
+        try {
+            $userinfo = Auth::user()->userinfo ? Auth::user()->userinfo : null;
+        }
+        catch (\Exception $e){
+            $userinfo = null;
+        }
         return view('main')->with('data', $userinfo);
     }
 }
