@@ -19,21 +19,6 @@ class UserinfoController extends Controller
 
         $model = Userinfo::where('user_id', \Auth::user()->id)->first();
 
-        $user_id = \Auth::user()->id;
-
-//        try {
-//            if ($request->img) {
-//                $imageName = $user_id.'.'.$request->img->getClientOriginalExtension();
-//                $request->img->move(public_path('image/avatar/'), $imageName);
-//
-//                $imagePath = '/image/avatar/'.$imageName;
-//            }
-//            else {
-//                $imagePath = null;
-//            }
-//        } catch (\Exception $e) {
-//            $imagePath = null;
-//        }
         $imagePath = \App\Tools\Upload::imageUploadProfile($request, \Auth::user()->id);
 
         if (!$model) {
