@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 use App\Model\Userinfo;
-use Illuminate\Support\Facades\Redirect;
 
 class UserinfoController extends Controller
 {

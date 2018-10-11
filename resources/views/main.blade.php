@@ -17,6 +17,8 @@
     <!-- custom CSS here -->
     <link href="/css/style.css" rel="stylesheet" />
     <link href="/css/main.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -33,14 +35,11 @@
 
                         <div class="modal-body">
 
-                            <div class="avatar-upload">
-                                <div class="avatar-edit">
-                                    <input type='file' id="imageUpload" name="img" accept=".png, .jpg, .jpeg" />
-                                    <label for="imageUpload"></label>
-                                </div>
-                                <div class="avatar-preview">
-                                    <div id="imagePreview">
-
+                            <div class="md-form mb-5">
+                                <div id="kv-avatar-errors-2" class="center-block"></div>
+                                <div class="kv-avatar">
+                                    <div class="file-loading">
+                                        <input id="avatar-2" name="img" type="file">
                                     </div>
                                 </div>
                             </div>
@@ -124,7 +123,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ \Auth::user()->userinfo ?  \Auth::user()->userinfo->fullname : \Auth::user()->name }} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal" ><strong>Cập nhật thông tin </strong></a>
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal" id="update"><strong>Cập nhật thông tin </strong></a>
                                 </li>
 
                                 <li>
@@ -641,9 +640,9 @@
     <!-- /.col -->
     <!--Footer end -->
     <!--Core JavaScript file  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!--bootstrap JavaScript file  -->
     <script src="/js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/js/fileinput.min.js"></script>
     <!--Slider JavaScript file  -->
     <script src="/ItemSlider/js/modernizr.custom.63321.js"></script>
     <script src="/ItemSlider/js/jquery.catslider.js"></script>
@@ -654,21 +653,22 @@
 
         });
     </script>
-
-    <script type="text/javascript">
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#imagePreview').css('background-image', 'url('+e.target.result +')');
-                    $('#imagePreview').hide();
-                    $('#imagePreview').fadeIn(650);
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-        $("#imageUpload").change(function() {
-            readURL(this);
+    <script>
+        $("#avatar-2").fileinput({
+            overwriteInitial: true,
+            maxFileSize: 1500,
+            showClose: false,
+            showCaption: false,
+            showBrowse: false,
+            browseOnZoneClick: true,
+            removeLabel: '',
+            removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+            removeTitle: 'Cancel or reset changes',
+            elErrorContainer: '#kv-avatar-errors-2',
+            msgErrorClass: 'alert alert-block alert-danger',
+            defaultPreviewContent: '<img src="{{ $data ? $data->img : "/img/avatar.jpg" }}" alt="Your Avatar"><h6 class="text-muted">Click to select</h6>',
+            layoutTemplates: {main2: '{preview} '  + ' {remove} {browse}'},
+            allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
         });
     </script>
 </body>

@@ -5,6 +5,9 @@ use Illuminate\Http\Request;
 class Upload {
     public static function imageUploadProfile(Request $request, $user_id)
     {
+        if (!$request->img) {
+            return null;
+        }
         $request->validate([
             'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
