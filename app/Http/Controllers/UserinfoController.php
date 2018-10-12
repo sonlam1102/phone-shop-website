@@ -23,16 +23,19 @@ class UserinfoController extends Controller
             $model = new Userinfo();
 
         }
-        $model->fullname = $fullname;
-        $model->address = $address;
-        $model->birthday = $birthday;
-        $model->city_id = $city;
-        $model->user_id = \Auth::user()->id;
-        $model->cmnd = $cmnd;
-        $model->phone = $phone;
-        $model->img = $imagePath;
 
-        $model->save();
+        $data = [
+            "fullname" => $fullname,
+            "address" => $address,
+            "birthday" => $birthday,
+            "user_id"=> \Auth::user()->id,
+            "city_id" => $city,
+            "cmnd" => $cmnd,
+            "phone" => $phone,
+            "imagePath" => $imagePath
+        ];
+
+        $model->update_info($data);
 
         return redirect('/');
     }

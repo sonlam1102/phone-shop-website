@@ -21,4 +21,19 @@ class Userinfo extends Model
    {
        return $this->belongsTo('App\Model\City', 'city_id');
    }
+
+   public function update_info($data)
+   {
+       $this->fullname = $data['fullname'];
+       $this->address = $data['address'];
+       $this->birthday = $data['birthday'];
+       $this->city_id = $data['city_id'];
+       $this->user_id = $data['user_id'];
+       $this->cmnd = $data['cmnd'];
+       $this->phone = $data['phone'];
+       if ($data['imagePath']) {
+           $this->img = $data['imagePath'];
+       }
+       $this->save();
+   }
 }

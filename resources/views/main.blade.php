@@ -17,8 +17,6 @@
     <!-- custom CSS here -->
     <link href="/css/style.css" rel="stylesheet" />
     <link href="/css/main.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -39,7 +37,7 @@
                                 <div id="kv-avatar-errors-2" class="center-block"></div>
                                 <div class="kv-avatar">
                                     <div class="file-loading">
-                                        <input id="avatar-2" name="img" type="file">
+                                        <input id="avatar-2" name="img" type="file" style="display: none">
                                     </div>
                                 </div>
                             </div>
@@ -641,6 +639,7 @@
     <!--Footer end -->
     <!--Core JavaScript file  -->
     <!--bootstrap JavaScript file  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="/js/bootstrap.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/js/fileinput.min.js"></script>
     <!--Slider JavaScript file  -->
@@ -656,18 +655,16 @@
     <script>
         $("#avatar-2").fileinput({
             overwriteInitial: true,
+            display: true,
             maxFileSize: 1500,
             showClose: false,
             showCaption: false,
             showBrowse: false,
             browseOnZoneClick: true,
-            removeLabel: '',
-            removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
-            removeTitle: 'Cancel or reset changes',
             elErrorContainer: '#kv-avatar-errors-2',
             msgErrorClass: 'alert alert-block alert-danger',
-            defaultPreviewContent: '<img src="{{ $data ? $data->img : "/img/avatar.jpg" }}" alt="Your Avatar"><h6 class="text-muted">Click to select</h6>',
-            layoutTemplates: {main2: '{preview} '  + ' {remove} {browse}'},
+            defaultPreviewContent: '<img src="{{ $data ? $data->img : "/img/avatar.jpg" }}" alt="Your Avatar">',
+            layoutTemplates: {main2: '{preview} {browse}'},
             allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
         });
     </script>
