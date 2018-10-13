@@ -10,4 +10,9 @@ class Category extends Model
     public function brands() {
         return $this->hasMany('App\Model\Brands');
     }
+
+    public function update_info($data) {
+        $this->name = $data['name'];
+        $this->save();
+    }
 }

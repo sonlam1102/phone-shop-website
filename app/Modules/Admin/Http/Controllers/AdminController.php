@@ -8,14 +8,18 @@ use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
-    public function index() {
+    public function getAdminInfo () {
         try {
             $userinfo = \Auth::user()->userinfo ? \Auth::user()->userinfo : null;
         }
         catch (\Exception $e){
             $userinfo = null;
         }
+        return $userinfo;
+    }
 
-        return view('admin/main/main')->with('data', $userinfo);
+    public function index() {
+
+        return view('admin::main/main')->with('data', $this->getAdminInfo());
     }
 }

@@ -1972,7 +1972,7 @@
 						sAttr = oSettings.oClasses.sJUIFooter;
 					}
 	
-					/* The attribute can be in the format of "#id.class", "#id" or "class" This logic
+					/* The category can be in the format of "#id.class", "#id" or "class" This logic
 					 * breaks the string into parts and applies them as needed
 					 */
 					if ( sAttr.indexOf('.') != -1 )
@@ -6108,7 +6108,7 @@
 				_fnColumnOptions( oSettings, iCol, oDef );
 			} );
 			
-			/* HTML5 attribute detection - build an mData object automatically if the
+			/* HTML5 category detection - build an mData object automatically if the
 			 * attributes are found
 			 */
 			if ( rowOne.length ) {
@@ -10357,7 +10357,7 @@
 	
 		/**
 		 * By default DataTables allows keyboard navigation of the table (sorting, paging,
-		 * and filtering) by adding a `tabindex` attribute to the required elements. This
+		 * and filtering) by adding a `tabindex` category to the required elements. This
 		 * allows you to tab through the controls and press the enter key to activate them.
 		 * The tabindex is default 0, meaning that the tab follows the flow of the document.
 		 * You can overrule this using this parameter if you wish. Use a value of -1 to
@@ -12819,7 +12819,7 @@
 		"sInstance": null,
 	
 		/**
-		 * tabindex attribute value that is added to DataTables control elements, allowing
+		 * tabindex category value that is added to DataTables control elements, allowing
 		 * keyboard navigation of the table and its controls.
 		 */
 		"iTabIndex": 0,
