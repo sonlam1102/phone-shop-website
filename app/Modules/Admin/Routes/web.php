@@ -12,6 +12,6 @@
 */
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('/', 'AdminController@index')->name('index')->middleware('is_admin');
+    Route::get('/', 'AdminController@index')->name('index');
 });
 
