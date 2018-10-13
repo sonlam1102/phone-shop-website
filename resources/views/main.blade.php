@@ -118,7 +118,11 @@
                         <li><a href="{{ route('register') }}">Đăng ký </a></li>
                     @else
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ \Auth::user()->userinfo ?  \Auth::user()->userinfo->fullname : \Auth::user()->name }} <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                {{ \Auth::user()->userinfo ?  \Auth::user()->userinfo->fullname : \Auth::user()->name }}
+                                <b class="caret"></b>
+                            </a>
+
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal" id="update"><strong>Cập nhật thông tin </strong></a>
