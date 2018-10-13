@@ -17,5 +17,5 @@ Route::get('/welcome', function () {
 
 Auth::routes();
 
-Route::get('/', 'HomeController@main')->name('home');
+Route::get('/', 'HomeController@main')->name('home')->middleware('is_admin');
 Route::post('/update_info', 'UserinfoController@update')->name('update_info');

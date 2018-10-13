@@ -31,7 +31,7 @@ class HomeController extends Controller
     public function main()
     {
         try {
-            $userinfo = Auth::user()->userinfo ? Auth::user()->userinfo : null;
+            $userinfo = \Auth::user()->userinfo ? \Auth::user()->userinfo : null;
         }
         catch (\Exception $e){
             $userinfo = null;

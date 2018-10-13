@@ -134,6 +134,12 @@
                                     </form>
                                 </li>
 
+                                @if (\Auth::user()->type == \App\Tools\UserType::TYPE_ADMIN)
+                                    <li>
+                                        <a href="/admin"><strong> Trang Quản lý  </strong></a>
+                                    </li>
+                                @endif
+
                             </ul>
                         </li>
                     @endif
