@@ -13,6 +13,7 @@ class HomeController extends Controller
      *
      * @return void
      */
+
     public function __construct()
     {
 //        $this->middleware('auth');
@@ -30,6 +31,10 @@ class HomeController extends Controller
 
     public function main()
     {
+        if (\Auth::check() && \Auth::user()->type == \App\Tools\UserType::TYPE_ADMIN) {
+            return redirect('/admin');
+        }
+
         try {
             $userinfo = \Auth::user()->userinfo ? \Auth::user()->userinfo : null;
         }

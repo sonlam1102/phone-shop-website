@@ -374,7 +374,7 @@
                         <div class="btn-group">
                             <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
                                 Sort Products &nbsp;
-      <span class="caret"></span>
+                                <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a href="#">By Price Low</a></li>
@@ -669,7 +669,7 @@
             browseOnZoneClick: true,
             elErrorContainer: '#kv-avatar-errors-2',
             msgErrorClass: 'alert alert-block alert-danger',
-            defaultPreviewContent: '<img src="{{ $data ? $data->img : "/img/avatar.jpg" }}" alt="Your Avatar">',
+            defaultPreviewContent: '<img src="{{ $data ? $data->img : "/img/avatar.jpg" }}" alt="Your Avatar"><br><strong>Nhấn vào để thay đổi </strong>',
             layoutTemplates: {main2: '{preview} {browse}'},
             allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
         });
