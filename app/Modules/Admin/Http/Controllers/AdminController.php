@@ -16,6 +16,6 @@ class AdminController extends Controller
             $userinfo = null;
         }
 
-        return view('admin/index')->with('data', $userinfo);
+        return view('admin/main/main')->with('data', $userinfo);
     }
 }
