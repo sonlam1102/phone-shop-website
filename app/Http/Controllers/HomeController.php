@@ -29,18 +29,19 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function main()
-    {
-        if (\Auth::check() && \Auth::user()->type == \App\Tools\UserType::TYPE_ADMIN) {
-            return redirect('/admin');
-        }
-
+    public function getUserInfo() {
         try {
             $userinfo = \Auth::user()->userinfo ? \Auth::user()->userinfo : null;
         }
         catch (\Exception $e){
             $userinfo = null;
         }
-        return view('main')->with('data', $userinfo);
+        return $userinfo;
+    }
+
+    public function main()
+    {
+        $data = $this->getUserInfo();
+        return view('main')->with('data', $data);
     }
 }

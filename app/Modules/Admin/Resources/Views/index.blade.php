@@ -48,7 +48,7 @@
                         <ul class="dropdown-menu dropdown-user">
 
                             <li>
-                                <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal" id="update"><strong>Cập nhật thông tin </strong></a>
+                                <a href="javascript:void(0)" data-toggle="modal" data-target="#userinfo_modal" id="update"><strong>Cập nhật thông tin </strong></a>
                             </li>
 
                             <li>
@@ -84,7 +84,11 @@
                         </li>
 
                         <li>
-                            <a href="index.blade.php"><i class="fa fa-dashboard fa-fw"></i> Thể loại  </a>
+                            <a href="/admin/category"><i class="fa fa-dashboard fa-fw"></i> Thể loại  </a>
+                        </li>
+
+                        <li>
+                            <a href="/admin/city"><i class="fa fa-dashboard fa-fw"></i> Tỉnh / Thành phố  </a>
                         </li>
 
                         <li>
@@ -93,9 +97,11 @@
                                 <li>
                                     <a href="panels-wells.html">Thuộc tính </a>
                                 </li>
+
                                 <li>
                                     <a href="buttons.html">Nhãn hiêu  </a>
                                 </li>
+
                                 <li>
                                     <a href="notifications.html">Sản phẩm hiện có </a>
                                 </li>

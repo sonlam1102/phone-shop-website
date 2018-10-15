@@ -15,15 +15,17 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Tên thuộc tính </th>
+                        <th>Tên tỉnh/thành  </th>
+                        <th>Mã bưu chính </th>
                     </tr>
                     </thead>
                     <tbody>
-                    @if ($category)
-                        @foreach ($category as $item)
+                    @if ($city)
+                        @foreach ($city as $item)
                             <tr>
                                 <td> {{ $item->id }} </td>
                                 <td> {{ $item->name }} </td>
+                                <td> {{ $item->code }} </td>
                             </tr>
                         @endforeach
                     @endif

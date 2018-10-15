@@ -53,7 +53,7 @@
 
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal" id="update"><strong>Cập nhật thông tin </strong></a>
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#userinfo_modal" id="update"><strong>Cập nhật thông tin </strong></a>
                                 </li>
 
                                 <li>

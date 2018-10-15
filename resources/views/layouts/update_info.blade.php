@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal fade" id="userinfo_modal" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <form method="post" action="{{ route('update_info') }}" enctype='multipart/form-data' >
@@ -60,6 +60,7 @@
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="defaultForm-email">Đổi mật khẩu </label>
                             <input type="password" name="newpass" class="form-control validate" placeholder="Nhập mật khẩu mới" >
+                            <br>
                             <input type="password" name="retype_newpass" class="form-control validate" placeholder="Nhập lại mật khẩu mới" >
                         </div>
 
