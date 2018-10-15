@@ -14,14 +14,20 @@ class UserinfoController extends Controller
         $cmnd = $request->post('cmnd');
         $birthday = $request->post('birthday');
         $phone = $request->post('phone');
+        $newpass = $request->post('newpass');
+        $retype_newpass = $request->post('retype_newpass');
 
         $model = Userinfo::where('user_id', \Auth::user()->id)->first();
+
+        $isChange = 0;
+        if ($newpass && $retype_newpass) {
+            $isChange = 1;
+        }
 
         $imagePath = \App\Tools\Upload::imageUploadProfile($request, \Auth::user()->id);
 
         if (!$model) {
             $model = new Userinfo();
-
         }
 
         $data = [
@@ -32,10 +38,16 @@ class UserinfoController extends Controller
             "city_id" => $city,
             "cmnd" => $cmnd,
             "phone" => $phone,
-            "imagePath" => $imagePath
+            "imagePath" => $imagePath,
+            "newpass" => $newpass,
+            "retype_newpass" => $retype_newpass
         ];
 
         $model->update_info($data);
+        if ($isChange == 1) {
+            \Auth::logout();
+            return redirect('/login');
+        }
 
         return redirect('/');
     }
