@@ -63,6 +63,34 @@
         </div>
     </div>
 
+    <div class="container">
+        <div class="modal fade" id="delete_category" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <form method="post" action="" id="delete_category_form">
+                    @csrf
+                    @method('DELETE')
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Xoá thể loại  </h4>
+                        </div>
+
+                        <div class="modal-body">
+                            <h5 id="warning_message"></h5>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng </button>
+                            <button type="submit" class="btn btn-danger" >Xoá   </button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Thể loại
@@ -91,7 +119,7 @@
                                 <td>
                                     <button
                                             type="button"
-                                            class="btn btn-primary"
+                                            class="btn btn-info"
                                             data-id = "{{ $item->id }}"
                                             data-name="{{ $item->name }}"
                                             data-toggle="modal"
@@ -99,6 +127,15 @@
                                         Cập nhật
                                     </button>
 
+                                    <button
+                                            type="button"
+                                            class="btn btn-danger "
+                                            data-id = "{{ $item->id }}"
+                                            data-name="{{ $item->name }}"
+                                            data-toggle="modal"
+                                            data-target="#delete_category">
+                                       Xoá
+                                    </button>
                                 </td>
                             </tr>
                         @endforeach
@@ -122,6 +159,12 @@
             $('button[data-target="#update_category"]').click(function () {
                 $('#update_category .modal-body #name_category').val($(this).data('name'));
                 $('#update_category #update_category_form').attr("action", "/admin/category/" + $(this).data('id'));
+            });
+
+            $('button[data-target="#delete_category"]').click(function () {
+                console.log(2);
+                $('#delete_category .modal-body #warning_message').html("Bạn chắc chắn muốn xoá thể loại này: " + $(this).data('name'));
+                $('#delete_category #delete_category_form').attr("action", "/admin/category/" + $(this).data('id') + "/delete");
             })
         });
     </script>

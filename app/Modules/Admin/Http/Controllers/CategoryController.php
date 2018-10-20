@@ -42,4 +42,14 @@ class CategoryController extends AdminController
         return redirect()->back();
 
     }
+
+    public function delete($id) {
+        $category_data = Category::find($id);
+
+        if ($category_data) {
+            $category_data->delete();
+        }
+
+        return redirect()->back();
+    }
 }
