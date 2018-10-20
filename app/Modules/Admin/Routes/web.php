@@ -16,6 +16,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', ]], functio
 
     Route::get('/category', 'CategoryController@index')->name('category');
     Route::post('/category', 'CategoryController@add')->name('add_category');
+    Route::put('/category/{id}', 'CategoryController@update')->where('id', '[0-9]+')->name('update_category');
 
     Route::get('/city', 'CityController@index');
 });

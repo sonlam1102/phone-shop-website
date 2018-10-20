@@ -28,4 +28,18 @@ class CategoryController extends AdminController
 
         return redirect()->back();
     }
+
+    public function update(Request $request, $id) {
+        $category = $request->post('name_category');
+
+        $data = [
+            'name' => $category
+        ];
+
+        $category_data = Category::find($id);
+        $category_data->update_category($data);
+
+        return redirect()->back();
+
+    }
 }
