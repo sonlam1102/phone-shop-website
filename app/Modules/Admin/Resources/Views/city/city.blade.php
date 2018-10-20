@@ -42,7 +42,7 @@
         <div class="modal fade" id="update_city" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
-                <form method="post" action="" id="update_category_form">
+                <form method="post" action="" id="update_form">
                     @csrf
                     @method('PUT')
                     <div class="modal-content">
@@ -79,7 +79,7 @@
         <div class="modal fade" id="delete_city" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
-                <form method="post" action="" id="delete_category_form">
+                <form method="post" action="" id="delete_form">
                     @csrf
                     @method('DELETE')
                     <div class="modal-content">
@@ -148,7 +148,7 @@
                                             data-id = "{{ $item->id }}"
                                             data-name="{{ $item->name }}"
                                             data-toggle="modal"
-                                            data-target="#delete_category">
+                                            data-target="#delete_city">
                                         Xoá
                                     </button>
                                 </td>
@@ -174,13 +174,12 @@
             $('button[data-target="#update_city"]').click(function () {
                 $('#update_city .modal-body #name_city').val($(this).data('name'));
                 $('#update_city .modal-body #code_city').val($(this).data('code'));
-                $('#update_city #update_category_form').attr("action", "/admin/city/" + $(this).data('id') + "/update");
+                $('#update_city #update_form').attr("action", "/admin/city/" + $(this).data('id') + "/update");
             });
 
             $('button[data-target="#delete_city"]').click(function () {
-                console.log(2);
-                $('#delete_category .modal-body #warning_message').html("Bạn chắc chắn muốn xoá tỉnh/thành phố này: " + $(this).data('name'));
-                $('#delete_category #delete_category_form').attr("action", "/admin/city/" + $(this).data('id') + "/delete");
+                $('#delete_city .modal-body #warning_message').html("Bạn chắc chắn muốn xoá tỉnh/thành phố này: " + $(this).data('name'));
+                $('#delete_city #delete_form').attr("action", "/admin/city/" + $(this).data('id') + "/delete");
             })
         });
     </script>

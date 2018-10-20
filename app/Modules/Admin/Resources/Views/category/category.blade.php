@@ -36,7 +36,7 @@
         <div class="modal fade" id="update_category" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
-                <form method="post" action="" id="update_category_form">
+                <form method="post" action="" id="update_form">
                     @csrf
                     @method('PUT')
                     <div class="modal-content">
@@ -67,7 +67,7 @@
         <div class="modal fade" id="delete_category" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
-                <form method="post" action="" id="delete_category_form">
+                <form method="post" action="" id="delete_form">
                     @csrf
                     @method('DELETE')
                     <div class="modal-content">
@@ -158,13 +158,12 @@
 
             $('button[data-target="#update_category"]').click(function () {
                 $('#update_category .modal-body #name_category').val($(this).data('name'));
-                $('#update_category #update_category_form').attr("action", "/admin/category/" + $(this).data('id') + "/update");
+                $('#update_category #update_form').attr("action", "/admin/category/" + $(this).data('id') + "/update");
             });
 
             $('button[data-target="#delete_category"]').click(function () {
-                console.log(2);
                 $('#delete_category .modal-body #warning_message').html("Bạn chắc chắn muốn xoá thể loại này: " + $(this).data('name'));
-                $('#delete_category #delete_category_form').attr("action", "/admin/category/" + $(this).data('id') + "/delete");
+                $('#delete_category #delete_form').attr("action", "/admin/category/" + $(this).data('id') + "/delete");
             })
         });
     </script>

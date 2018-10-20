@@ -46,4 +46,12 @@ class CityController extends AdminController
 
         return redirect()->back();
     }
+
+    public function delete($id) {
+        $city_data = City::find($id);
+
+        $city_data->delete();
+
+        return redirect()->back();
+    }
 }

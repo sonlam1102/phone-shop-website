@@ -25,6 +25,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', ]], functio
         Route::get('/', 'CityController@index');
         Route::post('/', 'CityController@add');
         Route::put('/{id}/update', 'CityController@update')->where('id', '[0-9]+');
+        Route::delete('/{id}/delete', 'CityController@delete')->where('id', '[0-9]+');
     });
 
 });
