@@ -95,7 +95,7 @@
                             <a href="javascript:void(0)"><i class="fa fa-wrench fa-fw"></i> Sản phẩm <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html">Thuộc tính </a>
+                                    <a href="/admin/attribute">Thuộc tính </a>
                                 </li>
 
                                 <li>

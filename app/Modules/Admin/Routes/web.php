@@ -28,5 +28,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', ]], functio
         Route::delete('/{id}/delete', 'CityController@delete')->where('id', '[0-9]+');
     });
 
+    Route::group(['prefix' => 'attribute'], function () {
+        Route::get('/', 'AttributeController@index');
+    });
+
 });
 
