@@ -13,6 +13,7 @@ class Category extends Model
 
     public function update_category($data) {
         $this->name = $data['name'];
-        $this->save();
+
+        return $this->save();
     }
 }

@@ -158,7 +158,7 @@
 
             $('button[data-target="#update_category"]').click(function () {
                 $('#update_category .modal-body #name_category').val($(this).data('name'));
-                $('#update_category #update_category_form').attr("action", "/admin/category/" + $(this).data('id'));
+                $('#update_category #update_category_form').attr("action", "/admin/category/" + $(this).data('id') + "/update");
             });
 
             $('button[data-target="#delete_category"]').click(function () {
