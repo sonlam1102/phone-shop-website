@@ -15,6 +15,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', ]], functio
     Route::get('/', 'AdminController@index')->name('index');
 
     Route::get('/category', 'CategoryController@index')->name('category');
+    Route::post('/category', 'CategoryController@add')->name('add_category');
 
     Route::get('/city', 'CityController@index');
 });

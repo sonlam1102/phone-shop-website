@@ -11,7 +11,7 @@ class Category extends Model
         return $this->hasMany('App\Model\Brands');
     }
 
-    public function update_info($data) {
+    public function update_category($data) {
         $this->name = $data['name'];
         $this->save();
     }
