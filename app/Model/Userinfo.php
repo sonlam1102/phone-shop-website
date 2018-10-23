@@ -3,7 +3,6 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Hash;
 
 class Userinfo extends Model
 {
@@ -38,9 +37,7 @@ class Userinfo extends Model
 
        if ($data['newpass'] && $data['retype_newpass'])
        {
-           if ($data['newpass'] == $data['retype_newpass']) {
-               $this->user()->update(['password' => Hash::make($data['newpass'])]);
-           }
+           $this->user->changePassword($data['newpass'], $data['retype_newpass']);
        }
        return $this->save();
    }

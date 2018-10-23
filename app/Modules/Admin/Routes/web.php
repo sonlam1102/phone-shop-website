@@ -32,5 +32,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', ]], functio
         Route::get('/', 'AttributeController@index');
     });
 
+    Route::group(['prefix' => 'manager'], function () {
+        Route::get('/', 'ManagerController@index');
+        Route::put('/{id}/reset', 'ManagerController@reset')->where('id', '[0-9]+');
+    });
+
 });
 

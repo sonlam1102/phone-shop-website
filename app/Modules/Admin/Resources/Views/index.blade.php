@@ -92,34 +92,8 @@
                         </li>
 
                         <li>
-                            <a href="javascript:void(0)"><i class="fa fa-wrench fa-fw"></i> Sản phẩm <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="/admin/attribute">Thuộc tính </a>
-                                </li>
-
-                                <li>
-                                    <a href="buttons.html">Nhãn hiêu  </a>
-                                </li>
-
-                                <li>
-                                    <a href="notifications.html">Sản phẩm hiện có </a>
-                                </li>
-
-                                <li>
-                                    <a href="typography.html">Bảo hành </a>
-                                </li>
-
-                            </ul>
+                            <a href="/admin/manager"> <i class="fa fa-dashboard fa-fw"></i> Người quản lý </a>
                         </li>
-
-                        <li>
-                            <a href="javascript:void(0)"><i class="fa fa-sitemap fa-fw"></i> Đơn hàng <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-
-                            </ul>
-                        </li>
-
                     </ul>
                 </div>
             </div>

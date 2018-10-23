@@ -9,7 +9,8 @@
 namespace App\Tools;
 
 class UserType {
-    const TYPE_ROOT = 0;
-    const TYPE_ADMIN = 1;
+    const TYPE_ADMIN = 0;
+    const TYPE_MANAGER = 1;
     const TYPE_USER = 2;
+    const TYPE_SELLER = 3;
 }
