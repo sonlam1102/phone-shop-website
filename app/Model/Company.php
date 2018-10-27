@@ -15,4 +15,14 @@ class Company extends Model
     public function city() {
         return $this->belongsTo('App\Model\City', 'city_id');
     }
+
+    public static function addCompany($data) {
+        $company = new Company();
+
+        $company->name = $data['name'];
+        $company->address = $data['address'];
+        $company->city_id = $data['city'];
+
+        return $company->save();
+    }
 }

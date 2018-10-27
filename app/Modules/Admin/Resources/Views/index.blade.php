@@ -94,6 +94,10 @@
                         <li>
                             <a href="/admin/manager"> <i class="fa fa-dashboard fa-fw"></i> Người quản lý </a>
                         </li>
+
+                        <li>
+                            <a href="/admin/company"> <i class="fa fa-dashboard fa-fw"></i> Cửa hàng </a>
+                        </li>
                     </ul>
                 </div>
             </div>

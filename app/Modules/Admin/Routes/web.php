@@ -38,5 +38,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', ]], functio
         Route::post('/', 'ManagerController@add');
     });
 
+    Route::group(['prefix' => 'company'], function () {
+        Route::get('/', 'CompanyController@index');
+        Route::post('/', 'CompanyController@add');
+    });
+
 });
 
