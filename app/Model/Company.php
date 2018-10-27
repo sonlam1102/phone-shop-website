@@ -4,9 +4,9 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Branch extends Model
+class Company extends Model
 {
-    protected $table = 'branch';
+    protected $table = 'company';
 
     public function user() {
         return $this->belongsTo('App\User', 'user_id_manager');

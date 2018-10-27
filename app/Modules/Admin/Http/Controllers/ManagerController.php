@@ -3,6 +3,7 @@
 namespace App\Modules\Admin\Http\Controllers;
 
 use App\User;
+use Illuminate\Http\Request;
 
 class ManagerController extends AdminController
 {
@@ -19,6 +20,21 @@ class ManagerController extends AdminController
 
         $manager->resetPassword();
 
+        return redirect()->back();
+    }
+
+    public function add(Request $request) {
+        $email = $request->post('email');
+        $name = $request->post('name');
+        $company = $request->post('company');
+
+        $data = [
+            'name' => $name,
+            'email' => $email,
+            'company' => $company
+        ];
+
+        User::addManager($data);
         return redirect()->back();
     }
 }

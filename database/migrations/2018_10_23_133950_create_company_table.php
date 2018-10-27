@@ -16,6 +16,7 @@ class CreateCompanyTable extends Migration
         Schema::create('company', function (Blueprint $table) {
             $table->increments('id');
             $table->string('address')->nullable();
+            $table->string('name')->nullable();
             $table->unsignedInteger('city_id');
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
             $table->unsignedInteger('user_id_manager')->nullable();

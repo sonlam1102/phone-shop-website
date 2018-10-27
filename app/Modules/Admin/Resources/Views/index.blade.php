@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Start Bootstrap - SB Admin Version 2.0 Demo</title>
+    <title>Trang quản trị viên </title>
 
     <!-- Core CSS - Include with every page -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +32,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.blade.php">SB Admin v2.0</a>
+                <a class="navbar-brand" href="index.blade.php">Trang quản trị viên </a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">

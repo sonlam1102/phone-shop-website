@@ -53,4 +53,17 @@ class User extends Authenticatable
         $this->password = Hash::make("123456");
         return $this->save();
     }
+
+    public static function addManager($data) {
+        $user = new User();
+        $user->email = $data['email'];
+        $user->name = $data['name'];
+        $user->password = Hash::make("123456");
+        $user->type = \App\Tools\UserType::TYPE_MANAGER;
+
+        if ($data['company']) {
+            $user->company->id = $data['company'];
+        }
+        return $user->save();
+    }
 }
