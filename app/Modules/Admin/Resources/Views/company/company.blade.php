@@ -43,7 +43,7 @@
                                     <option value="" selected> ------- </option>
                                     @foreach(\App\User::getManager() as $item)
                                         @if (!$item->company)
-                                            <option value="{{$item->id}}"> {{ $item->name }}</option>
+                                            <option value="{{$item->id}}"> {{ $item->name."-".$item->email}}</option>
                                         @endif
                                     @endforeach
                                 </select>
@@ -103,7 +103,7 @@
                                     <option value="" selected>-----------</option>
                                     @foreach(\App\User::getManager() as $item)
                                         @if (!$item->company)
-                                            <option value="{{$item->id}}"> {{ $item->name }}</option>
+                                            <option value="{{$item->id}}"> {{ $item->name."-".$item->email}}</option>
                                         @endif
                                     @endforeach
                                 </select>
