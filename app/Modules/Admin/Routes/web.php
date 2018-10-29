@@ -42,6 +42,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', ]], functio
     Route::group(['prefix' => 'company'], function () {
         Route::get('/', 'CompanyController@index');
         Route::post('/', 'CompanyController@add');
+        Route::put('/{id}/update', 'CompanyController@update')->where('id', '[0-9]+');
     });
 
 });

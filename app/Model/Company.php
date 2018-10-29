@@ -23,6 +23,20 @@ class Company extends Model
         $company->address = $data['address'];
         $company->city_id = $data['city'];
 
+        if ($data['manager']) {
+            $company->user_id_manager = $data['manager'];;
+        }
+
         return $company->save();
+    }
+
+    public function updateCompany($data) {
+        $this->name = $data['name'];
+        $this->address = $data['address'];
+        $this->city_id = $data['city'];
+
+        $this->user_id_manager = $data['manager'];
+
+        return $this->save();
     }
 }

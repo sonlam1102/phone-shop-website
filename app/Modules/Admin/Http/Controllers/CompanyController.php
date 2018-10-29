@@ -21,14 +21,35 @@ class CompanyController extends AdminController
         $name = $request->post('name_company');
         $address = $request->post('address_company');
         $city = $request->post('city');
+        $manager = $request->post('manager');
 
         $data = [
             'name' => $name,
             'address' => $address,
-            'city' => $city
+            'city' => $city,
+            'manager' => $manager
         ];
 
         Company::addCompany($data);
+
+        return redirect()->back();
+    }
+
+    public function update(Request $request, $id) {
+        $name = $request->post('name_company');
+        $address = $request->post('address_company');
+        $city = $request->post('city');
+        $manager = $request->post('manager');
+
+        $data = [
+            'name' => $name,
+            'address' => $address,
+            'city' => $city,
+            'manager' => $manager
+        ];
+
+        $company = Company::find($id);
+        $company->updateCompany($data);
 
         return redirect()->back();
     }
