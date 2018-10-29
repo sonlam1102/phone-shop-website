@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->smallInteger('type')->default(2);
+            $table->unsignedInteger('active')->default(1);
         });
     }
 
