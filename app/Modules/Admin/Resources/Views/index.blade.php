@@ -98,6 +98,10 @@
                         <li>
                             <a href="/admin/company"> <i class="fa fa-dashboard fa-fw"></i> Cửa hàng </a>
                         </li>
+
+                        <li>
+                            <a href="/admin/attribute"> <i class="fa fa-dashboard fa-fw"></i> Quản lý thuộc tính </a>
+                        </li>
                     </ul>
                 </div>
             </div>

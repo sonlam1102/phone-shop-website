@@ -30,6 +30,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', ]], functio
 
     Route::group(['prefix' => 'attribute'], function () {
         Route::get('/', 'AttributeController@index');
+        Route::post('/', 'AttributeController@add');
+        Route::put('/{id}/update', 'AttributeController@update')->where('id', '[0-9]+');
+        Route::delete('/{id}/delete', 'AttributeController@delete')->where('id', '[0-9]+');
     });
 
     Route::group(['prefix' => 'manager'], function () {

@@ -15,4 +15,41 @@ class AttributeController extends AdminController
             ->with('data', $data)
             ->with('attribute', $attribute);
     }
+
+    public function add(Request $request) {
+        $name = $request->post('name');
+        $category = $request->post('category');
+
+        $data = [
+            'name' => $name,
+            'category' => $category
+        ];
+
+        Attribute::addAttribute($data);
+
+        return redirect()->back();
+    }
+
+    public function update(Request $request, $id) {
+        $name = $request->post('name');
+        $category = $request->post('category');
+
+        $data = [
+            'name' => $name,
+            'category' => $category
+        ];
+
+        $attribute = Attribute::find($id);
+        $attribute->updateAttribute($data);
+
+        return redirect()->back();
+    }
+
+    public function delete($id) {
+        $attribute = Attribute::find($id);
+
+        $attribute->delete();
+
+        return redirect()->back();
+    }
 }
