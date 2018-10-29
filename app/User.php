@@ -61,9 +61,6 @@ class User extends Authenticatable
         $user->password = Hash::make("123456");
         $user->type = \App\Tools\UserType::TYPE_MANAGER;
 
-        if ($data['company']) {
-            $user->company->id = $data['company'];
-        }
         return $user->save();
     }
 }

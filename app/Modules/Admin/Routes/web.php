@@ -35,6 +35,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', ]], functio
     Route::group(['prefix' => 'manager'], function () {
         Route::get('/', 'ManagerController@index');
         Route::put('/{id}/reset', 'ManagerController@reset')->where('id', '[0-9]+');
+        Route::put('/{id}/update', 'ManagerController@update')->where('id', '[0-9]+');
         Route::post('/', 'ManagerController@add');
     });
 

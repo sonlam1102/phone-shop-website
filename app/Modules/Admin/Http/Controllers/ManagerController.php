@@ -26,12 +26,10 @@ class ManagerController extends AdminController
     public function add(Request $request) {
         $email = $request->post('email');
         $name = $request->post('name');
-        $company = $request->post('company');
 
         $data = [
             'name' => $name,
             'email' => $email,
-            'company' => $company
         ];
 
         User::addManager($data);

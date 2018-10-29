@@ -52,23 +52,11 @@
                                 <input type="text" name="email" class="form-control validate">
                             </div>
 
-                            <div class="md-form mb-5">
-                                <label data-error="wrong" data-success="right" for="defaultForm-email">Cửa hàng </label>
-                                <select class="form-control form-control-sm" name="city">
-                                    @if (\App\Model\Company::all())
-                                        <option value="" selected> ------- </option>
-                                        @foreach(\App\Model\Company::all() as $item)
-                                            <option value="{{$item->id}}"> {{ $item->name }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
-
                         </div>
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Đóng </button>
-                            <button type="submit" class="btn btn-default" >Thêm   </button>
+                            <button type="submit" class="btn btn-default" >Thêm  </button>
                         </div>
 
                     </div>
@@ -105,7 +93,7 @@
                                 <td> {{ $item->id }} </td>
                                 <td> {{ $item->name }} </td>
                                 <td> {{ $item->email }} </td>
-                                <td> {{ $item->branch ? $item->branch->address : "None" }} </td>
+                                <td> {{ $item->company ? $item->company->address : "None" }} </td>
                                 <td>
                                     <button
                                             type="button"
