@@ -48,5 +48,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', ]], functio
         Route::put('/{id}/update', 'CompanyController@update')->where('id', '[0-9]+');
     });
 
+    Route::group(['prefix' => 'brand'], function () {
+        Route::get('/', 'BrandController@index');
+        Route::post('/', 'BrandController@add');
+        Route::put('/{id}/update', 'BrandController@update')->where('id', '[0-9]+');
+        Route::delete('/{id}/delete', 'BrandController@delete')->where('id', '[0-9]+');
+    });
+
 });
 

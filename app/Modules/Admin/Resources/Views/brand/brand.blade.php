@@ -2,20 +2,20 @@
 
 @section('content')
     <div class="container">
-        <div class="modal fade" id="add_attribute" role="dialog">
+        <div class="modal fade" id="add_brand" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
-                <form method="post" action="/admin/attribute" >
+                <form method="post" action="/admin/brand" >
                     @csrf
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Thêm Thuôc tính   </h4>
+                            <h4 class="modal-title">Thêm nhãn hiệu  </h4>
                         </div>
 
                         <div class="modal-body">
                             <div class="md-form mb-5">
-                                <label data-error="wrong" data-success="right" for="defaultForm-email">Tên thuộc tính  </label>
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Tên nhãn hiệu </label>
                                 <input type="text" name="name" class="form-control validate">
                             </div>
 
@@ -33,7 +33,7 @@
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Đóng </button>
-                            <button type="submit" class="btn btn-default" >Thêm </button>
+                            <button type="submit" class="btn btn-default" >Thêm   </button>
                         </div>
 
                     </div>
@@ -43,7 +43,7 @@
     </div>
 
     <div class="container">
-        <div class="modal fade" id="update_attribute" role="dialog">
+        <div class="modal fade" id="update_brand" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
                 <form method="post" action="" id="update_form">
@@ -52,12 +52,12 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Cập nhật Thuôc tính   </h4>
+                            <h4 class="modal-title">Cập nhật nhãn hiệu  </h4>
                         </div>
 
                         <div class="modal-body">
                             <div class="md-form mb-5">
-                                <label data-error="wrong" data-success="right" for="defaultForm-email">Tên thuộc tính  </label>
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Tên nhãn hiệu </label>
                                 <input type="text" name="name" id="name" class="form-control validate">
                             </div>
 
@@ -75,7 +75,7 @@
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Đóng </button>
-                            <button type="submit" class="btn btn-default" >Cập nhật </button>
+                            <button type="submit" class="btn btn-default" >Cập nhật  </button>
                         </div>
 
                     </div>
@@ -85,7 +85,7 @@
     </div>
 
     <div class="container">
-        <div class="modal fade" id="delete_attribute" role="dialog">
+        <div class="modal fade" id="delete_brand" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
                 <form method="post" action="" id="delete_form">
@@ -94,7 +94,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Xoá thuộc tính  </h4>
+                            <h4 class="modal-title">Xoá nhãn hiệu </h4>
                         </div>
 
                         <div class="modal-body">
@@ -114,8 +114,8 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Thuộc tính sản phẩm</h1>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_attribute" >Thêm </button>
+            <h1 class="page-header">Nhãn hiệu</h1>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_brand" >Thêm </button>
         </div>
     </div>
 
@@ -126,14 +126,14 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Tên thuộc tính </th>
-                        <th>Thể loại </th>
+                        <th>Tên nhãn hiệu  </th>
+                        <th> Thể loại </th>
                         <th></th>
                     </tr>
                     </thead>
                     <tbody>
-                    @if ($attribute)
-                        @foreach ($attribute as $item)
+                    @if ($brand)
+                        @foreach ($brand as $item)
                             <tr>
                                 <td> {{ $item->id }} </td>
                                 <td> {{ $item->name }} </td>
@@ -146,7 +146,7 @@
                                             data-name="{{ $item->name }}"
                                             data-category="{{ $item->category->id }}"
                                             data-toggle="modal"
-                                            data-target="#update_attribute">
+                                            data-target="#update_brand">
                                         Cập nhật
                                     </button>
 
@@ -155,9 +155,9 @@
                                             class="btn btn-danger "
                                             data-id = "{{ $item->id }}"
                                             data-name="{{ $item->name }}"
-                                            data-category = {{ $item->category->name }}
+                                            data-category="{{ $item->category->name }}"
                                             data-toggle="modal"
-                                            data-target="#delete_attribute">
+                                            data-target="#delete_brand">
                                         Xoá
                                     </button>
                                 </td>
@@ -180,20 +180,22 @@
     <script type="text/javascript">
         $(document).ready(function() {
 
-            $('button[data-target="#update_attribute"]').click(function () {
-                $('#update_attribute .modal-body #name').val($(this).data('name'));
+            $('button[data-target="#update_brand"]').click(function () {
+                $('#update_brand .modal-body #name').val($(this).data('name'));
+
                 let category = $(this).data('category');
 
-                $('#update_attribute .modal-body #category').each(function() {
-                    $("#update_attribute .modal-body #category option[value=" + category + "]").prop("selected",true);
+                $('#update_brand .modal-body #category').each(function() {
+                    $("#update_brand .modal-body #category option[value=" + category + "]").prop("selected",true);
                 });
 
-                $('#update_attribute #update_form').attr("action", "/admin/attribute/" + $(this).data('id') + "/update");
+
+                $('#update_brand #update_form').attr("action", "/admin/brand/" + $(this).data('id') + "/update");
             });
 
-            $('button[data-target="#delete_attribute"]').click(function () {
-                $('#delete_attribute .modal-body #warning_message').html("Bạn chắc chắn muốn xoá thuộc tính này: " + $(this).data('name') + " của: " + $(this).data('category'));
-                $('#delete_attribute #delete_form').attr("action", "/admin/attribute/" + $(this).data('id') + "/delete");
+            $('button[data-target="#delete_brand"]').click(function () {
+                $('#delete_brand .modal-body #warning_message').html("Bạn chắc chắn muốn xoá nhãn hiệu này: " + $(this).data('name') + " của: " + $(this).data('category'));
+                $('#delete_brand #delete_form').attr("action", "/admin/brand/" + $(this).data('id') + "/delete");
             })
         });
     </script>

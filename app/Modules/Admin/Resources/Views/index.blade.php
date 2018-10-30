@@ -102,6 +102,11 @@
                         <li>
                             <a href="/admin/attribute"> <i class="fa fa-dashboard fa-fw"></i> Quản lý thuộc tính </a>
                         </li>
+
+                        <li>
+                            <a href="/admin/brand"> <i class="fa fa-dashboard fa-fw"></i> Nhãn hiệu </a>
+                        </li>
+
                     </ul>
                 </div>
             </div>
