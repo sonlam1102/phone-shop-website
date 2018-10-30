@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class UserType
+class Manager
 {
     /**
      * Handle an incoming request.
@@ -15,15 +15,10 @@ class UserType
      */
     public function handle($request, Closure $next)
     {
-
-        if (\Auth::check()) {
-            if (\Auth::user()->type == \App\Tools\UserType::TYPE_ADMIN) {
-                return redirect('/admin');
-            }
-
-            if (\Auth::user()->type == \App\Tools\UserType::TYPE_MANAGER) {
-                return redirect('/manager');
-            }
+        if (\Auth::user()->type != \App\Tools\UserType::TYPE_MANAGER) {
+            return redirect('/');
+        } else if (!\Auth::user()->company) {
+            abort('400', 'Bạn không sở hữu cửa hàng nào');
         }
 
         return $next($request);

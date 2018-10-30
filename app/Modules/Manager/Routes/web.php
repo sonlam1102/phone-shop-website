@@ -11,8 +11,6 @@
 |
 */
 
-Route::group(['prefix' => 'manager'], function () {
-    Route::get('/', function () {
-        dd('This is the Manager module index page. Build something great!');
-    });
+Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'manager', ]], function () {
+    Route::get('/', 'ManagerController@index')->name('index');
 });

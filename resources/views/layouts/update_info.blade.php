@@ -21,6 +21,15 @@
                             </div>
                         </div>
 
+                        @if(\Auth::user()->type == \App\Tools\UserType::TYPE_MANAGER)
+                            <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Công ty đang quản lý:  </label>
+                                <label data-error="wrong" data-success="right" for="defaultForm-email"> {{ \Auth::user()->company->name }}  </label>
+                                <label data-error="wrong" data-success="right" for="defaultForm-email"> {{ \Auth::user()->company->address }}  </label>
+                                <label data-error="wrong" data-success="right" for="defaultForm-email"> {{ \Auth::user()->company->city->name }}  </label>
+                            </div>
+                        @endif
+
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="defaultForm-email">Tên </label>
                             <input type="text" name="fullname" class="form-control validate" value="{{ $data ? $data->fullname : null }}">

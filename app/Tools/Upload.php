@@ -3,7 +3,7 @@ namespace App\Tools;
 use Illuminate\Http\Request;
 
 class Upload {
-    public static function imageUploadProfile(Request $request, $user_id)
+    public static function imageUploadProfile($request, $user_id)
     {
         if (!$request->img) {
             return null;
