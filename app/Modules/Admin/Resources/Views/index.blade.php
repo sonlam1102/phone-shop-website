@@ -135,22 +135,6 @@
 
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
     <script src="../js/demo/dashboard-demo.js"></script>
-    <script>
-        $("#avatar-2").fileinput({
-            overwriteInitial: true,
-            display: true,
-            maxFileSize: 1500,
-            showClose: false,
-            showCaption: false,
-            showBrowse: false,
-            browseOnZoneClick: true,
-            elErrorContainer: '#kv-avatar-errors-2',
-            msgErrorClass: 'alert alert-block alert-danger',
-            defaultPreviewContent: '<img src="{{ $data ? $data->img : "/img/avatar.jpg" }}" alt="Your Avatar">',
-            layoutTemplates: {main2: '{preview} {browse}'},
-            allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
-        });
-    </script>
 </body>
 
 </html>

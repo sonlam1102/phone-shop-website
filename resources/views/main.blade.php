@@ -590,21 +590,5 @@
 
         });
     </script>
-    <script>
-        $("#avatar-2").fileinput({
-            overwriteInitial: true,
-            display: true,
-            maxFileSize: 1500,
-            showClose: false,
-            showCaption: false,
-            showBrowse: false,
-            browseOnZoneClick: true,
-            elErrorContainer: '#kv-avatar-errors-2',
-            msgErrorClass: 'alert alert-block alert-danger',
-            defaultPreviewContent: '<img src="{{ $data ? $data->img : "/img/avatar.jpg" }}" alt="Your Avatar"><br><strong>Nhấn vào để thay đổi </strong>',
-            layoutTemplates: {main2: '{preview} {browse}'},
-            allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
-        });
-    </script>
 </body>
 </html>

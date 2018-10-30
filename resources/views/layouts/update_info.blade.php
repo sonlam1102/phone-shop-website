@@ -76,4 +76,32 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/js/fileinput.min.js"></script>
+    <script>
+        $("#avatar-2").fileinput({
+            overwriteInitial: true,
+            display: true,
+            maxFileSize: 1500,
+            showClose: false,
+            showCaption: false,
+            showBrowse: false,
+            browseOnZoneClick: true,
+            elErrorContainer: '#kv-avatar-errors-2',
+            defaultPreviewContent: '<img src="{{ $data ? $data->img : "/img/avatar.jpg" }}"><br><strong>Nhấn vào để thay đổi </strong>',
+            allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
+        });
+    </script>
+
+    <style>
+        img {
+            max-width: 300px;
+            max-height: 500px;
+        }
+
+        .kv-avatar button {
+            display: none;
+        }
+    </style>
+
 </div>
