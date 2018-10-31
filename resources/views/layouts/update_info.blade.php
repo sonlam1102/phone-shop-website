@@ -21,7 +21,7 @@
                             </div>
                         </div>
 
-                        @if(\Auth::user()->type == \App\Tools\UserType::TYPE_MANAGER)
+                        @if(\Auth::check() && \Auth::user()->type == \App\Tools\UserType::TYPE_MANAGER)
                             <div class="md-form mb-5">
                                 <label data-error="wrong" data-success="right" for="defaultForm-email">Công ty đang quản lý:  </label>
                                 <label data-error="wrong" data-success="right" for="defaultForm-email"> {{ \Auth::user()->company->name }}  </label>
@@ -97,7 +97,7 @@
             showBrowse: false,
             browseOnZoneClick: true,
             elErrorContainer: '#kv-avatar-errors-2',
-            defaultPreviewContent: '<img src="{{ $data ? $data->img : "/img/avatar.jpg" }}"><br><strong>Nhấn vào để thay đổi </strong>',
+            defaultPreviewContent: '<img src="{{ $data ? $data->img ? $data->img : "/img/avatar.jpg" : "/img/avatar.jpg"}}"><br><strong>Nhấn vào để thay đổi </strong>',
             allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
         });
     </script>
