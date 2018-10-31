@@ -84,6 +84,10 @@
                         <a href="/manager"><i class="fa fa-dashboard fa-fw"></i> Thông tin chung </a>
                     </li>
 
+                    <li>
+                        <a href="/manager/product"><i class="fa fa-dashboard fa-fw"></i> Sản phẩm trong cửa hàng </a>
+                    </li>
+
                 </ul>
             </div>
         </div>

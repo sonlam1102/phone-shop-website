@@ -19,4 +19,28 @@ class Upload {
             return null;
         }
     }
+
+    public static function productImageUpload($request, $product_name)
+    {
+        if (!$request->product_img) {
+            return null;
+        }
+        $request->validate([
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        if (!$product_name) {
+            $product_name = date("D M d, Y G:i");
+        }
+        else {
+            $product_name = $product_name.date("D M d, Y G:i");
+        }
+
+        try {
+            $imageName = $product_name.'.'.$request->product_img->getClientOriginalExtension();
+            $request->img->move(public_path('image/product'), $imageName);
+            return '/image/product/'.$imageName;
+        } catch (\Exception $e) {
+            return null;
+        }
+    }
 }

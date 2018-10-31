@@ -13,4 +13,9 @@
 
 Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'manager', ]], function () {
     Route::get('/', 'ManagerController@index')->name('index');
+
+    Route::group(['prefix' => 'product'], function() {
+        Route::get('/', 'ProductController@index');
+        Route::post('/', 'ProductController@add');
+    });
 });
