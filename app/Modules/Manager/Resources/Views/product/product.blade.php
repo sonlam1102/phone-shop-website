@@ -5,7 +5,7 @@
         <div class="modal fade" id="add_product" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
-                <form method="post" action="/manager/product" >
+                <form method="post" action="/manager/product" enctype='multipart/form-data'>
                     @csrf
                     <div class="modal-content">
                         <div class="modal-header">

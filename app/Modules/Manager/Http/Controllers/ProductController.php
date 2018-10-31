@@ -26,7 +26,6 @@ class ProductController extends ManagerController
 
         $company = \Auth::user()->company->id;
         $product_img = \App\Tools\Upload::productImageUpload($request, $name);
-
         $data = [
             'name' => $name,
             'code' => $code,
