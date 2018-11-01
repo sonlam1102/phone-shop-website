@@ -15,6 +15,8 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $table = 'users';
+
     protected $fillable = [
         'name', 'email', 'password', 'type', 'active'
     ];
@@ -55,12 +57,11 @@ class User extends Authenticatable
     }
 
     public static function addManager($data) {
-        $user = new User();
-        $user->email = $data['email'];
-        $user->name = $data['name'];
-        $user->password = Hash::make("123456");
-        $user->type = \App\Tools\UserType::TYPE_MANAGER;
-
-        return $user->save();
+        return User::create([
+            'email' => $data['email'],
+            'name' => $data['name'],
+            'password' => Hash::make("123456"),
+            'type' => \App\Tools\UserType::TYPE_MANAGER,
+        ]);
     }
 }
