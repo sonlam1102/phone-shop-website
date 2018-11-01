@@ -16,6 +16,6 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'manager', ]], fun
 
     Route::group(['prefix' => 'product'], function() {
         Route::get('/', 'ProductController@index');
-        Route::post('/', 'ProductController@add');
+        Route::post('/create', 'ProductController@add');
     });
 });

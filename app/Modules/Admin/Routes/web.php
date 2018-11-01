@@ -16,21 +16,21 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', ]], functio
 
     Route::group(['prefix' => 'category'], function () {
         Route::get('/', 'CategoryController@index');
-        Route::post('/', 'CategoryController@add');
+        Route::post('/create', 'CategoryController@add');
         Route::put('/{id}/update', 'CategoryController@update')->where('id', '[0-9]+');
         Route::delete('/{id}/delete', 'CategoryController@delete')->where('id', '[0-9]+');
     });
 
     Route::group(['prefix' => 'city'], function(){
         Route::get('/', 'CityController@index');
-        Route::post('/', 'CityController@add');
+        Route::post('/create', 'CityController@add');
         Route::put('/{id}/update', 'CityController@update')->where('id', '[0-9]+');
         Route::delete('/{id}/delete', 'CityController@delete')->where('id', '[0-9]+');
     });
 
     Route::group(['prefix' => 'attribute'], function () {
         Route::get('/', 'AttributeController@index');
-        Route::post('/', 'AttributeController@add');
+        Route::post('/create', 'AttributeController@add');
         Route::put('/{id}/update', 'AttributeController@update')->where('id', '[0-9]+');
         Route::delete('/{id}/delete', 'AttributeController@delete')->where('id', '[0-9]+');
     });
@@ -44,13 +44,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', ]], functio
 
     Route::group(['prefix' => 'company'], function () {
         Route::get('/', 'CompanyController@index');
-        Route::post('/', 'CompanyController@add');
+        Route::post('/create', 'CompanyController@add');
         Route::put('/{id}/update', 'CompanyController@update')->where('id', '[0-9]+');
     });
 
     Route::group(['prefix' => 'brand'], function () {
         Route::get('/', 'BrandController@index');
-        Route::post('/', 'BrandController@add');
+        Route::post('/create', 'BrandController@add');
         Route::put('/{id}/update', 'BrandController@update')->where('id', '[0-9]+');
         Route::delete('/{id}/delete', 'BrandController@delete')->where('id', '[0-9]+');
     });

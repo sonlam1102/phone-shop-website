@@ -6,7 +6,7 @@
         <div class="modal fade" id="add_city" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
-                <form method="post" action="/admin/city" >
+                <form method="post" action="/admin/city/create" >
                     @csrf
                     <div class="modal-content">
                         <div class="modal-header">

@@ -6,7 +6,7 @@
         <div class="modal fade" id="add_category" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
-                <form method="post" action="/admin/category" >
+                <form method="post" action="/admin/category/create" >
                     @csrf
                     <div class="modal-content">
                         <div class="modal-header">

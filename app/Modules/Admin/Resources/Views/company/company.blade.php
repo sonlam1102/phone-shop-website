@@ -6,7 +6,7 @@
         <div class="modal fade" id="add_company" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
-                <form method="post" action="/admin/company" >
+                <form method="post" action="/admin/company/create" >
                     @csrf
                     <div class="modal-content">
                         <div class="modal-header">
