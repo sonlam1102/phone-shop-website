@@ -33,7 +33,7 @@
         <div class="modal fade" id="add_manager" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
-                <form method="post" action="/admin/manager/" >
+                <form method="post" action="/admin/manager/create" >
                     @csrf
                     <div class="modal-content">
                         <div class="modal-header">
