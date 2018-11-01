@@ -6,7 +6,8 @@
 image: php:7.1.3
 
 pipelines:
-  default:
+  branches:
+    master:
     - step:
         name: Build
         caches:
@@ -16,10 +17,8 @@ pipelines:
           - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
           - composer update
 
-  branches:
-    master:
       - step:
-         name: Deploy to Heroku
+         name: Deploy
          deployment: test
          script:
            - apt-get update && apt-get install -y git
