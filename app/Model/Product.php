@@ -37,4 +37,19 @@ class Product extends Model
 
         return $product->save();
     }
+
+    public function editProduct($data) {
+        $this->name = $data['name'];
+        $this->code = $data['code'];
+        $this->price = $data['price'];
+        $this->manufacture_date = $data['manufacture_date'];
+        $this->category_id = $data['category'];
+        $this->brand_id = $data['brand'];
+        $this->company_id = $data['company'];
+        if ($data['img']) {
+            $this->img = $data['img'];
+        }
+
+        return $this->save();
+    }
 }
