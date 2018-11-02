@@ -84,7 +84,7 @@
                         </li>
 
                         <li>
-                            <a href="/admin/category"><i class="fa fa-dashboard fa-fw"></i> Thể loại  </a>
+                            <a href="/admin/category"><i class="fa fa-dashboard fa-fw"></i> Loại sản phẩm  </a>
                         </li>
 
                         <li>

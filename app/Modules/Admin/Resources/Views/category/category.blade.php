@@ -11,12 +11,12 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Thêm thể loại  </h4>
+                            <h4 class="modal-title">Thêm loại sản phẩm  </h4>
                         </div>
 
                         <div class="modal-body">
                             <div class="md-form mb-5">
-                                <label data-error="wrong" data-success="right" for="defaultForm-email">Thể loại </label>
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Loại sản phẩm </label>
                                 <input type="text" name="name_category" class="form-control validate">
                             </div>
                         </div>
@@ -47,7 +47,7 @@
 
                         <div class="modal-body">
                             <div class="md-form mb-5">
-                                <label data-error="wrong" data-success="right" for="defaultForm-email">Thể loại </label>
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Loại sản phẩm  </label>
                                 <input type="text" name="name_category" id="name_category" class="form-control validate">
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Xoá thể loại  </h4>
+                            <h4 class="modal-title">Xoá loại sản phẩm  </h4>
                         </div>
 
                         <div class="modal-body">
@@ -93,9 +93,8 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Thể loại
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_category" >Thêm </button>
-            </h1>
+            <h1 class="page-header">Loại sản phẩm</h1>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_category" >Thêm </button>
         </div>
     </div>
 
