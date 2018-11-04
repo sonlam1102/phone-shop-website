@@ -5,8 +5,8 @@ before_script:
   - curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
 
 stages:
-  - build
   - deploy
+  - build
   - migrate
 
 build:
