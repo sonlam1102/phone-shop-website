@@ -1,50 +1,35 @@
-image: php:latest
-
-services:
-- mysql:latest
-
-variables:
-  MYSQL_DATABASE: project_name
-  MYSQL_ROOT_PASSWORD: root
-
-cache:
-  paths:
-  - vendor/
-  - node_modules/
+image: php:7.1.3
 
 before_script:
-# Update packages
-- apt-get update -yqq
+  - apt-get update -qq && apt-get install -y -qq git
+  - curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
 
-# Install dependencies
-- apt-get install git gnupg2 libcurl4-gnutls-dev libicu-dev libmcrypt-dev libvpx-dev libjpeg-dev libpng-dev libxpm-dev zlib1g-dev libfreetype6-dev libxml2-dev libexpat1-dev libbz2-dev libgmp3-dev libldap2-dev unixodbc-dev libpq-dev libsqlite3-dev libaspell-dev libsnmp-dev libpcre3-dev libtidy-dev -yqq
-- curl -sL https://deb.nodesource.com/setup_9.x | bash -
-- apt-get install -y nodejs
-# Install php extensions
-- docker-php-ext-install mbstring pdo_mysql curl json intl gd xml zip bz2 opcache
+stages:
+  - build
+  - deploy
+  - migrate
 
-# Install & enable Xdebug for code coverage reports
-- pecl install xdebug
-- docker-php-ext-enable xdebug
-
-# Install Composer and project dependencies.
-- curl -sS https://getcomposer.org/installer | php
-- php composer.phar install
-- nodejs -v
-
-php-laravel-build:
+build:
+  stage: build
   script:
-  # Copy over testing configuration.
-  - cp .env.testing .env
-  - php artisan key:generate
-  - php artisan config:cache
-  - php artisan migrate
-  - php artisan db:seed
+    - heroku run --app $HEROKU_APP_NAME composer update
+    - heroku run --app $HEROKU_APP_NAME composer dump-autoload
+  only:
+    refs:
+      - master
 
-npm-watch:
+deploy:
+  stage: deploy
   script:
-  - npm install
+    - git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git HEAD:master
+  only:
+    refs:
+      - master
 
-
-
-
+migrate:
+  stage: migrate
+  script:
+    - heroku run --app $HEROKU_APP_NAME php artisan migrate
+  only:
+    refs:
+      - master
