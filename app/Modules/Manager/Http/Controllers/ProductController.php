@@ -23,6 +23,7 @@ class ProductController extends ManagerController
         $brand = $request->post('brand');
         $price = $request->post('price');
         $manufacture_date = $request->post('manu_date');
+        $attributes = $request->post('attributes');
 
         $company = \Auth::user()->company->id;
         $product_img = \App\Tools\Upload::productImageUpload($request, $name);
@@ -34,7 +35,8 @@ class ProductController extends ManagerController
             'price' => $price,
             'manufacture_date' => $manufacture_date,
             'company' => $company,
-            'img' => $product_img
+            'img' => $product_img,
+            'attributes' => json_decode($attributes)
         ];
 
         \App\Model\Product::addProduct($data);

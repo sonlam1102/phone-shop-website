@@ -2,7 +2,7 @@
     <div class="modal fade" id="add_product" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
-            <form method="post" action="/manager/product/create" enctype='multipart/form-data'>
+            <form method="post" action="/manager/product/create" enctype='multipart/form-data' id="create-product">
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">
@@ -96,9 +96,9 @@
 
     function attribute_choose() {
         var html = '<label for="id">ID</label>' +
-            '<div class="input-group">' +
+            '<div class="input-group attributes">' +
             '<span class="input-group-btn">' +
-            '<select class="form-control" name="id" id="id">' +
+            '<select class="form-control attribute_id">' +
             '<option value="" selected>' + '------' + '</option>' +
             '@foreach (\App\Model\Attribute::all() as $item)' +
             '<option value="{{ $item->id }}">' + '{{ $item->name }}' + '</option>' +
@@ -106,13 +106,34 @@
             '</select>' +
             '</span>' +
             '<span class="input-group-btn">' +
-            '<input class="form-control" name="nr">' +
+            '<input class="form-control attribute_value">' +
             '</span>' +
             '</div>';
         return html;
     }
 
+    $('.attribute_id').each(function () {
+        console.log($(this).val())
+    });
+
     $('#add-attribute').click(function () {
         $('#attribute_field').append(attribute_choose);
+    });
+
+    $('#create-product').submit(function (e) {
+        e.preventDefault();
+        let attributes = [];
+
+        $('.attributes').each(function () {
+            let item = {
+                'attribute': $(this).find('.attribute_id').val(),
+                'value': $(this).find('.attribute_value').val()
+            }
+            attributes.push(item);
+        });
+
+        $(this).append('<textarea name="attributes">'+ JSON.stringify(attributes) + '</textarea>');
+
+        $(this).submit();
     });
 </script>

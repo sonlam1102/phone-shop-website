@@ -35,7 +35,13 @@ class Product extends Model
         $product->company_id = $data['company'];
         $product->img = $data['img'];
 
-        return $product->save();
+        $check = $product->save();
+
+        foreach ($data['attributes'] as $item) {
+            $check = ProductAttribute::createAttribute($product->id, $item->attribute, $item->value);
+        }
+
+        return $check;
     }
 
     public function editProduct($data) {

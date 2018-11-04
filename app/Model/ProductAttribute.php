@@ -15,4 +15,14 @@ class ProductAttribute extends Model
     public function attribute() {
         return $this->belongsTo('App\Model\Attribute', 'attribute_id');
     }
+
+    public static function createAttribute($product_id, $attribute_id, $value) {
+        $product_attr = new ProductAttribute();
+
+        $product_attr->product_id = $product_id;
+        $product_attr->attribute_id = $attribute_id;
+        $product_attr->value = $value;
+
+        return $product_attr->save();
+    }
 }

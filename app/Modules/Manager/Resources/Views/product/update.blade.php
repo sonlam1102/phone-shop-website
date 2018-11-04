@@ -61,6 +61,14 @@
                             </select>
                         </div>
 
+                        <div class="md-form mb-5">
+                            <a href="javascript:void(0)" id="add-attribute"> Thêm thuộc tính </a>
+                        </div>
+
+                        <div class="md-form mb-5" id="attribute_field">
+
+                        </div>
+
                     </div>
 
                     <div class="modal-footer">
@@ -110,4 +118,21 @@
         });
 
     });
+    function attribute_choose() {
+        var html = '<label for="id">ID</label>' +
+            '<div class="input-group attributes">' +
+            '<span class="input-group-btn">' +
+            '<select class="form-control attribute_id">' +
+            '<option value="" selected>' + '------' + '</option>' +
+            '@foreach (\App\Model\Attribute::all() as $item)' +
+            '<option value="{{ $item->id }}">' + '{{ $item->name }}' + '</option>' +
+            '@endforeach' +
+            '</select>' +
+            '</span>' +
+            '<span class="input-group-btn">' +
+            '<input class="form-control attribute_value">' +
+            '</span>' +
+            '</div>';
+        return html;
+    }
 </script>

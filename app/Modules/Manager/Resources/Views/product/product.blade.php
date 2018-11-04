@@ -49,6 +49,7 @@
                                             data-manu = "{{ $item->manufacture_date }}"
                                             data-price = "{{ $item->price }}"
                                             data-img = "{{ $item->img }}"
+                                            data-attributes = "{{ $item->attribute }}"
                                             data-toggle="modal"
                                             data-target="#update_product">
                                         Cập nhật
