@@ -17,16 +17,6 @@
                             <input type="text" name="name" id="name" class="form-control validate">
                         </div>
 
-                        <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">Thể loại </label>
-                            <select class="form-control form-control-sm" name="category" id="category">
-                                <option value="" selected>-----------</option>
-                                @foreach(\App\Model\Category::all() as $item)
-                                    <option value="{{$item->id}}"> {{ $item->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
                     </div>
 
                     <div class="modal-footer">
@@ -43,11 +33,6 @@
     $(document).ready(function() {
         $('button[data-target="#update_attribute"]').click(function () {
             $('#update_attribute .modal-body #name').val($(this).data('name'));
-            let category = $(this).data('category');
-
-            $('#update_attribute .modal-body #category').each(function() {
-                $("#update_attribute .modal-body #category option[value=" + category + "]").prop("selected",true);
-            });
 
             $('#update_attribute #update_form').attr("action", "/admin/attribute/" + $(this).data('id') + "/update");
         });

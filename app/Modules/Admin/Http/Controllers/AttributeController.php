@@ -18,11 +18,9 @@ class AttributeController extends AdminController
 
     public function add(Request $request) {
         $name = $request->post('name');
-        $category = $request->post('category');
 
         $data = [
             'name' => $name,
-            'category' => $category
         ];
 
         Attribute::addAttribute($data);
@@ -32,11 +30,9 @@ class AttributeController extends AdminController
 
     public function update(Request $request, $id) {
         $name = $request->post('name');
-        $category = $request->post('category');
 
         $data = [
             'name' => $name,
-            'category' => $category
         ];
 
         $attribute = Attribute::find($id);

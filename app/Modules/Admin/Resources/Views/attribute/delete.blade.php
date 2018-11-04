@@ -28,7 +28,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('button[data-target="#delete_attribute"]').click(function () {
-            $('#delete_attribute .modal-body #warning_message').html("Bạn chắc chắn muốn xoá thuộc tính này: " + $(this).data('name') + " của: " + $(this).data('category'));
+            $('#delete_attribute .modal-body #warning_message').html("Bạn chắc chắn muốn xoá thuộc tính này: " + $(this).data('name'));
             $('#delete_attribute #delete_form').attr("action", "/admin/attribute/" + $(this).data('id') + "/delete");
         })
     });

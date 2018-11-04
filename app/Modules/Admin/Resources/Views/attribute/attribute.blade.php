@@ -30,14 +30,12 @@
                             <tr>
                                 <td> {{ $item->id }} </td>
                                 <td> {{ $item->name }} </td>
-                                <td> {{ $item->category->name }} </td>
                                 <td>
                                     <button
                                             type="button"
                                             class="btn btn-info"
                                             data-id = "{{ $item->id }}"
                                             data-name="{{ $item->name }}"
-                                            data-category="{{ $item->category->id }}"
                                             data-toggle="modal"
                                             data-target="#update_attribute">
                                         Cập nhật
@@ -48,7 +46,6 @@
                                             class="btn btn-danger "
                                             data-id = "{{ $item->id }}"
                                             data-name="{{ $item->name }}"
-                                            data-category = {{ $item->category->name }}
                                             data-toggle="modal"
                                             data-target="#delete_attribute">
                                         Xoá
