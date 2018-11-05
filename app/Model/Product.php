@@ -56,6 +56,16 @@ class Product extends Model
             $this->img = $data['img'];
         }
 
+        foreach ($data['attributes'] as $item) {
+            if (isset($item->id)) {
+                $productAttribute = ProductAttribute::find($item->id);
+                $productAttribute->updateAttribute($item->value, $item->attribute);
+            }
+            else {
+                ProductAttribute::createAttribute($this->id, $item->attribute, $item->value);
+            }
+        }
+
         return $this->save();
     }
 }

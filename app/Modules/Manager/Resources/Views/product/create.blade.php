@@ -95,7 +95,7 @@
     });
 
     function attribute_choose() {
-        var html = '<label for="id">ID</label>' +
+        var html = '<label for="id">Thuộc tính </label>' +
             '<div class="input-group attributes">' +
             '<span class="input-group-btn">' +
             '<select class="form-control attribute_id">' +

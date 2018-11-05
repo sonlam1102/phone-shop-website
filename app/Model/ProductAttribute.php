@@ -25,4 +25,11 @@ class ProductAttribute extends Model
 
         return $product_attr->save();
     }
+
+    public function updateAttribute($value, $attribute) {
+        $this->value = $value;
+        $this->attribute_id = $attribute;
+
+        return $this->save();
+    }
 }

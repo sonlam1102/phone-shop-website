@@ -92,15 +92,34 @@
             $('#update_product .modal-body #price').val($(this).data('price'));
             let category = $(this).data('category');
             let brand = $(this).data('brand');
+            let attributes = $(this).data('attributes');
 
             $('#update_product .modal-body #category').each(function() {
                 $("#update_product .modal-body #category option[value=" + category + "]").prop("selected",true);
+            });
+
+            $('#update_form #attribute_field').html('');
+            for(let i=0; i<attributes.length; i++) {
+                $('#update_form #attribute_field').append(attribute_choose(1));
+            }
+            let i=0;
+            $('.attributes').each(function () {
+                $(this).find('.attribute_id').each(function() {
+                    $(this).find("option[value=" + attributes[i].attribute_id + "]").prop("selected",true);
+                });
+
+                $(this).find('.attribute_value').val(attributes[i].value);
+                $(this).find('.product_attribute_id').val(attributes[i].id);
+                i++;
             });
 
             $('#update_product .modal-body #brand').each(function() {
                 $("#update_product .modal-body #brand option[value=" + brand + "]").prop("selected",true);
             });
 
+            $('#update_form #add-attribute').click(function () {
+                $('#update_form #attribute_field').append(attribute_choose);
+            });
 
             $('#update_product #update_form').attr("action", "/manager/product/" + $(this).data('id') + "/update");
 
@@ -118,21 +137,72 @@
         });
 
     });
-    function attribute_choose() {
-        var html = '<label for="id">ID</label>' +
-            '<div class="input-group attributes">' +
-            '<span class="input-group-btn">' +
-            '<select class="form-control attribute_id">' +
-            '<option value="" selected>' + '------' + '</option>' +
-            '@foreach (\App\Model\Attribute::all() as $item)' +
-            '<option value="{{ $item->id }}">' + '{{ $item->name }}' + '</option>' +
-            '@endforeach' +
-            '</select>' +
-            '</span>' +
-            '<span class="input-group-btn">' +
-            '<input class="form-control attribute_value">' +
-            '</span>' +
-            '</div>';
+    function attribute_choose(update=0) {
+        let html = '';
+
+        if (update == 0) {
+            html = '<label for="id">Thuộc tính </label>' +
+                '<div class="input-group attributes">' +
+                '<span class="input-group-btn">' +
+                '<select class="form-control attribute_id">' +
+                '<option value="" selected>' + '------' + '</option>' +
+                '@foreach (\App\Model\Attribute::all() as $item)' +
+                '<option value="{{ $item->id }}">' + '{{ $item->name }}' + '</option>' +
+                '@endforeach' +
+                '</select>' +
+                '</span>' +
+                '<span class="input-group-btn">' +
+                '<input class="form-control attribute_value">' +
+                '</span>' +
+                '<span class="input-group-btn">' +
+                '<a href="javascript:void(0)" class="delete-attribute"> Xoá </a>' +
+                '</span>' +
+                '</div>';
+        }
+
+        if (update == 1) {
+            html = '<label for="id">Thuộc tính </label>' +
+                '<div class="input-group attributes">' +
+                '<input class="form-control product_attribute_id" type="hidden">' +
+                '<span class="input-group-btn">' +
+                '<select class="form-control attribute_id">' +
+                '<option value="" selected>' + '------' + '</option>' +
+                '@foreach (\App\Model\Attribute::all() as $item)' +
+                '<option value="{{ $item->id }}">' + '{{ $item->name }}' + '</option>' +
+                '@endforeach' +
+                '</select>' +
+                '</span>' +
+                '<span class="input-group-btn">' +
+                '<input class="form-control attribute_value">' +
+                '</span>' +
+                '<span class="input-group-btn">' +
+                '<a href="javascript:void(0)" class="delete-attribute"> Xoá </a>' +
+                '</span>' +
+                '</div>';
+        }
+
         return html;
     }
+
+    $('#update_form').submit(function (e) {
+        e.preventDefault();
+        let attributes = [];
+
+        $('.attributes').each(function () {
+            let item = {
+                'id': $(this).find('.product_attribute_id').val(),
+                'attribute': $(this).find('.attribute_id').val(),
+                'value': $(this).find('.attribute_value').val()
+            }
+            attributes.push(item);
+        });
+
+        $('.attributes .delete-attribute').each(function () {
+            $(this).parent().remove();
+        });
+
+        $(this).append('<textarea name="attributes">'+ JSON.stringify(attributes) + '</textarea>');
+
+        $(this).submit();
+    });
 </script>
