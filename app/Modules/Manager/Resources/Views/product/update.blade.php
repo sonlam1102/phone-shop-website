@@ -155,7 +155,7 @@
                 '<input class="form-control attribute_value">' +
                 '</span>' +
                 '<span class="input-group-btn">' +
-                '<a href="javascript:void(0)" class="delete-attribute"> Xoá </a>' +
+                '<button type="button" class="btn btn-danger delete_attribute">Xoá</button>' +
                 '</span>' +
                 '</div>';
         }
@@ -176,7 +176,7 @@
                 '<input class="form-control attribute_value">' +
                 '</span>' +
                 '<span class="input-group-btn">' +
-                '<a href="javascript:void(0)" class="delete-attribute"> Xoá </a>' +
+                '<button type="button" class="btn btn-danger delete_attribute"> Xoá </button>' +
                 '</span>' +
                 '</div>';
         }
@@ -195,10 +195,6 @@
                 'value': $(this).find('.attribute_value').val()
             }
             attributes.push(item);
-        });
-
-        $('.attributes .delete-attribute').each(function () {
-            $(this).parent().remove();
         });
 
         $(this).append('<textarea name="attributes">'+ JSON.stringify(attributes) + '</textarea>');
