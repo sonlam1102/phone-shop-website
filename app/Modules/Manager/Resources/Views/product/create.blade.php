@@ -95,8 +95,7 @@
     });
 
     function attribute_choose() {
-        var html = '<label for="id">Thuộc tính </label>' +
-            '<div class="input-group attributes">' +
+        var html = '<div class="input-group attributes">' +
             '<span class="input-group-btn">' +
             '<select class="form-control attribute_id">' +
             '<option value="" selected>' + '------' + '</option>' +
@@ -135,5 +134,10 @@
         $(this).append('<textarea name="attributes">'+ JSON.stringify(attributes) + '</textarea>');
 
         $(this).submit();
+    });
+
+    $(document).on('click', '.delete_attribute', function () {
+        let attr_obj = $(this).closest('.attributes');
+        attr_obj.remove();
     });
 </script>

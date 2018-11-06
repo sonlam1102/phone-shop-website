@@ -149,8 +149,7 @@
         let html = '';
 
         if (update == 0) {
-            html = '<label for="id">Thuộc tính </label>' +
-                '<div class="input-group attributes">' +
+            html = '<div class="input-group attributes">' +
                 '<span class="input-group-btn">' +
                 '<select class="form-control attribute_id">' +
                 '<option value="" selected>' + '------' + '</option>' +
@@ -169,8 +168,7 @@
         }
 
         if (update == 1) {
-            html = '<label for="id">Thuộc tính </label>' +
-                '<div class="input-group attributes">' +
+            html = '<div class="input-group attributes">' +
                 '<input class="form-control product_attribute_id" type="hidden">' +
                 '<span class="input-group-btn">' +
                 '<select class="form-control attribute_id">' +
@@ -201,12 +199,17 @@
                 'id': $(this).find('.product_attribute_id').val(),
                 'attribute': $(this).find('.attribute_id').val(),
                 'value': $(this).find('.attribute_value').val()
-            }
+            };
             attributes.push(item);
         });
 
         $(this).append('<textarea name="attributes">'+ JSON.stringify(attributes) + '</textarea>');
 
         $(this).submit();
+    });
+
+    $(document).on('click', '.delete_attribute', function () {
+        let attr_obj = $(this).closest('.attributes');
+        attr_obj.remove();
     });
 </script>

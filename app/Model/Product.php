@@ -56,6 +56,33 @@ class Product extends Model
             $this->img = $data['img'];
         }
 
+        $current_attributes = [];
+        if ($this->attribute) {
+            foreach ($this->attribute as $item) {
+                array_push($current_attributes, $item->id);
+            }
+        }
+
+        $submit_attributes = [];
+        if ($data['attributes']) {
+            foreach ($data['attributes'] as $item) {
+                if (isset($item->id)) {
+                    array_push($submit_attributes, $item->id);
+                }
+            }
+        }
+
+        try {
+            foreach ($current_attributes as $item) {
+                if (!in_array($item, $submit_attributes)) {
+                    $productAttribute = ProductAttribute::find($item);
+                    $productAttribute->delete();
+                }
+            }
+        }
+        catch (\Exception $e) {
+        }
+
         foreach ($data['attributes'] as $item) {
             if (isset($item->id)) {
                 $productAttribute = ProductAttribute::find($item->id);
