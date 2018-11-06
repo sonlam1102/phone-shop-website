@@ -5,6 +5,10 @@ stages:
   - build
   - migrate
 
+cache:
+  paths:
+    - .apt/
+
 build:
   stage: build
   script:
