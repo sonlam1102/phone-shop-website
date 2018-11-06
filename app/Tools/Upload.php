@@ -45,10 +45,10 @@ class Upload {
         }
 
         if (!$product_name) {
-            $product_name = date("D M d, Y G:i");
+            $product_name = date("D-m-Y H:i:s");
         }
         else {
-            $product_name = $product_name.date("D M d, Y G:i");
+            $product_name = $product_name.date("D-m-Y H:i:s");
         }
 
         try {

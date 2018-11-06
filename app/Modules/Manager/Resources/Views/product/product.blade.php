@@ -20,7 +20,7 @@
                     <tr>
                         <th>#</th>
                         <th>Tên sản phẩm  </th>
-                        <th>Thể loại </th>
+                        <th>Loại sản phẩm </th>
                         <th> Nhãn hiệu </th>
                         <th> Ngày sản xuất </th>
                         <th> Giá </th>

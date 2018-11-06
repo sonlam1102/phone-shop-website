@@ -123,17 +123,25 @@
 
             $('#update_product #update_form').attr("action", "/manager/product/" + $(this).data('id') + "/update");
 
-            $("#update_product #product-update-img").fileinput({
-                overwriteInitial: true,
+            let img_path = $(this).data('img');
+
+            if (img_path == "") {
+                img_path = "/img/product.png";
+            }
+
+            $("#product-update-img").fileinput({
+                overwriteInitial: false,
                 display: true,
                 maxFileSize: 1500,
                 showClose: false,
                 showCaption: false,
                 showBrowse: false,
                 browseOnZoneClick: true,
-                defaultPreviewContent: '<img src="'+ $(this).data('img') + '" ><br><strong>Nhấn vào để thay đổi </strong>',
+                defaultPreviewContent: '<img id="product_preview"><br><strong>Nhấn vào để thay đổi </strong>',
                 allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
             });
+
+            $("#product_preview").attr("src", img_path);
         });
 
     });
