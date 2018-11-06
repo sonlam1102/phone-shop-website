@@ -34,11 +34,18 @@ class Product extends Model
         $product->brand_id = $data['brand'];
         $product->company_id = $data['company'];
         $product->img = $data['img'];
+        $product->quantity = $data['quantity'];
+        $product->description = $data['description'];
 
         $check = $product->save();
 
-        foreach ($data['attributes'] as $item) {
-            $check = ProductAttribute::createAttribute($product->id, $item->attribute, $item->value);
+        try {
+            foreach ($data['attributes'] as $item) {
+                $check = ProductAttribute::createAttribute($product->id, $item->attribute, $item->value);
+            }
+        }
+        catch (\Exception $e) {
+            //TODO: execption message
         }
 
         return $check;
@@ -55,6 +62,8 @@ class Product extends Model
         if ($data['img']) {
             $this->img = $data['img'];
         }
+        $this->quantity = $data['quantity'];
+        $this->description = $data['description'];
 
         $current_attributes = [];
         if ($this->attribute) {
@@ -81,6 +90,7 @@ class Product extends Model
             }
         }
         catch (\Exception $e) {
+            //TODO: execption message
         }
 
         foreach ($data['attributes'] as $item) {

@@ -24,6 +24,8 @@ class ProductController extends ManagerController
         $price = $request->post('price');
         $manufacture_date = $request->post('manu_date');
         $attributes = $request->post('attributes');
+        $quantity = $request->post('quantity');
+        $description = $request->post('description');
 
         $company = \Auth::user()->company->id;
         $product_img = \App\Tools\Upload::productImageUpload($request, $name);
@@ -36,7 +38,9 @@ class ProductController extends ManagerController
             'manufacture_date' => $manufacture_date,
             'company' => $company,
             'img' => $product_img,
-            'attributes' => json_decode($attributes)
+            'attributes' => json_decode($attributes),
+            'quantity' => $quantity,
+            'description' => $description
         ];
 
         try {
@@ -57,6 +61,8 @@ class ProductController extends ManagerController
         $price = $request->post('price');
         $manufacture_date = $request->post('manu_date');
         $attributes = $request->post('attributes');
+        $quantity = $request->post('quantity');
+        $description = $request->post('description');
 
         $company = \Auth::user()->company->id;
         $product_img = \App\Tools\Upload::productImageUpload($request, $name);
@@ -71,7 +77,9 @@ class ProductController extends ManagerController
             'manufacture_date' => $manufacture_date,
             'company' => $company,
             'img' => $product_img,
-            'attributes' => json_decode($attributes)
+            'attributes' => json_decode($attributes),
+            'quantity' => $quantity,
+            'description' => $description
         ];
 
         try {
