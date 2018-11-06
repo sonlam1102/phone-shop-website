@@ -39,7 +39,12 @@ class ProductController extends ManagerController
             'attributes' => json_decode($attributes)
         ];
 
-        \App\Model\Product::addProduct($data);
+        try {
+            \App\Model\Product::addProduct($data);
+        }
+        catch (\Exception $e) {
+            //TODO: Return error
+        }
 
         return redirect()->back();
     }
@@ -69,14 +74,24 @@ class ProductController extends ManagerController
             'attributes' => json_decode($attributes)
         ];
 
-        $product->editProduct($data);
-
+        try {
+            $product->editProduct($data);
+        }
+        catch (\Exception $e) {
+            //TODO: Return error
+        }
         return redirect()->back();
     }
 
     public function delete($id) {
         $product = Product::find($id);
-        $product->delete();
+
+        try {
+            $product->delete();
+        }
+        catch (\Exception $e) {
+            //TODO: Return error
+        }
 
         return redirect()->back();
     }
