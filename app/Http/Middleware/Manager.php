@@ -15,7 +15,7 @@ class Manager
      */
     public function handle($request, Closure $next)
     {
-        if (\Auth::user()->type != \App\Tools\UserType::TYPE_MANAGER) {
+        if (\Auth::user()->type != \App\User::TYPE_MANAGER) {
             return redirect('/');
         } else if (!\Auth::user()->company) {
             abort('400', 'Bạn không sở hữu cửa hàng nào');

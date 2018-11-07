@@ -15,7 +15,7 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if (\Auth::user()->type != \App\Tools\UserType::TYPE_ADMIN) {
+        if (\Auth::user()->type != \App\User::TYPE_ADMIN) {
             return redirect('/');
         }
 

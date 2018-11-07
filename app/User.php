@@ -8,6 +8,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    const TYPE_ADMIN = 0;
+    const TYPE_MANAGER = 1;
+    const TYPE_USER = 2;
+    const TYPE_SELLER = 3;
+
+    const ACTIVE = 1;
+    const DISABLE = 0;
+
     use Notifiable;
 
     /**
@@ -39,7 +47,7 @@ class User extends Authenticatable
     }
 
     public static function getManager() {
-        $data = self::select()->where('type', '=', Tools\UserType::TYPE_MANAGER);
+        $data = self::select()->where('type', '=', self::TYPE_MANAGER);
         return $data ? $data->get() : null;
     }
 
@@ -61,7 +69,7 @@ class User extends Authenticatable
             'email' => $data['email'],
             'name' => $data['name'],
             'password' => Hash::make("123456"),
-            'type' => \App\Tools\UserType::TYPE_MANAGER,
+            'type' => self::TYPE_MANAGER,
         ]);
     }
 }

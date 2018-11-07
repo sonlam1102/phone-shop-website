@@ -17,11 +17,11 @@ class UserType
     {
 
         if (\Auth::check()) {
-            if (\Auth::user()->type == \App\Tools\UserType::TYPE_ADMIN) {
+            if (\Auth::user()->type == \App\User::TYPE_ADMIN) {
                 return redirect('/admin');
             }
 
-            if (\Auth::user()->type == \App\Tools\UserType::TYPE_MANAGER) {
+            if (\Auth::user()->type == \App\User::TYPE_MANAGER) {
                 return redirect('/manager');
             }
         }

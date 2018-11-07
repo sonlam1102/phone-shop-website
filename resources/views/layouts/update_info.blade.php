@@ -21,7 +21,7 @@
                             </div>
                         </div>
 
-                        @if(\Auth::check() && \Auth::user()->type == \App\Tools\UserType::TYPE_MANAGER)
+                        @if(\Auth::check() && \Auth::user()->type == \App\User::TYPE_MANAGER)
                             <div class="md-form mb-5">
                                 <label data-error="wrong" data-success="right" for="defaultForm-email">Công ty đang quản lý:  </label>
                                 <label data-error="wrong" data-success="right" for="defaultForm-email"> {{ \Auth::user()->company->name }}  </label>
