@@ -32,7 +32,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.blade.php">Trang quản trị viên </a>
+                <a class="navbar-brand" href="/">Trang quản trị viên </a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
