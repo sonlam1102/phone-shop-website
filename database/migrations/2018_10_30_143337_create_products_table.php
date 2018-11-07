@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->string('code')->nullable();
             $table->string('name');
-            $table->string('price')->nullable();
+            $table->bigInteger('price')->nullable();
             $table->date('manufacture_date')->nullable();
             $table->timestamps();
             $table->unsignedInteger('company_id');

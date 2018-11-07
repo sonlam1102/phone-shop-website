@@ -46,6 +46,14 @@ class User extends Authenticatable
         return $this->hasOne('App\Model\Company', 'user_id_manager');
     }
 
+    public function orders() {
+        return $this->hasMany('App\Model\Order', 'user_id');
+    }
+
+    public function carts() {
+        return $this->hasMany('App\Model\Cart', 'user_id');
+    }
+
     public static function getManager() {
         $data = self::select()->where('type', '=', self::TYPE_MANAGER);
         return $data ? $data->get() : null;
