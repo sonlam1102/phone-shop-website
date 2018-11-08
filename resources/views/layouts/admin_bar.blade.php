@@ -1,7 +1,22 @@
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
 
-        <li><a href="#">Giỏ hàng </a></li>
+        <li><a href="#" data-toggle="dropdown" >Giỏ hàng </a>
+            <ul class="dropdown-menu">
+                @if(\Auth::check() && \Auth::user()->carts->where('order_id', null)->first())
+                    @foreach(\Auth::user()->carts->where('order_id', null)->first()->products as $item)
+                        <li><a href="#">{{ $item->product->name."---".$item->quantity }}</a></li>
+                    @endforeach
+                @endif
+                {{--<li><a href="#">By Price Low</a></li>--}}
+                {{--<li class="divider"></li>--}}
+                {{--<li><a href="#">By Price High</a></li>--}}
+                {{--<li class="divider"></li>--}}
+                {{--<li><a href="#">By Popularity</a></li>--}}
+                {{--<li class="divider"></li>--}}
+                {{--<li><a href="#">By Reviews</a></li>--}}
+            </ul>
+        </li>
 
         @if (!\Auth::check())
             <li><a href="{{ route('login') }}">Đăng nhập </a></li>

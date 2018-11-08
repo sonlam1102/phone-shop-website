@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <!-- /.row -->
-                <div class="row">
+                <div class="row" id="products_field">
                     @if(\App\Model\Product::all())
                         <div>
                             <ol class="breadcrumb">
@@ -96,7 +96,13 @@
                                         <p><strong> {{ $item->name }}</strong></p>
                                         <p>Price : <strong>{{ $item->price }}</strong>  </p>
                                         <p>Brand : <strong>{{ $item->brand->name }}</strong>  </p>
-                                        <p><a href="#" class="btn btn-success" role="button">Add To Cart</a> <a href="#" class="btn btn-primary" role="button">See Details</a></p>
+                                        <p>
+                                            <a href="javascript:void(0)" class="btn btn-success add_cart" role="button" data-id="{{ $item->id }}">
+                                                Add To Cart
+                                                @csrf
+                                            </a>
+                                            <a href="#" class="btn btn-primary" role="button">See Details</a>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -144,6 +150,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="/js/bootstrap.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/js/fileinput.min.js"></script>
-    <!--Slider JavaScript file  -->
+    <script>
+        $("#products_field").on('click', '.add_cart', function () {
+            let url = '/customer/cart/product/'+ $(this).data('id') +'/add';
+            let token = $(this).find('input[name="_token"]').val();
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: {_token: token}
+            });
+        });
+    </script>
 </body>
 </html>

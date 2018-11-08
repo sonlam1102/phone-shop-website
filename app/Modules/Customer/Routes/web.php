@@ -11,8 +11,6 @@
 |
 */
 
-Route::group(['prefix' => 'customer'], function () {
-    Route::get('/', function () {
-        dd('This is the Customer module index page. Build something great!');
-    });
+Route::group(['prefix' => 'customer', 'middleware' => ['auth', 'customer', ]], function () {
+    Route::post('/cart/product/{id}/add', 'CustomerController@add_cart')->where('id', '[0-9]+');
 });

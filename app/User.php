@@ -51,7 +51,7 @@ class User extends Authenticatable
     }
 
     public function carts() {
-        return $this->hasMany('App\Model\Cart', 'user_id');
+        return $this->hasMany('App\Model\Cart', 'user_id')->orderBy('id', 'desc');
     }
 
     public static function getManager() {
