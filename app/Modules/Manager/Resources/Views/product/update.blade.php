@@ -150,7 +150,7 @@
                 showCaption: false,
                 showBrowse: false,
                 browseOnZoneClick: true,
-                defaultPreviewContent: '<img id="product_preview"><br><strong>Nhấn vào để thay đổi </strong>',
+                defaultPreviewContent: '<img id="product_preview" onerror="this.src=\'/img/product.png\'"><br><strong>Nhấn vào để thay đổi </strong>',
                 allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
             });
 

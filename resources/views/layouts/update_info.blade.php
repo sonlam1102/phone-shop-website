@@ -97,13 +97,13 @@
             showBrowse: false,
             browseOnZoneClick: true,
             elErrorContainer: '#kv-avatar-errors-2',
-            defaultPreviewContent: '<img src="{{ $data ? $data->img ? $data->img : "/img/avatar.jpg" : "/img/avatar.jpg"}}"><br><strong>Nhấn vào để thay đổi </strong>',
+            defaultPreviewContent: '<img class="avatar_img" src="{{ $data ? $data->img ? $data->img : "/img/avatar.jpg" : "/img/avatar.jpg"}}" onerror="this.src=\'/img/avatar.jpg\';"><br><strong>Nhấn vào để thay đổi </strong>',
             allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
         });
     </script>
 
     <style>
-        img {
+        .avatar_img {
             max-width: 300px;
             max-height: 500px;
         }

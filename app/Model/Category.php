@@ -11,6 +11,10 @@ class Category extends Model
         return $this->hasMany('App\Model\Brands');
     }
 
+    public function products() {
+        return $this->hasMany('App\Model\Product', 'category_id');
+    }
+
     public function update_category($data) {
         $this->name = $data['name'];
 
