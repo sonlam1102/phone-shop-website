@@ -1,22 +1,23 @@
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
 
-        <li><a href="#" data-toggle="dropdown" >Giỏ hàng </a>
-            <ul class="dropdown-menu">
-                @if(\Auth::check() && \Auth::user()->carts->where('order_id', null)->first())
-                    @foreach(\Auth::user()->carts->where('order_id', null)->first()->products as $item)
-                        <li><a href="#">{{ $item->product->name."---".$item->quantity }}</a></li>
-                    @endforeach
-                @endif
-                {{--<li><a href="#">By Price Low</a></li>--}}
-                {{--<li class="divider"></li>--}}
-                {{--<li><a href="#">By Price High</a></li>--}}
-                {{--<li class="divider"></li>--}}
-                {{--<li><a href="#">By Popularity</a></li>--}}
-                {{--<li class="divider"></li>--}}
-                {{--<li><a href="#">By Reviews</a></li>--}}
-            </ul>
-        </li>
+        @if (\Auth::check())
+            <li><a href="#" data-toggle="dropdown" >Giỏ hàng </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                    <div class="input-group">
+                        <table class="table">
+                            @foreach(\Auth::user()->current_cart()->products as $item)
+                                <tr>
+                                    <td><img class="product_cart_img" src="{{ $item->product->img }}" onerror="this.src='/img/product.png'"></td>
+                                    <td>{{ $item->product->name }}</td>
+                                    <td>{{ $item->quantity }}</td>
+                                </tr>
+                            @endforeach
+                        </table>
+                    </div>
+                </ul>
+            </li>
+        @endif
 
         @if (!\Auth::check())
             <li><a href="{{ route('login') }}">Đăng nhập </a></li>
@@ -53,4 +54,10 @@
         {{--</div>--}}
         {{--<button type="submit" class="btn btn-primary">Tìm kiếm </button>--}}
     {{--</form>--}}
+    <style>
+        .product_cart_img {
+            max-width: 60px;
+            max-height: 60px;
+        }
+    </style>
 </div>

@@ -54,6 +54,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Model\Cart', 'user_id')->orderBy('id', 'desc');
     }
 
+    public function current_cart() {
+        return $this->carts->where('order_id', null)->first();
+    }
+
     public static function getManager() {
         $data = self::select()->where('type', '=', self::TYPE_MANAGER);
         return $data ? $data->get() : null;
