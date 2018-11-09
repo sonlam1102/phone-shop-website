@@ -13,4 +13,6 @@
 
 Route::group(['prefix' => 'customer', 'middleware' => ['auth', 'customer', ]], function () {
     Route::post('/cart/product/{id}/add', 'CustomerController@add_cart')->where('id', '[0-9]+');
+    Route::put('/cart/product/update', 'CustomerController@update_product_cart');
+    Route::delete('/cart/product/{id}/delete', 'CustomerController@delete_cart')->where('id', '[0-9]+');
 });

@@ -91,7 +91,7 @@
                         @foreach(\App\Model\Product::all() as $item)
                             <div class="col-md-4 text-center col-sm-6 col-xs-6">
                                 <div class="thumbnail product-box">
-                                    <img class="product_img" src="{{ $item->img ? $item->img : null }}"  onerror="this.src='/img/dummyimg.png';"/>
+                                    <img class="product_img" src="{{ $item->img ? $item->img : null }}"  onerror="this.src='/img/product.png';"/>
                                     <div class="caption">
                                         <p><strong> {{ $item->name }}</strong></p>
                                         <p>Price : <strong>{{ $item->price }}</strong>  </p>

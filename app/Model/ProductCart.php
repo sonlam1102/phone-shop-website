@@ -21,11 +21,24 @@ class ProductCart extends Model
     }
 
     public static function add_product_cart($product_id, $cart_id) {
-        $product_cart = new ProductCart();
+        $product_cart = self::select()->where('product_id', $product_id);
+        if (!$product_cart || ($product_cart && !$product_cart->first())) {
+            $product_cart = new ProductCart();
 
-        $product_cart->product_id = $product_id;
-        $product_cart->cart_id = $cart_id;
+            $product_cart->product_id = $product_id;
+            $product_cart->cart_id = $cart_id;
 
-        $product_cart->save();
+            $product_cart->save();
+        }
+        else {
+            $product_cart = $product_cart->first();
+            $product_cart->quantity = $product_cart->quantity + 1;
+            $product_cart->save();
+        }
+    }
+
+    public function update_product_quantity($quantity) {
+        $this->quantity = $quantity;
+        $this->save();
     }
 }
