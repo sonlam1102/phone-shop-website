@@ -159,6 +159,8 @@
                 type: "POST",
                 url: url,
                 data: {_token: token}
+            }).done(function () {
+                location.reload();
             });
         });
     </script>

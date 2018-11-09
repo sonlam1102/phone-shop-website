@@ -21,7 +21,7 @@ class ProductCart extends Model
     }
 
     public static function add_product_cart($product_id, $cart_id) {
-        $product_cart = self::select()->where('product_id', $product_id);
+        $product_cart = self::select()->where('product_id', $product_id)->where('cart_id', $cart_id);
         if (!$product_cart || ($product_cart && !$product_cart->first())) {
             $product_cart = new ProductCart();
 
