@@ -88,6 +88,10 @@
                         <a href="/manager/product"><i class="fa fa-dashboard fa-fw"></i> Sản phẩm trong cửa hàng </a>
                     </li>
 
+                    <li>
+                        <a href="/manager/order"><i class="fa fa-dashboard fa-fw"></i> Các đơn hàng </a>
+                    </li>
+
                 </ul>
             </div>
         </div>

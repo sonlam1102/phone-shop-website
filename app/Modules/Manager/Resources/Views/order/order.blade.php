@@ -15,12 +15,13 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th> Người đặ  </th>
-                        <th> Số lượng sản  </th>
+                        <th> Họ tên người đặt  </th>
+                        <th> Đia chỉ </th>
+                        <th> Số điện thoại </th>
                         <th> Tổng tiền </th>
                         <th> Ngày đặt </th>
-                        <th> Tên người nhận </th>
-                        <th> Địa chỉ </th>
+                        <th> Phương thức giao hàng </th>
+                        <th> Trạng thái </th>
                         <th></th>
                     </tr>
                     </thead>
@@ -30,39 +31,20 @@
                             <tr>
                                 <td> {{ $item->id }} </td>
                                 <td> {{ $item->name }} </td>
-                                <td> {{ $item->category->name }} </td>
-                                <td> {{ $item->brand->name }} </td>
-                                <td> {{ $item->manufacture_date }} </td>
-                                <td> {{ $item->price }} </td>
+                                <td> {{ $item->address }} </td>
+                                <td> {{ $item->phone }} </td>
+                                <td> {{ $item->total_price }} </td>
+                                <td> {{ $item->created_at }} </td>
+                                <td> {{ $item->status() }} </td>
+                                <td> {{ $item->method() }} </td>
                                 <td>
                                     <button
                                             type="button"
-                                            class="btn btn-info"
+                                            class="btn btn-warning"
                                             data-id = "{{ $item->id }}"
-                                            data-name="{{ $item->name }}"
-                                            data-code="{{ $item->code }}"
-                                            data-category="{{ $item->category->id }}"
-                                            data-brand = "{{ $item->brand->id }}"
-                                            data-manu = "{{ $item->manufacture_date }}"
-                                            data-price = "{{ $item->price }}"
-                                            data-img = "{{ $item->img }}"
-                                            data-attributes = "{{ $item->attribute }}"
-                                            data-quantity = "{{ $item->quantity }}"
-                                            data-description = "{{ $item->description }}"
                                             data-toggle="modal"
-                                            data-target="#update_product">
-                                        Cập nhật
-                                    </button>
-
-                                    <button
-                                            type="button"
-                                            class="btn btn-danger "
-                                            data-id = "{{ $item->id }}"
-                                            data-name="{{ $item->name }}"
-                                            data-code="{{ $item->code }}"
-                                            data-toggle="modal"
-                                            data-target="#delete_product">
-                                        Xoá
+                                            data-target="#">
+                                        Xác nhận đơn hàng
                                     </button>
                                 </td>
                             </tr>

@@ -19,6 +19,7 @@
     <link href="/css/main.css" rel="stylesheet" />
 </head>
 <body>
+    @include('layouts.order')
     @include('layouts.update_info')
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">

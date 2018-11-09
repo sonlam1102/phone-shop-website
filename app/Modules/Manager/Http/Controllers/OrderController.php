@@ -2,7 +2,7 @@
 
 namespace App\Modules\Manager\Http\Controllers;
 
-use App\Order;
+use App\Model\Order;
 use Illuminate\Http\Request;
 
 class OrderController extends ManagerController
@@ -11,7 +11,7 @@ class OrderController extends ManagerController
         $orders = Order::all();
         $data = $this->getUserInfo();
 
-        return view('manager::product/product')
+        return view('manager::order/order')
             ->with('data', $data)
             ->with('order', $orders);
     }

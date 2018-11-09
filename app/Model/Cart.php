@@ -12,6 +12,17 @@ class Cart extends Model
         return $this->hasMany('App\Model\ProductCart', 'cart_id');
     }
 
+    public function total_price() {
+        $product = $this->products;
+
+        $total = 0;
+        foreach ($product as $item) {
+            $total = $total + (int)$item->product->price*$item->quantity;
+        }
+
+        return $total;
+    }
+
     public static function add_new_cart($user_id) {
         $cart = new Cart();
 
@@ -19,5 +30,10 @@ class Cart extends Model
         $cart->save();
 
         return $cart->id;
+    }
+
+    public function make_order($order_id) {
+        $this->order_id = $order_id;
+        $this->save();
     }
 }

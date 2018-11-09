@@ -12,7 +12,14 @@
 */
 
 Route::group(['prefix' => 'customer', 'middleware' => ['auth', 'customer', ]], function () {
-    Route::post('/cart/product/{id}/add', 'CustomerController@add_cart')->where('id', '[0-9]+');
-    Route::put('/cart/product/update', 'CustomerController@update_product_cart');
-    Route::delete('/cart/product/{id}/delete', 'CustomerController@delete_cart')->where('id', '[0-9]+');
+
+    Route::group(['prefix' => 'cart'], function () {
+        Route::post('/product/{id}/add', 'CartController@add_cart')->where('id', '[0-9]+');
+        Route::put('/product/update', 'CartController@update_product_cart');
+        Route::delete('/product/{id}/delete', 'CartController@delete_cart')->where('id', '[0-9]+');
+    });
+
+    Route::group(['prefix' => 'order'], function () {
+        Route::post('/create', 'OrderController@make_order');
+    });
 });
