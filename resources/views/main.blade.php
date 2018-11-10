@@ -21,6 +21,7 @@
 <body>
     @include('layouts.order')
     @include('layouts.update_info')
+    @include('layouts.order_check')
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <!-- Company and toggle get grouped for better mobile display -->

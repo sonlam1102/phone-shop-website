@@ -18,6 +18,10 @@
                     </li>
 
                     <li>
+                        <a href="javascript:void(0)" data-toggle="modal" data-target="#customer_order_check"><strong> Đơn hàng </strong></a>
+                    </li>
+
+                    <li>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                             <strong>Đăng xuất  </strong>

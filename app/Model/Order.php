@@ -9,7 +9,8 @@ class Order extends Model
     public const PENDING = 1;
     public const CONFIRM = 2;
     public const SHIPPING = 3;
-    public const CANCEL = 4;
+    public const SUCCESS = 3;
+    public const CANCEL = 5;
 
     public const CASH = 1;
     public const TRANSFER = 2;
@@ -18,7 +19,8 @@ class Order extends Model
         1 => "Đang chờ",
         2 => "Xác nhận",
         3 => "Giao hàng",
-        4 => "Huỷ"
+        4 => "Thành công",
+        5 => "Huỷ"
     ];
 
     protected $methods = [
