@@ -2,6 +2,7 @@
 
 namespace App\Modules\Customer\Http\Controllers;
 
+use App\Model\CartOrder;
 use App\Model\Order;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,12 @@ class OrderController extends CustomerController
         ];
 
         $order = Order::add_order($data);
-        \Auth::user()->current_cart()->make_order($order);
+
+        $cart_order = [
+            'order_id' => $order,
+            'cart_id' => \Auth::user()->current_cart()->id,
+        ];
+        CartOrder::add_cart_order($cart_order);
 
         return redirect()->back();
     }

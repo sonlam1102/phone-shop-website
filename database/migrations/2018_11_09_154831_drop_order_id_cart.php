@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class DropColumCategoryAttribute extends Migration
+class DropOrderIdCart extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class DropColumCategoryAttribute extends Migration
      */
     public function up()
     {
-        Schema::table('attributes', function(Blueprint $table) {
-            if (Schema::hasColumn('order', 'category_id')) {
-                $table->dropForeign(['category_id']);
-                $table->dropColumn('category_id');
+        Schema::table('cart', function(Blueprint $table) {
+            if (Schema::hasColumn('cart', 'order_id')) {
+                $table->dropForeign(['order_id']);
+                $table->dropColumn('order_id');
             }
         });
     }

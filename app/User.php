@@ -55,7 +55,7 @@ class User extends Authenticatable
     }
 
     public function current_cart() {
-        return $this->carts->where('order_id', null) ? $this->carts->where('order_id', null)->first() : null;
+        return $this->carts->first() ? !$this->carts->first()->ordered ? $this->carts->first() : null : null;
     }
 
     public static function getManager() {

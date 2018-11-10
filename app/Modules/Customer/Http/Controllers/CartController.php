@@ -13,7 +13,7 @@ class CartController extends CustomerController
     public function add_cart($id) {
         $customer = \Auth::user();
 
-        $current_cart = $customer->carts ?  $customer->carts->where('user_id','=', \Auth::user()->id)->where('order_id', null)->first() : null;
+        $current_cart = \Auth::user()->current_cart();
 
         if (!$current_cart) {
             $cart = Cart::add_new_cart(\Auth::user()->id);

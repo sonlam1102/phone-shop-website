@@ -12,6 +12,10 @@ class Cart extends Model
         return $this->hasMany('App\Model\ProductCart', 'cart_id');
     }
 
+    public function ordered() {
+        return $this->hasOne('App\Model\CartOrder', 'cart_id');
+    }
+
     public function total_price() {
         $product = $this->products;
 
