@@ -21,5 +21,6 @@ Route::group(['prefix' => 'customer', 'middleware' => ['auth', 'customer', ]], f
 
     Route::group(['prefix' => 'order'], function () {
         Route::post('/create', 'OrderController@make_order');
+        Route::get('/{id}/info', 'OrderController@receipt')->where('id', '[0-9]+');
     });
 });

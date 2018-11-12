@@ -39,4 +39,10 @@ class OrderController extends CustomerController
 
         return redirect()->back();
     }
+
+    public function receipt($id) {
+        $order = Order::find($id);
+
+        return view('customer::order.receipt')->with('order', $order);
+    }
 }

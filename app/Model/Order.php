@@ -39,7 +39,7 @@ class Order extends Model
     }
 
     public function cart() {
-        return $this->hasOne('App\Model\Cart', 'order_id');
+        return $this->belongsTo('App\Model\Cart', 'cart_id');
     }
 
     public static function add_order($data) {
@@ -65,5 +65,11 @@ class Order extends Model
 
     public function method() {
         return $this->methods[$this->method];
+    }
+
+    public function update_status($status) {
+        $this->status = $status;
+
+        return $this->save();
     }
 }

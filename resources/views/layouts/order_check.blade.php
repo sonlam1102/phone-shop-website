@@ -17,6 +17,7 @@
                                 <td>Ngày đặt</td>
                                 <td> Phương thức thanh toán</td>
                                 <td> Trạng thái</td>
+                                <td></td>
                             </thead>
                             <tbody>
                                 @foreach(\Auth::user()->orders as $item)
@@ -27,6 +28,11 @@
                                         <td> {{ $item->created_at }}</td>
                                         <td> {{ $item->method() }}</td>
                                         <td> {{ $item->status() }}</td>
+                                        <td>
+                                            <a href="/customer/order/{{$item->id}}/info">
+                                                <button class="btn btn-info">Chi tiết hoá đơn</button>
+                                            </a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
