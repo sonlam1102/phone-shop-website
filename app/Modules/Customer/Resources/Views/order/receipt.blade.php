@@ -23,7 +23,7 @@
                         <em>Ngày lập hoá đơn: {{ $order->created_at }}</em>
                     </p>
                     <p>
-                        <em>Mã hoá đơn #: {{ $order->id }}</em>
+                        <em>Mã hoá đơn: <strong>#{{ $order->id }}</strong></em>
                     </p>
                 </div>
             </div>
@@ -78,11 +78,17 @@
                         <td>   </td>
                         <td class="text-center text-danger"><h4><strong>{{ $order->method() }}</strong></h4></td>
                     </tr>
+
+                    @if($order->check and $order->status == \App\Model\Order::SUCCESS)
+                        <tr>
+                            <td class="text-right"><h4><strong>Nhân viên thanh toán: </strong></h4></td>
+                            <td>   </td>
+                            <td>   </td>
+                            <td class="text-center text-danger"><h4><strong>{{ $order->check->user->userinfo->fullname }}</strong></h4></td>
+                        </tr>
+                    @endif
                     </tbody>
                 </table>
-                {{--<button type="button" class="btn btn-success btn-lg btn-block">--}}
-                    {{--Pay Now   <span class="glyphicon glyphicon-chevron-right"></span>--}}
-                {{--</button></td>--}}
             </div>
         </div>
     </div>

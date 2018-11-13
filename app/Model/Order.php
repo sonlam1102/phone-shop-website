@@ -8,7 +8,7 @@ class Order extends Model
 {
     public const PENDING = 1;
     public const CONFIRM = 2;
-    public const SHIPPING = 3;
+    public const SHIPPING = 4;
     public const SUCCESS = 3;
     public const CANCEL = 5;
 

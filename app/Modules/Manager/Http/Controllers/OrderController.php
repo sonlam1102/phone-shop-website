@@ -18,7 +18,7 @@ class OrderController extends ManagerController
     }
 
     public function checkOrder(Request $request, $id) {
-        $status = $request->post('status');
+        $status = $request->post('order_status');
         $order = Order::find($id);
 
         $order->update_status($status);

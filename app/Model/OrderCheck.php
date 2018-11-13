@@ -8,6 +8,10 @@ class OrderCheck extends Model
 {
     protected $table = "order_check";
 
+    public function user() {
+        return $this->belongsTo('App\User', 'user_id');
+    }
+
     public static function addOrderCheck($user_id, $order_id) {
         $order_check = new OrderCheck();
 

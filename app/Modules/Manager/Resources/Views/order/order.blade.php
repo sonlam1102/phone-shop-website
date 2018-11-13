@@ -1,6 +1,7 @@
 @extends('manager::index')
 
 @section('content')
+    @include('manager::order.order_confirm')
 
     <div class="row">
         <div class="col-lg-12">
@@ -42,8 +43,10 @@
                                             type="button"
                                             class="btn btn-warning"
                                             data-id = "{{ $item->id }}"
+                                            data-status = "{{ $item->status() }}"
+                                            data-name = "{{ $item->name }}"
                                             data-toggle="modal"
-                                            data-target="#">
+                                            data-target="#order_confirm">
                                         Xác nhận đơn hàng
                                     </button>
                                 </td>
