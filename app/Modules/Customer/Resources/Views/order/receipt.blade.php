@@ -31,7 +31,11 @@
                 <div class="text-center">
                     <h1>Hoá đơn</h1>
                 </div>
-                </span>
+                <div class="text-lg-left">
+                    <p>Họ tên người đặt: {{ $order->name }}</p>
+                    <p>Địa chỉ: {{ $order->address }}</p>
+                    <p>Số điện thoại: {{ $order->phone }}</p>
+                </div>
                 <table class="table table-hover">
                     <thead>
                     <tr>
