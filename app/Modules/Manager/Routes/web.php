@@ -23,5 +23,6 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'manager', ]], fun
 
     Route::group(['prefix' => 'order'], function() {
         Route::get('/', 'OrderController@index');
+        Route::put('/', 'OrderController@index');
     });
 });

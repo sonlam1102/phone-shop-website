@@ -54,6 +54,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Model\Cart', 'user_id')->orderBy('id', 'desc');
     }
 
+    public function checked_order() {
+        return $this->hasMany('App\Model\OrderCheck', 'user_id');
+    }
+
     public function current_cart() {
         return $this->carts->first() ? !$this->carts->first()->ordered ? $this->carts->first() : null : null;
     }
