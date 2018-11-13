@@ -15,6 +15,7 @@ class OrderController extends CustomerController
         $address = $request->post('address');
         $phone = $request->post('phone');
         $city_id = $request->post('city');
+        $method = $request->post('method');
         $user_id = \Auth::user()->id;
         $total_price = \Auth::user()->current_cart()->total_price();
         $cart_id = \Auth::user()->current_cart()->id;
@@ -26,7 +27,8 @@ class OrderController extends CustomerController
             'city' => $city_id,
             'user' => $user_id,
             'total_price' => $total_price,
-            'cart' => $cart_id
+            'cart' => $cart_id,
+            'method' => $method
         ];
 
         $order = Order::add_order($data);

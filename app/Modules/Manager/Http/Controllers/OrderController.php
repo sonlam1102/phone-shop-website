@@ -15,4 +15,8 @@ class OrderController extends ManagerController
             ->with('data', $data)
             ->with('order', $orders);
     }
+
+    public function checkOrder() {
+
+    }
 }

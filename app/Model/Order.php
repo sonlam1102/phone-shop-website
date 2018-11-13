@@ -16,16 +16,16 @@ class Order extends Model
     public const TRANSFER = 2;
 
     protected $order_status = [
-        1 => "Đang chờ",
-        2 => "Xác nhận",
-        3 => "Giao hàng",
-        4 => "Thành công",
-        5 => "Huỷ"
+        self::PENDING => "Đang chờ",
+        self::CONFIRM => "Xác nhận",
+        self::SHIPPING => "Giao hàng",
+        self::SUCCESS => "Thành công",
+        self::CANCEL => "Huỷ"
     ];
 
     protected $methods = [
-        1 => "Tiền mặt",
-        2 => "Chuyển khoản"
+        self::CASH => "Tiền mặt",
+        self::TRANSFER => "Chuyển khoản"
     ];
 
     protected $table = 'order';
@@ -52,7 +52,7 @@ class Order extends Model
         $order->user_id = $data['user'];
         $order->total_price = $data['total_price'];
         $order->cart_id = $data['cart'];
-        $order->method = self::CASH;
+        $order->method = $data['method'];
         $order->status = self::PENDING;
 
         $order->save();
@@ -71,5 +71,21 @@ class Order extends Model
         $this->status = $status;
 
         return $this->save();
+    }
+
+    public function getMethod() {
+        return $this->methods;
+    }
+
+    public function getStatus() {
+        return $this->order_status;
+    }
+
+    public static function get_order_status() {
+        return (new Order)->getStatus();
+    }
+
+    public static function get_order_method_payment() {
+        return (new Order)->getMethod();
     }
 }

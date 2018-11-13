@@ -52,6 +52,15 @@
                                 </div>
                             @endif
 
+                            <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Phương thức thanh toán </label>
+                                <select class="form-control form-control-sm" name="method">
+                                    @foreach(\App\Model\Order::get_order_method_payment() as $key => $value)
+                                        <option value="{{ $key }}"> {{ $value }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                         </div>
 
                         <div class="modal-footer">
