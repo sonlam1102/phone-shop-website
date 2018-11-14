@@ -79,12 +79,12 @@
                         <td class="text-center text-danger"><h4><strong>{{ $order->method() }}</strong></h4></td>
                     </tr>
 
-                    @if($order->check and $order->status == \App\Model\Order::SUCCESS)
+                    @if($order->check and $order->status != \App\Model\Order::PENDING)
                         <tr>
-                            <td class="text-right"><h4><strong>Nhân viên thanh toán: </strong></h4></td>
+                            <td class="text-right"><h4><strong>Nhân viên xác nhận: </strong></h4></td>
                             <td>   </td>
                             <td>   </td>
-                            <td class="text-center text-danger"><h4><strong>{{ $order->check->user->userinfo->fullname }}</strong></h4></td>
+                            <td class="text-center text-danger"><h4><strong>{{ $order->check->user->userinfo ? $order->check->user->userinfo->fullname : $order->check->user->name }}</strong></h4></td>
                         </tr>
                     @endif
                     </tbody>

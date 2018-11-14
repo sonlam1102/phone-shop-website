@@ -25,4 +25,10 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'manager', ]], fun
         Route::get('/', 'OrderController@index');
         Route::put('/{id}/confirm', 'OrderController@checkOrder')->where('id', '[0-9]+');
     });
+
+    Route::group(['prefix' => 'staff'], function() {
+        Route::get('/', 'StaffController@index');
+        Route::post('/create', 'StaffController@add');
+        Route::put('/{id}/reset', 'StaffController@reset')->where('id', '[0-9]+');
+    });
 });

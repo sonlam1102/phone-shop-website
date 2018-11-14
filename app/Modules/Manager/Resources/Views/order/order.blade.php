@@ -39,16 +39,20 @@
                                 <td> {{ $item->status() }} </td>
                                 <td> {{ $item->method() }} </td>
                                 <td>
-                                    <button
-                                            type="button"
-                                            class="btn btn-warning"
-                                            data-id = "{{ $item->id }}"
-                                            data-status = "{{ $item->status() }}"
-                                            data-name = "{{ $item->name }}"
-                                            data-toggle="modal"
-                                            data-target="#order_confirm">
-                                        Xác nhận đơn hàng
-                                    </button>
+                                    @if(!$item->check)
+                                        <button
+                                                type="button"
+                                                class="btn btn-warning"
+                                                data-id = "{{ $item->id }}"
+                                                data-status = "{{ $item->status() }}"
+                                                data-name = "{{ $item->name }}"
+                                                data-toggle="modal"
+                                                data-target="#order_confirm">
+                                            Xác nhận đơn hàng
+                                        </button>
+                                    @else
+                                        <p> Xác nhận bởi: {{ $item->check->user->userinfo ? $item->check->user->userinfo->fullname : $item->check->user->name }}</p>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

@@ -92,6 +92,10 @@
                         <a href="/manager/order"><i class="fa fa-dashboard fa-fw"></i> Các đơn hàng </a>
                     </li>
 
+                    <li>
+                        <a href="/manager/staff"><i class="fa fa-dashboard fa-fw"></i> Nhân viên cửa hàng </a>
+                    </li>
+
                 </ul>
             </div>
         </div>

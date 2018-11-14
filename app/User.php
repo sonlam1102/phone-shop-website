@@ -39,7 +39,7 @@ class User extends Authenticatable
     ];
 
     public function userinfo() {
-        return $this->hasOne('App\Model\Userinfo');
+        return $this->hasOne('App\Model\Userinfo', 'user_id');
     }
 
     public function company() {
@@ -60,6 +60,10 @@ class User extends Authenticatable
 
     public function current_cart() {
         return $this->carts->first() ? !$this->carts->first()->ordered ? $this->carts->first() : null : null;
+    }
+
+    public function staffs() {
+        return $this->hasMany('App\Model\Staff', 'manager_id');
     }
 
     public static function getManager() {
@@ -86,6 +90,15 @@ class User extends Authenticatable
             'name' => $data['name'],
             'password' => Hash::make("123456"),
             'type' => self::TYPE_MANAGER,
+        ]);
+    }
+
+    public static function addStaff($data) {
+        return User::create([
+            'email' => $data['email'],
+            'name' => $data['name'],
+            'password' => Hash::make("123456"),
+            'type' => self::TYPE_SELLER,
         ]);
     }
 }
