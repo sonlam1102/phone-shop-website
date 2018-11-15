@@ -23,6 +23,8 @@
                         <th>Loại sản phẩm </th>
                         <th> Nhãn hiệu </th>
                         <th> Ngày sản xuất </th>
+                        <th> Số Seri </th>
+                        <th> IMEI</th>
                         <th> Giá </th>
                         <th></th>
                     </tr>
@@ -36,6 +38,8 @@
                                 <td> {{ $item->category->name }} </td>
                                 <td> {{ $item->brand->name }} </td>
                                 <td> {{ $item->manufacture_date }} </td>
+                                <td> {{ $item->code }} </td>
+                                <td> {{ $item->imei }} </td>
                                 <td> {{ $item->price }} </td>
                                 <td>
                                     <button
@@ -44,6 +48,7 @@
                                             data-id = "{{ $item->id }}"
                                             data-name="{{ $item->name }}"
                                             data-code="{{ $item->code }}"
+                                            data-imei="{{ $item->imei }}"
                                             data-category="{{ $item->category->id }}"
                                             data-brand = "{{ $item->brand->id }}"
                                             data-manu = "{{ $item->manufacture_date }}"

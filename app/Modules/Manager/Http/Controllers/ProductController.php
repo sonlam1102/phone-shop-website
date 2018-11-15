@@ -19,6 +19,7 @@ class ProductController extends ManagerController
     public function add(Request $request) {
         $name = $request->post('name');
         $code = $request->post('code');
+        $imei = $request->post('imei');
         $category = $request->post('category');
         $brand = $request->post('brand');
         $price = $request->post('price');
@@ -32,6 +33,7 @@ class ProductController extends ManagerController
         $data = [
             'name' => $name,
             'code' => $code,
+            'imei' => $imei,
             'category' => $category,
             'brand' => $brand,
             'price' => $price,
@@ -56,6 +58,7 @@ class ProductController extends ManagerController
     public function update(Request $request, $id) {
         $name = $request->post('name');
         $code = $request->post('code');
+        $imei = $request->post('imei');
         $category = $request->post('category');
         $brand = $request->post('brand');
         $price = $request->post('price');
@@ -71,6 +74,7 @@ class ProductController extends ManagerController
         $data = [
             'name' => $name,
             'code' => $code,
+            'imei' => $imei,
             'category' => $category,
             'brand' => $brand,
             'price' => $price,

@@ -26,8 +26,13 @@
                         </div>
 
                         <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">Mã </label>
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Số seri </label>
                             <input type="text" name="code" class="form-control validate">
+                        </div>
+
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">IMEI </label>
+                            <input type="text" name="imei" class="form-control validate">
                         </div>
 
                         <div class="md-form mb-5">
@@ -41,7 +46,7 @@
                         </div>
 
                         <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">Thể loại </label>
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Loại sản phẩm </label>
                             <select class="form-control form-control-sm" name="category">
                                 <option value="" selected>-----------</option>
                                 @foreach(\App\Model\Category::all() as $item)
