@@ -31,6 +31,15 @@ class AddColumnsCartIdMethodOrder extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('order', function(Blueprint $table) {
+            if (Schema::hasColumn('order', 'method')) {
+                $table->dropColumn('method');
+            }
+
+            if (Schema::hasColumn('order', 'cart_id')) {
+                $table->dropForeign(['cart_id']);
+                $table->dropColumn('cart_id');
+            }
+        });
     }
 }

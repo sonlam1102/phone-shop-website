@@ -14,7 +14,7 @@ class DropColumCategoryAttribute extends Migration
     public function up()
     {
         Schema::table('attributes', function(Blueprint $table) {
-            if (Schema::hasColumn('order', 'category_id')) {
+            if (Schema::hasColumn('attributes', 'category_id')) {
                 $table->dropForeign(['category_id']);
                 $table->dropColumn('category_id');
             }
