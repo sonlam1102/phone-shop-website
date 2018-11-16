@@ -27,9 +27,7 @@ class Product extends Model
     public static function addProduct($data) {
         $product = new Product();
         $product->name = $data['name'];
-        $product->code = $data['code'];
         $product->price = $data['price'];
-        $product->imei = $data['imei'];
         $product->manufacture_date = $data['manufacture_date'];
         $product->category_id = $data['category'];
         $product->brand_id = $data['brand'];
@@ -54,8 +52,6 @@ class Product extends Model
 
     public function editProduct($data) {
         $this->name = $data['name'];
-        $this->code = $data['code'];
-        $this->imei = $data['imei'];
         $this->price = $data['price'];
         $this->manufacture_date = $data['manufacture_date'];
         $this->category_id = $data['category'];

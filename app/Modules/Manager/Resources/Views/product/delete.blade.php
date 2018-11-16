@@ -29,7 +29,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('button[data-target="#delete_product"]').click(function () {
-            $('#delete_product .modal-body #warning_message').html("Bạn chắc chắn muốn xoá sản phẩm này: " + $(this).data('name') + " code: " + $(this).data('code'));
+            $('#delete_product .modal-body #warning_message').html("Bạn chắc chắn muốn xoá sản phẩm này: " + $(this).data('name') + " #ID: " + $(this).data('id'));
             $('#delete_product #delete_form').attr("action", "/manager/product/" + $(this).data('id') + "/delete");
         })
     });

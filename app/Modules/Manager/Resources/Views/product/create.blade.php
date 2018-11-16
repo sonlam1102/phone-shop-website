@@ -26,16 +26,6 @@
                         </div>
 
                         <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">Số seri </label>
-                            <input type="text" name="code" class="form-control validate">
-                        </div>
-
-                        <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">IMEI </label>
-                            <input type="text" name="imei" class="form-control validate">
-                        </div>
-
-                        <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="defaultForm-email">Giá tiền </label>
                             <input type="text" name="price" class="form-control validate">
                         </div>

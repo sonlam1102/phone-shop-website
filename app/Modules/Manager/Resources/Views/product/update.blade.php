@@ -27,16 +27,6 @@
                         </div>
 
                         <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email"> Số seri </label>
-                            <input type="text" name="code" id="code" class="form-control validate">
-                        </div>
-
-                        <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">IMEI </label>
-                            <input type="text" name="imei" id="imei" class="form-control validate">
-                        </div>
-
-                        <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="defaultForm-email">Giá tiền </label>
                             <input type="text" name="price" id="price" class="form-control validate">
                         </div>
@@ -102,8 +92,6 @@
 
         $('button[data-target="#update_product"]').click(function () {
             $('#update_product .modal-body #name').val($(this).data('name'));
-            $('#update_product .modal-body #code').val($(this).data('code'));
-            $('#update_product .modal-body #imei').val($(this).data('imei'));
             $('#update_product .modal-body #manu_date').val($(this).data('manu'));
             $('#update_product .modal-body #price').val($(this).data('price'));
             $('#update_product .modal-body #quantity').val($(this).data('quantity'));
