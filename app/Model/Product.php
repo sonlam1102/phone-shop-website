@@ -24,6 +24,10 @@ class Product extends Model
         return $this->belongsTo('App\Company', 'company_id');
     }
 
+    public function codes() {
+        return $this->hasMany('App\Model\ProductCode', 'product_id');
+    }
+
     public static function addProduct($data) {
         $product = new Product();
         $product->name = $data['name'];
