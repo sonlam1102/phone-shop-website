@@ -23,7 +23,6 @@ class ProductController extends ManagerController
         $price = $request->post('price');
         $manufacture_date = $request->post('manu_date');
         $attributes = $request->post('attributes');
-        $quantity = $request->post('quantity');
         $description = $request->post('description');
 
         $company = \Auth::user()->company->id;
@@ -37,7 +36,6 @@ class ProductController extends ManagerController
             'company' => $company,
             'img' => $product_img,
             'attributes' => json_decode($attributes),
-            'quantity' => $quantity,
             'description' => $description
         ];
 
@@ -58,7 +56,6 @@ class ProductController extends ManagerController
         $price = $request->post('price');
         $manufacture_date = $request->post('manu_date');
         $attributes = $request->post('attributes');
-        $quantity = $request->post('quantity');
         $description = $request->post('description');
 
         $company = \Auth::user()->company->id;
@@ -74,7 +71,6 @@ class ProductController extends ManagerController
             'company' => $company,
             'img' => $product_img,
             'attributes' => json_decode($attributes),
-            'quantity' => $quantity,
             'description' => $description
         ];
 

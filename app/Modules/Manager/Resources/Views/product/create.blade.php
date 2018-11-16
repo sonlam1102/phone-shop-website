@@ -56,11 +56,6 @@
                         </div>
 
                         <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">Số lượng </label>
-                            <input type="number" name="quantity" class="form-control validate">
-                        </div>
-
-                        <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="defaultForm-email">Mô tả  </label>
                             <textarea type="date" name="description" class="form-control validate"> </textarea>
                         </div>

@@ -33,7 +33,6 @@ class Product extends Model
         $product->brand_id = $data['brand'];
         $product->company_id = $data['company'];
         $product->img = $data['img'];
-        $product->quantity = $data['quantity'];
         $product->description = $data['description'];
 
         $check = $product->save();
@@ -60,7 +59,6 @@ class Product extends Model
         if ($data['img']) {
             $this->img = $data['img'];
         }
-        $this->quantity = $data['quantity'];
         $this->description = $data['description'];
 
         $current_attributes = [];

@@ -49,7 +49,6 @@
                                             data-price = "{{ $item->price }}"
                                             data-img = "{{ $item->img }}"
                                             data-attributes = "{{ $item->attribute }}"
-                                            data-quantity = "{{ $item->quantity }}"
                                             data-description = "{{ $item->description }}"
                                             data-toggle="modal"
                                             data-target="#update_product">
