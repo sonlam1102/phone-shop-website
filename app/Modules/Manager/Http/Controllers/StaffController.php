@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 class StaffController extends ManagerController
 {
     public function index() {
-        $staff = \Auth::user()->staffs;
+        $staff = \Auth::user()->company->staffs;
 
         return view('manager::staff/staff')
             ->with('data', $this->getUserInfo())
@@ -29,7 +29,7 @@ class StaffController extends ManagerController
 
         $user = User::addStaff($data);
         if ($user) {
-            Staff::addStaff($user->id, \Auth::user()->id);
+            Staff::addStaff($user->id, \Auth::user()->company->id);
         }
 
         return redirect()->back();

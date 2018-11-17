@@ -16,6 +16,10 @@ class Company extends Model
         return $this->belongsTo('App\Model\City', 'city_id');
     }
 
+    public function staffs() {
+        return $this->hasMany('App\Model\Staff', 'company_id');
+    }
+
     public static function addCompany($data) {
         $company = new Company();
 
