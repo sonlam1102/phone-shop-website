@@ -12,6 +12,10 @@ class Staff extends Model
         return $this->belongsTo('App\User', 'user_id');
     }
 
+    public function company() {
+        return $this->belongsTo('App\Model\Company', 'company_id');
+    }
+
     public static function addStaff($user_id, $company_id) {
         $staff = new Staff();
 

@@ -41,7 +41,7 @@
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            {{ \Auth::user()->userinfo ?  \Auth::user()->userinfo->fullname : \Auth::user()->name }}
+                            {{ \Auth::user()->fullname() }}
                             <b class="caret"></b>
                         </a>
 

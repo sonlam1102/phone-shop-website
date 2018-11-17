@@ -11,8 +11,10 @@
 |
 */
 
-Route::group(['prefix' => 'staff'], function () {
-    Route::get('/', function () {
-        dd('This is the Staff module index page. Build something great!');
+Route::group(['prefix' => 'staff', 'middleware' => ['auth', 'staff', ]], function () {
+    Route::get('/', 'StaffController@index')->name('index');
+
+    Route::group(['prefix' => 'product'], function() {
+        Route::get('/', 'ProductController@index');
     });
 });

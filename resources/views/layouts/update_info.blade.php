@@ -28,6 +28,13 @@
                                 <label data-error="wrong" data-success="right" for="defaultForm-email"> {{ \Auth::user()->company->address }}  </label>
                                 <label data-error="wrong" data-success="right" for="defaultForm-email"> {{ \Auth::user()->company->city->name }}  </label>
                             </div>
+                        @elseif(\Auth::check() && \Auth::user()->type == \App\User::TYPE_SELLER)
+                            <div class="md-form mb-5">
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Công ty:  </label>
+                                <label data-error="wrong" data-success="right" for="defaultForm-email"> {{ \Auth::user()->staff_info->company->name }}  </label>
+                                <label data-error="wrong" data-success="right" for="defaultForm-email"> {{ \Auth::user()->staff_info->company->address }}  </label>
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">Người quản lý: {{ \Auth::user()->staff_info->company->user->fullname() }} </label>
+                            </div>
                         @endif
 
                         <div class="md-form mb-5">

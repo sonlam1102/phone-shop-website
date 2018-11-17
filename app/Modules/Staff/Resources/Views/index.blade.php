@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Trang người quản lý </title>
+    <title>Trang nhân viên </title>
 
     <!-- Core CSS - Include with every page -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Trang người quản lý </title>
+            <a class="navbar-brand" href="/">Trang nhân viên </title>
             </a>
         </div>
 
@@ -81,19 +81,11 @@
                     </li>
 
                     <li>
-                        <a href="/manager"><i class="fa fa-dashboard fa-fw"></i> Thông tin chung </a>
+                        <a href="/staff"><i class="fa fa-dashboard fa-fw"></i> Thông tin chung </a>
                     </li>
 
                     <li>
-                        <a href="/manager/product"><i class="fa fa-dashboard fa-fw"></i> Sản phẩm trong cửa hàng </a>
-                    </li>
-
-                    <li>
-                        <a href="/manager/order"><i class="fa fa-dashboard fa-fw"></i> Các đơn hàng </a>
-                    </li>
-
-                    <li>
-                        <a href="/manager/staff"><i class="fa fa-dashboard fa-fw"></i> Nhân viên cửa hàng </a>
+                        <a href="/staff/product"><i class="fa fa-dashboard fa-fw"></i> Sản phẩm </a>
                     </li>
 
                 </ul>

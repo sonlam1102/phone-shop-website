@@ -24,6 +24,10 @@ class UserType
             if (\Auth::user()->type == \App\User::TYPE_MANAGER) {
                 return redirect('/manager');
             }
+
+            if (\Auth::user()->type == \App\User::TYPE_SELLER) {
+                return redirect('/staff');
+            }
         }
 
         return $next($request);

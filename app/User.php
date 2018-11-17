@@ -58,6 +58,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Model\OrderCheck', 'user_id');
     }
 
+    public function staff_info() {
+        return $this->hasOne('App\Model\Staff','user_id');
+    }
+
     public function current_cart() {
         return $this->carts->first() ? !$this->carts->first()->ordered ? $this->carts->first() : null : null;
     }
@@ -96,5 +100,9 @@ class User extends Authenticatable
             'password' => Hash::make("123456"),
             'type' => self::TYPE_SELLER,
         ]);
+    }
+
+    public function fullname() {
+        return $this->userinfo ? $this->userinfo->fullname : $this->name;
     }
 }
