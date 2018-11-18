@@ -1,12 +1,10 @@
 @extends('manager::index')
 
 @section('content')
-    @include('manager::import.export_create')
+
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header"> Chi tiết phiếu nhập </h1>
-            <p> Họ tên: {{ $import->user->fullname() }}</p>
-            <p> Ngày nhâp: {{ $import->created_at }}</p>
+            <h1 class="page-header">Danh sách các phiếu xuất </h1>
         </div>
     </div>
 
@@ -17,19 +15,31 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Tên sản phẩm  </th>
-                        <th> Mã sản phẩm </th>
-                        <th> Giá </th>
+                        <th> Đại diện công ty </th>
+                        <th> Đối tác nhập hàng </th>
+                        <th> Ngày tạo  </th>
+                        <th> Số sản phẩm nhập </th>
+                        <th> Tổng giá </th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
-                    @if ($import->products)
-                        @foreach ($import->products as $item)
+                    @if ($export)
+                        @foreach ($export as $item)
                             <tr>
                                 <td> {{ $item->id }} </td>
-                                <td> {{ $item->product_code->product->name }} </td>
-                                <td> {{ $item->product_code->code }} </td>
-                                <td> {{ $item->product_code->price }} </td>
+                                <td> {{ $item->user->fullname() }} </td>
+                                <td> {{ $item->receiver }} </td>
+                                <td> {{ $item->created_at }} </td>
+                                <td> {{ $item->import->products->count() }} </td>
+                                <td> {{ $item->import->total_price() }} </td>
+                                <td>
+                                    <a href="#">
+                                        <button type="button" class="btn btn-info">
+                                            Chi tiết
+                                        </button>
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                     @endif
@@ -40,16 +50,7 @@
         </div>
         <!-- /.col-lg-4 (nested) -->
         <div class="col-lg-8">
-            <p>Total: {{ $import->total_price() }}</p>
-        </div>
-        <div class="col-lg-8">
-            <button type="button"
-                    class="btn btn-primary"
-                    data-toggle="modal"
-                    data-target="#add_export"
-                    data-import="{{ $import->id }}">
-                Tạo phiếu xuất
-            </button>
+            <div id="morris-bar-chart"></div>
         </div>
         <!-- /.col-lg-8 (nested) -->
     </div>

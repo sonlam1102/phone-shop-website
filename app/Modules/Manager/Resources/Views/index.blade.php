@@ -100,6 +100,10 @@
                         <a href="/manager/import"><i class="fa fa-dashboard fa-fw"></i> Danh sách phiếu nhập </a>
                     </li>
 
+                    <li>
+                        <a href="/manager/export"><i class="fa fa-dashboard fa-fw"></i> Danh sách phiếu xuất </a>
+                    </li>
+
                 </ul>
             </div>
         </div>
