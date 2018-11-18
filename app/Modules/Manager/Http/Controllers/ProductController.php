@@ -8,7 +8,7 @@ use App\Model\Product;
 class ProductController extends ManagerController
 {
     public function index() {
-        $product = Product::all();
+        $product = \Auth::user()->company->products;
         $data = $this->getUserInfo();
 
         return view('manager::product/product')

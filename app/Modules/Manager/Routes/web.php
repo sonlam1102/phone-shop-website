@@ -31,4 +31,9 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'manager', ]], fun
         Route::post('/create', 'StaffController@add');
         Route::put('/{id}/reset', 'StaffController@reset')->where('id', '[0-9]+');
     });
+
+    Route::group(['prefix' => 'import'], function() {
+        Route::get('/', 'ImportController@index');
+        Route::get('/{id}/detail', 'ImportController@detail')->where('id', '[0-9]+');
+    });
 });

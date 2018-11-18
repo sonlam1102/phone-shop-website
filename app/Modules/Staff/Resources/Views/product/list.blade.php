@@ -1,12 +1,9 @@
 @extends('staff::index')
 
 @section('content')
-    @include('staff::product.import')
-
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Danh sách sản phẩm trong cửa hàng </h1>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#import_products" >Thêm </button>
+            <h2 class="page-header"> Danh sách mã sản phẩm của sản phẩm:  {{ $product->name }}</h2>
         </div>
     </div>
 
@@ -16,32 +13,16 @@
                 <table class="table table-bordered table-hover table-striped">
                     <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Tên sản phẩm  </th>
-                        <th>Loại sản phẩm </th>
-                        <th> Nhãn hiệu </th>
-                        <th> Ngày sản xuất </th>
-                        <th> Giá </th>
-                        <th></th>
+                        <th> Mã sản phẩm </th>
+                        <th> Giá nhập vào </th>
                     </tr>
                     </thead>
                     <tbody>
                     @if ($product)
-                        @foreach ($product as $item)
+                        @foreach ($product->codes as $item)
                             <tr>
-                                <td> {{ $item->id }} </td>
-                                <td> {{ $item->name }} </td>
-                                <td> {{ $item->category->name }} </td>
-                                <td> {{ $item->brand->name }} </td>
-                                <td> {{ $item->manufacture_date }} </td>
+                                <td> {{ $item->code }} </td>
                                 <td> {{ $item->price }} </td>
-                                <td>
-                                    <a href="/staff/product/{{ $item->id }}/list">
-                                        <button type="button" class="btn btn-info">
-                                            Danh sách mã sản phẩm
-                                        </button>
-                                    </a>
-                                </td>
                             </tr>
                         @endforeach
                     @endif

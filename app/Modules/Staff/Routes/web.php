@@ -16,5 +16,7 @@ Route::group(['prefix' => 'staff', 'middleware' => ['auth', 'staff', ]], functio
 
     Route::group(['prefix' => 'product'], function() {
         Route::get('/', 'ProductController@index');
+        Route::get('/{id}/list', 'ProductController@list_products')->where('id', '[0-9]+');
+        Route::post('/import', 'ProductController@import');
     });
 });

@@ -1,12 +1,10 @@
-@extends('staff::index')
+@extends('manager::index')
 
 @section('content')
-    @include('staff::product.import')
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Danh sách sản phẩm trong cửa hàng </h1>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#import_products" >Thêm </button>
+            <h1 class="page-header">Danh sách các phiếu nhập  </h1>
         </div>
     </div>
 
@@ -17,28 +15,26 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Tên sản phẩm  </th>
-                        <th>Loại sản phẩm </th>
-                        <th> Nhãn hiệu </th>
-                        <th> Ngày sản xuất </th>
-                        <th> Giá </th>
+                        <th> Người nhập  </th>
+                        <th> Ngày tạo  </th>
+                        <th> Số sản phẩm nhập </th>
+                        <th> Tổng giá </th>
                         <th></th>
                     </tr>
                     </thead>
                     <tbody>
-                    @if ($product)
-                        @foreach ($product as $item)
+                    @if ($import)
+                        @foreach ($import as $item)
                             <tr>
                                 <td> {{ $item->id }} </td>
-                                <td> {{ $item->name }} </td>
-                                <td> {{ $item->category->name }} </td>
-                                <td> {{ $item->brand->name }} </td>
-                                <td> {{ $item->manufacture_date }} </td>
-                                <td> {{ $item->price }} </td>
+                                <td> {{ $item->user->fullname() }} </td>
+                                <td> {{ $item->created_at }} </td>
+                                <td> {{ $item->products->count() }} </td>
+                                <td> {{ $item->total_price() }} </td>
                                 <td>
-                                    <a href="/staff/product/{{ $item->id }}/list">
+                                    <a href="/manager/import/{{ $item->id }}/detail">
                                         <button type="button" class="btn btn-info">
-                                            Danh sách mã sản phẩm
+                                            Chi tiết
                                         </button>
                                     </a>
                                 </td>

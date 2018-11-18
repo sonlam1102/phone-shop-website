@@ -20,6 +20,14 @@ class Company extends Model
         return $this->hasMany('App\Model\Staff', 'company_id');
     }
 
+    public function products() {
+        return $this->hasMany('App\Model\Product', 'company_id');
+    }
+
+    public function imports() {
+        return $this->hasMany('App\Model\Import', 'company_id');
+    }
+
     public static function addCompany($data) {
         $company = new Company();
 

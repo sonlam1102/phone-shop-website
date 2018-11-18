@@ -1,12 +1,15 @@
-@extends('staff::index')
+@extends('manager::index')
 
 @section('content')
-    @include('staff::product.import')
+    @include('manager::product.create')
+    @include('manager::product.update')
+    @include('manager::product.delete')
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Danh sách sản phẩm trong cửa hàng </h1>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#import_products" >Thêm </button>
+            <h1 class="page-header"> Chi tiết phiếu nhập </h1>
+            <p> Họ tên: {{ $import->user->fullname() }}</p>
+            <p> Ngày nhâp: {{ $import->created_at }}</p>
         </div>
     </div>
 
@@ -18,30 +21,18 @@
                     <tr>
                         <th>#</th>
                         <th>Tên sản phẩm  </th>
-                        <th>Loại sản phẩm </th>
-                        <th> Nhãn hiệu </th>
-                        <th> Ngày sản xuất </th>
+                        <th> Mã sản phẩm </th>
                         <th> Giá </th>
-                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
-                    @if ($product)
-                        @foreach ($product as $item)
+                    @if ($import->products)
+                        @foreach ($import->products as $item)
                             <tr>
                                 <td> {{ $item->id }} </td>
-                                <td> {{ $item->name }} </td>
-                                <td> {{ $item->category->name }} </td>
-                                <td> {{ $item->brand->name }} </td>
-                                <td> {{ $item->manufacture_date }} </td>
-                                <td> {{ $item->price }} </td>
-                                <td>
-                                    <a href="/staff/product/{{ $item->id }}/list">
-                                        <button type="button" class="btn btn-info">
-                                            Danh sách mã sản phẩm
-                                        </button>
-                                    </a>
-                                </td>
+                                <td> {{ $item->product_code->product->name }} </td>
+                                <td> {{ $item->product_code->code }} </td>
+                                <td> {{ $item->product_code->price }} </td>
                             </tr>
                         @endforeach
                     @endif
@@ -52,7 +43,7 @@
         </div>
         <!-- /.col-lg-4 (nested) -->
         <div class="col-lg-8">
-            <div id="morris-bar-chart"></div>
+            <p>Total: {{ $import->total_price() }}</p>
         </div>
         <!-- /.col-lg-8 (nested) -->
     </div>

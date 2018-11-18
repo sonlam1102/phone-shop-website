@@ -1,4 +1,4 @@
-@extends('admin::index')
+@extends('manager::index')
 
 @section('content')
     @include('manager::staff.reset')
