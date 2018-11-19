@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+//Phieu nhap
 class Import extends Model
 {
     protected $table = "import";

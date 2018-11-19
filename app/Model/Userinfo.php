@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+//Thong tin chi tiet cua User trong he thong
 class Userinfo extends Model
 {
     protected $table = 'userinfos';

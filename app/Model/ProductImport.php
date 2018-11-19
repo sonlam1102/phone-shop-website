@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+//San pham nhap vao theo phieu nhap
 class ProductImport extends Model
 {
     protected $table = "product_import";

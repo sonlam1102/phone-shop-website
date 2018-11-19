@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+//Don hang
 class Order extends Model
 {
     public const PENDING = 1;

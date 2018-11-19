@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+//Cua hang
 class Company extends Model
 {
     protected $table = 'company';

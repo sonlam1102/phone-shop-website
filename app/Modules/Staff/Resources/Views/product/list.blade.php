@@ -1,6 +1,7 @@
 @extends('staff::index')
 
 @section('content')
+    @include('staff::product.warranty')
     <div class="row">
         <div class="col-lg-12">
             <h2 class="page-header"> Danh sách mã sản phẩm của sản phẩm:  {{ $product->name }}</h2>
@@ -15,6 +16,7 @@
                     <tr>
                         <th> Mã sản phẩm </th>
                         <th> Giá nhập vào </th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -23,6 +25,16 @@
                             <tr>
                                 <td> {{ $item->code }} </td>
                                 <td> {{ $item->price }} </td>
+                                <td>
+                                    <button type="button"
+                                            class="btn btn-primary"
+                                            data-toggle="modal"
+                                            data-target="#product_warranty"
+                                            data-id="{{ $item->id }}"
+                                            data-month="{{ $item->warranty ? $item->warranty->month : null }}">
+                                        Thời gian bảo hành
+                                    </button>
+                                </td>
                             </tr>
                         @endforeach
                     @endif

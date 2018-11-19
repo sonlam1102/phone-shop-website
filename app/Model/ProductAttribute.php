@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+//Thuoc tinh san pham
 class ProductAttribute extends Model
 {
     protected $table = 'product_attributes';

@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+//Nhan vien trong cua hang
 class Staff extends Model
 {
     protected $table = "staff_user";

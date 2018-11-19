@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+//Nhan vien xac nhan don hang
 class OrderCheck extends Model
 {
     protected $table = "order_check";

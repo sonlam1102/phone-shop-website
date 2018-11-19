@@ -5,6 +5,7 @@ namespace App\Modules\Staff\Http\Controllers;
 use App\Model\Import;
 use App\Model\ProductCode;
 use App\Model\ProductImport;
+use App\Model\ProductWarranty;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
@@ -31,6 +32,7 @@ class ProductController extends StaffController
         foreach ($product_data as $item) {
             $product_code_id = ProductCode::add_products($item->product_id, $item->code, $item->price);
             ProductImport::add_product_import($import, $product_code_id);
+            ProductWarranty::add_Warranty($product_code_id, $item->month);
         }
 
         return redirect()->back();
@@ -43,5 +45,21 @@ class ProductController extends StaffController
         return view('staff::product/list')
             ->with('data', $data)
             ->with('product', $product);
+    }
+
+    public function warranty(Request $request, $id) {
+        $month = $request->post('month');
+
+        $product_code = ProductCode::find($id);
+
+        $warranty = $product_code->warranty;
+
+        if (!$warranty) {
+            ProductWarranty::add_Warranty($id, $month);
+        }
+        else {
+            $warranty->update_warranty($month);
+        }
+        return redirect()->back();
     }
 }

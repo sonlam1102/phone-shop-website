@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+//Gio hang
 class Cart extends Model
 {
     protected $table = 'cart';

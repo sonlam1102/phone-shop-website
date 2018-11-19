@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+//Phieu chi
 class Export extends Model
 {
     protected $table = "export";

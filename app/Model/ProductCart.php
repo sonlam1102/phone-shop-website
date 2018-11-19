@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+//San pham trong gio hang
 class ProductCart extends Model
 {
     protected $table = 'products_cart';

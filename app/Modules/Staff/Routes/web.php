@@ -18,5 +18,6 @@ Route::group(['prefix' => 'staff', 'middleware' => ['auth', 'staff', ]], functio
         Route::get('/', 'ProductController@index');
         Route::get('/{id}/list', 'ProductController@list_products')->where('id', '[0-9]+');
         Route::post('/import', 'ProductController@import');
+        Route::post('/warranty/{id}/update', 'ProductController@warranty')->where('id', '[0-9]+');
     });
 });

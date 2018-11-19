@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+//San pham
 class Product extends Model
 {
     protected $table = 'products';
@@ -26,6 +27,10 @@ class Product extends Model
 
     public function codes() {
         return $this->hasMany('App\Model\ProductCode', 'product_id');
+    }
+
+    public function product_remain_quantity() {
+        return $this->codes->count();
     }
 
     public static function addProduct($data) {
