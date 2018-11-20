@@ -29,7 +29,7 @@
                                 <td> {{ $item->id }} </td>
                                 <td> {{ $item->product_code->product->name }} </td>
                                 <td> {{ $item->product_code->code }} </td>
-                                <td> {{ $item->product_code->price }} </td>
+                                <td> {{ $item->product_code->product->original_price }} </td>
                             </tr>
                         @endforeach
                     @endif

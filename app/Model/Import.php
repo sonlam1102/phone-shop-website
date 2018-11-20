@@ -27,7 +27,7 @@ class Import extends Model
         $total = 0;
 
         foreach ($products as $item) {
-            $total = $total + $item->product_code->price;
+            $total = $total + $item->product_code->product->original_price;
         }
 
         return $total;
