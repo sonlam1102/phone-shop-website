@@ -37,6 +37,21 @@ class ProductController extends StaffController
         return redirect()->back();
     }
 
+    public function product_import(Request $request, $id) {
+        $data = $request->post('data');
+
+        $product_data = json_decode($data);
+
+        $import = Import::add_import(\Auth::user()->id, \Auth::user()->staff_info->company->id);
+
+        foreach ($product_data as $item) {
+            $product_code_id = ProductCode::add_products($id, $item->code);
+            ProductImport::add_product_import($import, $product_code_id);
+        }
+
+        return redirect()->back();
+    }
+
     public function list_products($id) {
         $product = Product::find($id);
         $data = $this->getUserInfo();
@@ -44,21 +59,5 @@ class ProductController extends StaffController
         return view('staff::product/list')
             ->with('data', $data)
             ->with('product', $product);
-    }
-
-    public function warranty(Request $request, $id) {
-        $month = $request->post('month');
-
-        $product_code = ProductCode::find($id);
-
-        $warranty = $product_code->warranty;
-
-        if (!$warranty) {
-            ProductWarranty::add_Warranty($id, $month);
-        }
-        else {
-            $warranty->update_warranty($month);
-        }
-        return redirect()->back();
     }
 }

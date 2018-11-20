@@ -2,6 +2,7 @@
 
 @section('content')
     @include('staff::product.import')
+    @include('staff::product.product_import')
 
     <div class="row">
         <div class="col-lg-12">
@@ -41,6 +42,13 @@
                                             Danh sách mã sản phẩm
                                         </button>
                                     </a>
+                                    <button type="button"
+                                            class="btn btn-info"
+                                            data-id = "{{ $item->id }}"
+                                            data-toggle="modal"
+                                            data-target="#product_import_products">
+                                        Nhập sản phẩm
+                                    </button>
                                 </td>
                             </tr>
                         @endforeach
