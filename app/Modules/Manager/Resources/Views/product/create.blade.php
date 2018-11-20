@@ -31,6 +31,11 @@
                         </div>
 
                         <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Giá gốc </label>
+                            <input type="text" name="original_price" class="form-control validate">
+                        </div>
+
+                        <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="defaultForm-email">Ngày sản xuất </label>
                             <input type="date" name="manu_date" class="form-control validate">
                         </div>

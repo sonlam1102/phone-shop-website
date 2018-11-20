@@ -30,7 +30,7 @@ class ProductController extends StaffController
         $import = Import::add_import(\Auth::user()->id, \Auth::user()->staff_info->company->id);
 
         foreach ($product_data as $item) {
-            $product_code_id = ProductCode::add_products($item->product_id, $item->code, $item->price);
+            $product_code_id = ProductCode::add_products($item->product_id, $item->code);
             ProductImport::add_product_import($import, $product_code_id);
             ProductWarranty::add_Warranty($product_code_id, $item->month);
         }

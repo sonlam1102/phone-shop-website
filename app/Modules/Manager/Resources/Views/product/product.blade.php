@@ -47,6 +47,7 @@
                                             data-brand = "{{ $item->brand->id }}"
                                             data-manu = "{{ $item->manufacture_date }}"
                                             data-price = "{{ $item->price }}"
+                                            data-original_price = "{{ $item->original_price }}"
                                             data-img = "{{ $item->img }}"
                                             data-attributes = "{{ $item->attribute }}"
                                             data-description = "{{ $item->description }}"

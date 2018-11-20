@@ -37,6 +37,7 @@ class Product extends Model
         $product = new Product();
         $product->name = $data['name'];
         $product->price = $data['price'];
+        $product->original_price = $data['original_price'];
         $product->manufacture_date = $data['manufacture_date'];
         $product->category_id = $data['category'];
         $product->brand_id = $data['brand'];
@@ -61,6 +62,7 @@ class Product extends Model
     public function editProduct($data) {
         $this->name = $data['name'];
         $this->price = $data['price'];
+        $this->original_price = $data['original_price'];
         $this->manufacture_date = $data['manufacture_date'];
         $this->category_id = $data['category'];
         $this->brand_id = $data['brand'];

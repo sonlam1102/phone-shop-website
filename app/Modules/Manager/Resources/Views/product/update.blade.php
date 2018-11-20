@@ -32,6 +32,11 @@
                         </div>
 
                         <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Giá gốc </label>
+                            <input type="text" name="original_price" id="original_price" class="form-control validate">
+                        </div>
+
+                        <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="defaultForm-email">Ngày sản xuất </label>
                             <input type="date" name="manu_date" id="manu_date" class="form-control validate">
                         </div>
@@ -89,6 +94,7 @@
             $('#update_product .modal-body #name').val($(this).data('name'));
             $('#update_product .modal-body #manu_date').val($(this).data('manu'));
             $('#update_product .modal-body #price').val($(this).data('price'));
+            $('#update_product .modal-body #original_price').val($(this).data('original_price'));
             $('#update_product .modal-body #description').html($(this).data('description'));
 
             let category = $(this).data('category');

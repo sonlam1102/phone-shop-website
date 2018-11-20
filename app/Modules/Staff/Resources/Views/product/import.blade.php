@@ -59,9 +59,6 @@
             '<input class="form-control product_code" placeholder="mã sản phẩm (imei hoặc serial)">' +
             '</span>' +
             '<span class="input-group-btn">' +
-            '<input class="form-control product_price" placeholder="gía nhập sản phẩm (giá gốc)">' +
-            '</span>' +
-            '<span class="input-group-btn">' +
             '<input class="form-control month" placeholder="Tháng bảo hành">' +
             '</span>' +
             '<span class="input-group-btn">' +
@@ -83,7 +80,6 @@
             let item = {
                 'product_id': $(this).find('.product_id').val(),
                 'code': $(this).find('.product_code').val(),
-                'price': $(this).find('.product_price').val(),
                 'month': $(this).find('.month').val()
             };
             products.push(item);

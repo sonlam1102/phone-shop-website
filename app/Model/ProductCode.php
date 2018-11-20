@@ -17,12 +17,12 @@ class ProductCode extends Model
         return $this->hasOne('App\Model\ProductWarranty', 'product_code_id');
     }
 
-    public static function add_products($product_id, $code, $price) {
+    public static function add_products($product_id, $code) {
         $product_code = new ProductCode();
 
         $product_code->product_id = $product_id;
         $product_code->code = $code;
-        $product_code->price = $price;
+        $product_code->price = Product::find($product_id)->original_price;
 
         $product_code->save();
 

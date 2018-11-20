@@ -21,6 +21,7 @@ class ProductController extends ManagerController
         $category = $request->post('category');
         $brand = $request->post('brand');
         $price = $request->post('price');
+        $original_price = $request->post('original_price');
         $manufacture_date = $request->post('manu_date');
         $attributes = $request->post('attributes');
         $description = $request->post('description');
@@ -32,6 +33,7 @@ class ProductController extends ManagerController
             'category' => $category,
             'brand' => $brand,
             'price' => $price,
+            'original_price' => $original_price,
             'manufacture_date' => $manufacture_date,
             'company' => $company,
             'img' => $product_img,
@@ -54,6 +56,7 @@ class ProductController extends ManagerController
         $category = $request->post('category');
         $brand = $request->post('brand');
         $price = $request->post('price');
+        $original_price = $request->post('original_price');
         $manufacture_date = $request->post('manu_date');
         $attributes = $request->post('attributes');
         $description = $request->post('description');
@@ -67,6 +70,7 @@ class ProductController extends ManagerController
             'category' => $category,
             'brand' => $brand,
             'price' => $price,
+            'original_price' => $original_price,
             'manufacture_date' => $manufacture_date,
             'company' => $company,
             'img' => $product_img,
