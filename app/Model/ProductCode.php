@@ -22,7 +22,6 @@ class ProductCode extends Model
 
         $product_code->product_id = $product_id;
         $product_code->code = $code;
-        $product_code->price = Product::find($product_id)->original_price;
 
         $product_code->save();
 

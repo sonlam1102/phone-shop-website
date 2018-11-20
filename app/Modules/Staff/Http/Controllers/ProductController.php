@@ -32,7 +32,6 @@ class ProductController extends StaffController
         foreach ($product_data as $item) {
             $product_code_id = ProductCode::add_products($item->product_id, $item->code);
             ProductImport::add_product_import($import, $product_code_id);
-            ProductWarranty::add_Warranty($product_code_id, $item->month);
         }
 
         return redirect()->back();

@@ -25,6 +25,7 @@ class ProductController extends ManagerController
         $manufacture_date = $request->post('manu_date');
         $attributes = $request->post('attributes');
         $description = $request->post('description');
+        $warranty_month = $request->post('warranty_month');
 
         $company = \Auth::user()->company->id;
         $product_img = \App\Tools\Upload::productImageUpload($request, $name);
@@ -38,7 +39,8 @@ class ProductController extends ManagerController
             'company' => $company,
             'img' => $product_img,
             'attributes' => json_decode($attributes),
-            'description' => $description
+            'description' => $description,
+            'warranty_month' => $warranty_month
         ];
 
         try {
@@ -60,6 +62,7 @@ class ProductController extends ManagerController
         $manufacture_date = $request->post('manu_date');
         $attributes = $request->post('attributes');
         $description = $request->post('description');
+        $warranty_month = $request->post('warranty_month');
 
         $company = \Auth::user()->company->id;
         $product_img = \App\Tools\Upload::productImageUpload($request, $name);
@@ -75,7 +78,8 @@ class ProductController extends ManagerController
             'company' => $company,
             'img' => $product_img,
             'attributes' => json_decode($attributes),
-            'description' => $description
+            'description' => $description,
+            'warranty_month' => $warranty_month
         ];
 
         try {

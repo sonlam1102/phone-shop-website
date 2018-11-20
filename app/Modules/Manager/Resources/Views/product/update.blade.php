@@ -42,6 +42,11 @@
                         </div>
 
                         <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Bảo hành </label>
+                            <input type="number" name="warranty_month" id="warranty_month" class="form-control validate">
+                        </div>
+
+                        <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="defaultForm-email">Thể loại </label>
                             <select class="form-control form-control-sm" name="category" id="category">
                                 <option value="" selected>-----------</option>
@@ -95,6 +100,7 @@
             $('#update_product .modal-body #manu_date').val($(this).data('manu'));
             $('#update_product .modal-body #price').val($(this).data('price'));
             $('#update_product .modal-body #original_price').val($(this).data('original_price'));
+            $('#update_product .modal-body #warranty_month').val($(this).data('warranty_month'));
             $('#update_product .modal-body #description').html($(this).data('description'));
 
             let category = $(this).data('category');

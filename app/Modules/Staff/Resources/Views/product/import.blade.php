@@ -59,9 +59,6 @@
             '<input class="form-control product_code" placeholder="mã sản phẩm (imei hoặc serial)">' +
             '</span>' +
             '<span class="input-group-btn">' +
-            '<input class="form-control month" placeholder="Tháng bảo hành">' +
-            '</span>' +
-            '<span class="input-group-btn">' +
             '<button type="button" class="btn btn-danger delete_product"> Xoá </button>' +
             '</span>' +
             '</div>';
@@ -79,8 +76,7 @@
         $('.products').each(function () {
             let item = {
                 'product_id': $(this).find('.product_id').val(),
-                'code': $(this).find('.product_code').val(),
-                'month': $(this).find('.month').val()
+                'code': $(this).find('.product_code').val()
             };
             products.push(item);
         });

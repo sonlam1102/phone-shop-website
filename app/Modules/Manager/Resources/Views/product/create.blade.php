@@ -36,6 +36,11 @@
                         </div>
 
                         <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Bảo hành  </label>
+                            <input type="number" name="warranty_month" class="form-control validate">
+                        </div>
+
+                        <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="defaultForm-email">Ngày sản xuất </label>
                             <input type="date" name="manu_date" class="form-control validate">
                         </div>
