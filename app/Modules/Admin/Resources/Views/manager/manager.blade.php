@@ -32,7 +32,7 @@
                                 <td> {{ $item->id }} </td>
                                 <td> {{ $item->name }} </td>
                                 <td> {{ $item->email }} </td>
-                                <td> {{ $item->company ? $item->company->address : "None" }} </td>
+                                <td> {{ $item->manager ? $item->manager->company->name."-".$item->manager->company->address : "None" }} </td>
                                 <td>
                                     <button
                                             type="button"
