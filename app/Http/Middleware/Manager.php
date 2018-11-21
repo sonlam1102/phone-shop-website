@@ -19,7 +19,7 @@ class Manager
             return redirect('/');
         } else if (!\Auth::user()->manager) {
             \Auth::logout();
-            return redirect('/')->back('400');
+            return redirect('/');
         }
 
         return $next($request);
