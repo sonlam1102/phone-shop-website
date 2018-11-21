@@ -34,7 +34,7 @@
                                 <td> {{ $item->name }} </td>
                                 <td> {{ $item->address }} </td>
                                 <td> {{ ($item->city) ? $item->city->name : "" }} </td>
-                                <td> {{$item->user ? $item->user->name : ""}} </td>
+                                <td> {{ $item->manager_info() ? $item->manager_info()->fullname()."-".$item->manager_info()->email : ""}} </td>
                                 <td>
                                     <button
                                             type="button"
@@ -43,7 +43,7 @@
                                             data-name="{{ $item->name }}"
                                             data-address="{{ $item->address }}"
                                             data-city="{{ ($item->city) ? $item->city->id : "" }}"
-                                            data-manager = "{{ $item->user ? $item->user->id : "" }}"
+                                            data-manager = "{{ $item->manager_info() ? $item->manager_info()->id : "" }}"
                                             data-toggle="modal"
                                             data-target="#update_company">
                                         Cập nhật

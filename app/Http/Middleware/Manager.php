@@ -17,8 +17,9 @@ class Manager
     {
         if (\Auth::user()->type != \App\User::TYPE_MANAGER) {
             return redirect('/');
-        } else if (!\Auth::user()->company) {
-            abort('400', 'Bạn không sở hữu cửa hàng nào');
+        } else if (!\Auth::user()->manager) {
+            \Auth::logout();
+            return redirect('/')->back('400');
         }
 
         return $next($request);

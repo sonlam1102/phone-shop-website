@@ -3,6 +3,8 @@
 namespace App\Modules\Admin\Http\Controllers;
 
 use App\Model\Company;
+use App\Model\Manager;
+use App\User;
 use Illuminate\Http\Request;
 
 class CompanyController extends AdminController
@@ -26,11 +28,11 @@ class CompanyController extends AdminController
         $data = [
             'name' => $name,
             'address' => $address,
-            'city' => $city,
-            'manager' => $manager
+            'city' => $city
         ];
 
-        Company::addCompany($data);
+        $company_id = Company::addCompany($data);
+        Manager::addManger($manager, $company_id);
 
         return redirect()->back();
     }
@@ -44,12 +46,18 @@ class CompanyController extends AdminController
         $data = [
             'name' => $name,
             'address' => $address,
-            'city' => $city,
-            'manager' => $manager
+            'city' => $city
         ];
 
         $company = Company::find($id);
         $company->updateCompany($data);
+
+        if (User::find($manager)->manager) {
+            User::find($manager)->manager->updateManager($company->id);
+        }
+        else {
+            Manager::addManger($manager, $company->id);
+        }
 
         return redirect()->back();
     }

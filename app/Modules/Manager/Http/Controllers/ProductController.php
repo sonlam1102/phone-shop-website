@@ -8,7 +8,7 @@ use App\Model\Product;
 class ProductController extends ManagerController
 {
     public function index() {
-        $product = \Auth::user()->company->products;
+        $product = \Auth::user()->manager->company->products;
         $data = $this->getUserInfo();
 
         return view('manager::product/product')
@@ -27,7 +27,7 @@ class ProductController extends ManagerController
         $description = $request->post('description');
         $warranty_month = $request->post('warranty_month');
 
-        $company = \Auth::user()->company->id;
+        $company = \Auth::user()->manager->company->id;
         $product_img = \App\Tools\Upload::productImageUpload($request, $name);
         $data = [
             'name' => $name,
@@ -64,7 +64,7 @@ class ProductController extends ManagerController
         $description = $request->post('description');
         $warranty_month = $request->post('warranty_month');
 
-        $company = \Auth::user()->company->id;
+        $company = \Auth::user()->manager->company->id;
         $product_img = \App\Tools\Upload::productImageUpload($request, $name);
 
         $product = Product::find($id);

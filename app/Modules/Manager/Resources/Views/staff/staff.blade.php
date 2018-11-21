@@ -8,8 +8,8 @@
         <div class="col-lg-12">
             <h1 class="page-header"> Nhân viên  </h1>
             <h5 class="page-header">
-                <p> Cửa hàng: {{ \Auth::user()->company->name }} </p>
-                <p> Địa chỉ: {{ \Auth::user()->company->address }}</p>
+                <p> Cửa hàng: {{ \Auth::user()->manager->company->name }} </p>
+                <p> Địa chỉ: {{ \Auth::user()->manager->company->address }}</p>
             </h5>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_staff" >Thêm </button>
         </div>

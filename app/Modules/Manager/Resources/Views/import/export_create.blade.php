@@ -5,7 +5,7 @@
             <form method="post" action="/manager/export/create" id="create-export">
                 @csrf
                 <input type="text" name="user" value="{{ \Auth::user()->id }}" hidden>
-                <input type="text" name="company" value="{{ \Auth::user()->company->id }}" hidden>
+                <input type="text" name="company" value="{{ \Auth::user()->manager->company->id }}" hidden>
                 <input type="text" name="import" id="import" hidden>
 
                 <div class="modal-content">

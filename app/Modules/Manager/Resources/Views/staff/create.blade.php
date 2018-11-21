@@ -9,8 +9,8 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Thêm nhân viên cửa hàng  </h4>
                         <h9 class="page-header">
-                            <p> Cửa hàng: {{ \Auth::user()->company->name }} </p>
-                            <p> Địa chỉ: {{ \Auth::user()->company->address }}</p>
+                            <p> Cửa hàng: {{ \Auth::user()->manager->company->name }} </p>
+                            <p> Địa chỉ: {{ \Auth::user()->manager->company->address }}</p>
                         </h9>
                     </div>
 

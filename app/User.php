@@ -42,8 +42,8 @@ class User extends Authenticatable
         return $this->hasOne('App\Model\Userinfo', 'user_id');
     }
 
-    public function company() {
-        return $this->hasOne('App\Model\Company', 'user_id_manager');
+    public function manager() {
+        return $this->hasOne('App\Model\Manager', 'user_id');
     }
 
     public function orders() {

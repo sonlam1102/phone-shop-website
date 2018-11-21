@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class ExportController extends ManagerController
 {
     public function index() {
-        $exports = \Auth::user()->company->exports;
+        $exports = \Auth::user()->manager->company->exports;
         $data = $this->getUserInfo();
 
         return view('manager::export/export')

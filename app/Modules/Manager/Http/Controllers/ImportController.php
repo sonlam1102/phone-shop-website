@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class ImportController extends ManagerController
 {
     public function index() {
-        $imports = \Auth::user()->company->imports;
+        $imports = \Auth::user()->manager->company->imports;
         $data = $this->getUserInfo();
 
         return view('manager::import/import')

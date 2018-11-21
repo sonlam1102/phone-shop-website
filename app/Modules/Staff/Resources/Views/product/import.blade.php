@@ -45,7 +45,7 @@
         allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
     });
 
-    function products_add() {
+    function products_add_by_product() {
         var html = '<div class="input-group products">' +
             '<span class="input-group-btn">' +
             '<select class="form-control product_id">' +
@@ -66,7 +66,7 @@
     }
 
     $('#import-product').click(function () {
-        $('#import_field').append(products_add);
+        $('#import-product-form #import_field').append(products_add_by_product);
     });
 
     $('#import-product-form').submit(function (e) {

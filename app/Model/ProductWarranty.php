@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 //Bao hanh san pham (theo ma san pham)
 class ProductWarranty extends Model
@@ -13,18 +14,14 @@ class ProductWarranty extends Model
         return $this->belongsTo('App\Model\ProductCode', 'product_code_id');
     }
 
-    public static function add_Warranty($product_code_id, $month) {
+    public static function add_Warranty($product_code_id, $from) {
         $warranty = new ProductWarranty();
 
         $warranty->product_code_id = $product_code_id;
-        $warranty->month = $month;
+        $warranty->from = $from;
+        $warranty->to = Carbon::parse($warranty->from)->addMonths(ProductCode::find($product_code_id)->product->warranty_month);
 
         return $warranty->save();
     }
 
-    public function update_warranty($month) {
-        $this->month = $month;
-
-        return $this->save();
-    }
 }
