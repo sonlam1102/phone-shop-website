@@ -105,7 +105,7 @@
         allowedFileExtensions: ["jpg", "png", "gif", "jpeg"]
     });
 
-    function attribute_choose() {
+    function attribute_choose_create() {
         var html = '<div class="input-group attributes">' +
             '<span class="input-group-btn">' +
             '<select class="form-control attribute_id">' +
@@ -118,6 +118,9 @@
             '<span class="input-group-btn">' +
             '<input class="form-control attribute_value">' +
             '</span>' +
+            '<span class="input-group-btn">' +
+            '<button type="button" class="btn btn-danger delete_attribute"> Xoá </button>' +
+            '</span>' +
             '</div>';
         return html;
     }
@@ -127,7 +130,7 @@
     });
 
     $('#add-attribute').click(function () {
-        $('#attribute_field').append(attribute_choose);
+        $('#create-product #attribute_field').append(attribute_choose_create);
     });
 
     $('#create-product').submit(function (e) {

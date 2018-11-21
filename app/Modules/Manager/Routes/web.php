@@ -41,4 +41,11 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'manager', ]], fun
         Route::get('/', 'ExportController@index');
         Route::post('/create', 'ExportController@add');
     });
+
+    Route::group(['prefix' => 'gift'], function() {
+        Route::get('/', 'GiftController@index');
+        Route::get('/{id}/accessories', 'GiftController@list_accessories')->where('id', '[0-9]+');
+        Route::post('/create', 'GiftController@add');
+        Route::put('/{id}/update', 'GiftController@update')->where('id', '[0-9]+');
+    });
 });

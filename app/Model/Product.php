@@ -33,6 +33,10 @@ class Product extends Model
         return $this->codes->count();
     }
 
+    public function gift() {
+        return $this->hasOne('App\Model\ProductGift', 'product_id');
+    }
+
     public static function addProduct($data) {
         $product = new Product();
         $product->name = $data['name'];
@@ -113,5 +117,12 @@ class Product extends Model
         }
 
         return $this->save();
+    }
+
+    public function product_price() {
+        if ($this->gift) {
+            return ($this->price * $this->gift->discount) / 100;
+        }
+        return $this->price;
     }
 }

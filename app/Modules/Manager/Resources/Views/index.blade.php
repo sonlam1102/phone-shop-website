@@ -104,6 +104,10 @@
                         <a href="/manager/export"><i class="fa fa-dashboard fa-fw"></i> Danh sách phiếu xuất </a>
                     </li>
 
+                    <li>
+                        <a href="/manager/gift"><i class="fa fa-dashboard fa-fw"></i> Danh sách khuyến mãi </a>
+                    </li>
+
                 </ul>
             </div>
         </div>
