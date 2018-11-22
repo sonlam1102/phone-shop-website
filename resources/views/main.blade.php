@@ -19,9 +19,9 @@
     <link href="/css/main.css" rel="stylesheet" />
 </head>
 <body>
-    @include('layouts.order')
+    @include('customer::customer.order')
     @include('layouts.update_info')
-    @include('layouts.order_check')
+    @include('customer::customer.order_check')
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <!-- Company and toggle get grouped for better mobile display -->
