@@ -27,4 +27,14 @@ class ProductCode extends Model
 
         return $product_code->id;
     }
+
+    public static function findIdByCode($code) {
+        return self::select('id')->where('code', '=', $code) ? self::select('id')->where('code', '=', $code)->first() : null;
+    }
+
+    public function sold() {
+        $this->is_sold = true;
+
+        $this->save();
+    }
 }

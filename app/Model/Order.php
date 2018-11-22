@@ -93,4 +93,9 @@ class Order extends Model
     public static function get_order_method_payment() {
         return (new Order)->getMethod();
     }
+
+    public function confirm() {
+        $this->status = self::CONFIRM;
+        $this->save();
+    }
 }

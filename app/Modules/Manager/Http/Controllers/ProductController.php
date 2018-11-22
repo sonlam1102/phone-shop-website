@@ -103,4 +103,13 @@ class ProductController extends ManagerController
 
         return redirect()->back();
     }
+
+    public function list_products($id) {
+        $product = Product::find($id);
+        $data = $this->getUserInfo();
+
+        return view('manager::product/list')
+            ->with('data', $data)
+            ->with('product', $product);
+    }
 }

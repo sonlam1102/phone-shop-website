@@ -30,7 +30,7 @@ class Product extends Model
     }
 
     public function product_remain_quantity() {
-        return $this->codes->count();
+        return $this->codes->where('is_sold', false)->count();
     }
 
     public function gift() {

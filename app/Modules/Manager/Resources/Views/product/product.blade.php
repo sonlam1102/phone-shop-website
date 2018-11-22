@@ -38,6 +38,12 @@
                                 <td> {{ $item->manufacture_date }} </td>
                                 <td> {{ $item->price }} </td>
                                 <td>
+
+                                    <a href="/manager/product/{{ $item->id }}/list">
+                                        <button type="button" class="btn btn-info">
+                                            Danh sách mã sản phẩm
+                                        </button>
+                                    </a>
                                     <button
                                             type="button"
                                             class="btn btn-info"
