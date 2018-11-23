@@ -20,4 +20,12 @@ Route::group(['prefix' => 'staff', 'middleware' => ['auth', 'staff', ]], functio
         Route::post('/import', 'ProductController@import');
         Route::post('/{id}/import', 'ProductController@product_import')->where('id', '[0-9]+');
     });
+
+    Route::group(['prefix' => 'order'], function() {
+        Route::get('/', 'OrderController@index');
+        Route::get('/{id}/review', 'OrderController@confirmOrder')->where('id', '[0-9]+');
+        Route::get('/{id}/check', 'OrderController@review')->where('id', '[0-9]+');
+        Route::post('/{id}/confirm', 'OrderController@confirm')->where('id', '[0-9]+');
+        Route::put('/{id}/confirm', 'OrderController@checkOrder')->where('id', '[0-9]+');
+    });
 });

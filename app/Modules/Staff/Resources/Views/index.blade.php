@@ -88,6 +88,10 @@
                         <a href="/staff/product"><i class="fa fa-dashboard fa-fw"></i> Sản phẩm </a>
                     </li>
 
+                    <li>
+                        <a href="/staff/order"><i class="fa fa-dashboard fa-fw"></i> Các đơn hàng </a>
+                    </li>
+
                 </ul>
             </div>
         </div>

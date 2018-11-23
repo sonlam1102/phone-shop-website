@@ -1,4 +1,4 @@
-@extends('manager::index')
+@extends('staff::index')
 
 @section('content')
     <div class="row">
@@ -9,7 +9,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <form method="post" action="/manager/order/{{ $order->id }}/confirm" id="order_confirm_form">
+            <form method="post" action="/staff/order/{{ $order->id }}/confirm" id="order_confirm_form">
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">
@@ -23,7 +23,7 @@
                         @foreach($order->cart->products as $item)
                             <div class="md-form mb-5 product_item">
                                 <label data-error="wrong" data-success="right" for="defaultForm-email">
-                                    <a href="/manager/product/{{ $item->product->id }}/list">
+                                    <a href="/staff/product/{{ $item->product->id }}/list">
                                         {{ $item->product->name }} (Bấm vào đây để xem danh sách mã)
                                     </a>
                                 </label>

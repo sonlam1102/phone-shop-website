@@ -24,4 +24,8 @@ class ProductWarranty extends Model
         return $warranty->save();
     }
 
+    public function expired() {
+        return date('d-m-Y', strtotime($this->to));
+    }
+
 }

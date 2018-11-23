@@ -1,4 +1,4 @@
-@extends('manager::index')
+@extends('staff::index')
 
 @section('content')
 
@@ -40,13 +40,13 @@
                                 <td>
                                     @if(!$item->check || ($item->check && $item->check->user->id == \Auth::user()->id))
                                         @if($item->status == \App\Model\Order::PENDING)
-                                            <a href="/manager/order/{{$item->id}}/review">
+                                            <a href="/staff/order/{{$item->id}}/review">
                                                 <button type="button" class="btn btn-warning">
                                                     Xác nhận đơn hàng
                                                 </button>
                                             </a>
                                         @else
-                                            <a href="/manager/order/{{$item->id}}/check">
+                                            <a href="/staff/order/{{$item->id}}/check">
                                                 <button type="button" class="btn btn-info">
                                                     Kiểm tra đơn hàng
                                                 </button>

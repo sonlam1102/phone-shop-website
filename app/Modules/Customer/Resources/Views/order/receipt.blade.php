@@ -43,6 +43,9 @@
                         <th>Số lượng </th>
                         <th class="text-center">Giá tiền</th>
                         <th class="text-center">Tổng</th>
+                        @if($order->subscribed)
+                            <th> Mã sản phẩm (dùng để tra cứu bảo hành) </th>
+                        @endif
                     </tr>
                     </thead>
                     <tbody>
@@ -52,6 +55,9 @@
                             <td class="col-md-1" style="text-align: center"> {{ $item->quantity }} </td>
                             <td class="col-md-1 text-center">{{ $item->product->price }}</td>
                             <td class="col-md-1 text-center">{{ ($item->product->price)*($item->quantity) }}</td>
+                            <td>
+
+                            </td>
                         </tr>
                     @endforeach
                     {{--<tr>--}}

@@ -1,22 +1,24 @@
 <?php
 
-namespace App\Modules\Manager\Http\Controllers;
+namespace App\Modules\Staff\Http\Controllers;
 
+use Illuminate\Http\Request;
+
+use App\Http\Controllers\Controller;
 use App\Model\Order;
 use App\Model\OrderCheck;
 use App\Model\Product;
 use App\Model\ProductCode;
 use App\Model\ProductWarranty;
 use App\Model\SubscribedProduct;
-use Illuminate\Http\Request;
 
-class OrderController extends ManagerController
+class OrderController extends StaffController
 {
     public function index() {
         $orders = Order::all();
         $data = $this->getUserInfo();
 
-        return view('manager::order/order')
+        return view('staff::order/order')
             ->with('data', $data)
             ->with('order', $orders);
     }
@@ -38,7 +40,7 @@ class OrderController extends ManagerController
         $order = Order::find($id);
         $data = $this->getUserInfo();
 
-        return view('manager::order/confirm')
+        return view('staff::order/confirm')
             ->with('data', $data)
             ->with('order', $order);
     }
@@ -79,14 +81,14 @@ class OrderController extends ManagerController
         }
         $order->confirm();
 
-        return redirect('/manager/order');
+        return redirect('/staff/order');
     }
 
     public function review($id) {
         $order = Order::find($id);
         $data = $this->getUserInfo();
 
-        return view('manager::order/review')
+        return view('staff::order/review')
             ->with('data', $data)
             ->with('order', $order);
     }

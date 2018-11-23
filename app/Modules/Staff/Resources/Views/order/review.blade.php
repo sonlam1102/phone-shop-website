@@ -1,4 +1,4 @@
-@extends('manager::index')
+@extends('staff::index')
 
 @section('content')
     <div class="row">
@@ -9,7 +9,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <form method="post" action="/manager/order/{{ $order->id }}/confirm" id="order_confirm_form">
+            <form method="post" action="/staff/order/{{ $order->id }}/confirm" id="order_confirm_form">
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">
@@ -20,27 +20,17 @@
                     </div>
 
                     <div class="modal-body">
-                        @foreach($order->cart->products as $item)
+                        @foreach($order->subscribed as $item)
                             <div class="md-form mb-5 product_item">
-                                <label data-error="wrong" data-success="right" for="defaultForm-email">
-                                    <a href="/manager/product/{{ $item->product->id }}/list">
-                                        {{ $item->product->name }} (Bấm vào đây để xem danh sách mã)
-                                    </a>
-                                </label>
-                                <input type="text" class="product_id" value="{{ $item->product->id }}" hidden>
-
-                                    @for($i=0;$i<$item->quantity;$i++)
-                                        <div class="product_codes">
-                                            <input type="text" class="form-control validate p_codes" required>
-                                        </div>
-                                    @endfor
-
+                                <label data-error="wrong" data-success="right" for="defaultForm-email">{{ $item->code->product->name }}</label>
+                                <p> Mã sản phẩm:  {{ $item->code->code }} </p>
+                                <p>Hạn bảo hành:  {{ $item->code->warranty->expired() }} </p>
                             </div>
                         @endforeach
                     </div>
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-default" >Xác nhận đơn hàng </button>
+                        <button type="submit" class="btn btn-default" >Cập nhật  </button>
                     </div>
 
                 </div>
@@ -82,37 +72,4 @@
             width: 213px;
         }
     </style>
-    <script>
-        function findcodes(obj) {
-            let codes = [];
-
-            obj.each(function () {
-                codes.push($(this).find('.p_codes').val());
-            });
-
-            return codes;
-        }
-
-        $("#order_confirm_form").submit(function (e) {
-            e.preventDefault();
-
-            let subscribed_product = [];
-
-            $('.product_item').each(function () {
-                let code = [];
-                let obj = $(this).find('.product_codes');
-
-                code = findcodes(obj);
-
-                let item = {
-                    'product_id': $(this).find('.product_id').val(),
-                    'codes': code
-                };
-                subscribed_product.push(item);
-            });
-            $(this).append('<textarea name="subscribed_item">'+ JSON.stringify(subscribed_product) + '</textarea>');
-
-            $(this).submit();
-        });
-    </script>
 @endsection

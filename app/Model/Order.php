@@ -47,6 +47,10 @@ class Order extends Model
         return $this->belongsTo('App\Model\Cart', 'cart_id');
     }
 
+    public function subscribed() {
+        return $this->hasMany('App\Model\SubscribedProduct', 'order_id');
+    }
+
     public static function add_order($data) {
         $order = new Order();
 
