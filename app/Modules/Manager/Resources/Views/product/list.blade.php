@@ -26,6 +26,7 @@
                                 <td> {{ $item->code }} </td>
                                 <td> {{ $item->product->original_price }} </td>
                                 <td> {{ $item->product->warranty_month }}</td>
+                                <td> {{ $item->sold_status() }}</td>
                             </tr>
                         @endforeach
                     @endif

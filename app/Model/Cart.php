@@ -22,7 +22,13 @@ class Cart extends Model
 
         $total = 0;
         foreach ($product as $item) {
-            $total = $total + (int)$item->product->price*$item->quantity;
+            if ($item->product->gift) {
+                $p_price = ($item->product->price * $item->product->gift->discount) / 100;
+                $total = $total + (int)$p_price*$item->quantity;
+            }
+            else {
+                $total = $total + (int)$item->product->price*$item->quantity;
+            }
         }
 
         return $total;

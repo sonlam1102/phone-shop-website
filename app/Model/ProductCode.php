@@ -37,4 +37,8 @@ class ProductCode extends Model
 
         $this->save();
     }
+
+    public function sold_status() {
+        return !$this->is_sold ? "có sẵn" : "không có sẵn";
+    }
 }
