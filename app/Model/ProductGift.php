@@ -49,4 +49,8 @@ class ProductGift extends Model
 
         $this->save();
     }
+
+    public static function get_all_gifts() {
+        return self::select()->where('is_active', true) ? self::select()->where('is_active', true)->get() : null;
+    }
 }

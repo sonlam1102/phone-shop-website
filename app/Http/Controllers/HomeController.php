@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Product;
 use Illuminate\Http\Request;
 use App\Model\Userinfo;
 use Illuminate\Support\Facades\Auth;
@@ -43,5 +44,14 @@ class HomeController extends Controller
     {
         $data = $this->getUserInfo();
         return view('main')->with('data', $data);
+    }
+
+    public function info($id) {
+        $product = Product::find($id);
+        $data = $this->getUserInfo();
+
+        return view('layouts.product_info')
+            ->with('product', $product)
+            ->with('data', $data);
     }
 }

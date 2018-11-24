@@ -17,6 +17,9 @@
     <!-- custom CSS here -->
     <link href="/css/style.css" rel="stylesheet" />
     <link href="/css/main.css" rel="stylesheet" />
+    <link href="/css/mislider.css" rel="stylesheet">
+    <link href="/css/mislider-skin-cameo.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
     @include('customer::customer.order')
@@ -43,7 +46,7 @@
     </nav>
     <div class="container">
         <div class="row">
-            {{--@include('layouts.slider')--}}
+            @include('layouts.slider')
         </div>
         <!-- /.row -->
         <div class="row">
@@ -100,10 +103,10 @@
                                         <p>Brand : <strong>{{ $item->brand->name }}</strong>  </p>
                                         <p>
                                             <a href="javascript:void(0)" class="btn btn-success add_cart" role="button" data-id="{{ $item->id }}">
-                                                Add To Cart
+                                                Thêm vào giỏ hàng
                                                 @csrf
                                             </a>
-                                            <a href="#" class="btn btn-primary" role="button">See Details</a>
+                                            <a href="/product/{{ $item->id }}/info" class="btn btn-primary" role="button">Thông tin sản phẩm</a>
                                         </p>
                                     </div>
                                 </div>
@@ -152,6 +155,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="/js/bootstrap.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/js/fileinput.min.js"></script>
+    <script src="/js/mislider.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     <script>
         $("#products_field").on('click', '.add_cart', function () {
             let url = '/customer/cart/product/'+ $(this).data('id') +'/add';

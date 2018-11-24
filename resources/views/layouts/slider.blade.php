@@ -1,78 +1,80 @@
 <div class="col-md-12">
     <div class="well well-lg offer-box text-center">
-        Today's Offer : &nbsp; <span class="glyphicon glyphicon-cog"></span>&nbsp;40 % off  on purchase of $ 2,000 and above till 24 dec !
+        Sản phẩm hiện đang khuyến mãi
     </div>
-    <div class="main box-border">
-        <div id="mi-slider" class="mi-slider">
-            <ul>
-                <li><a href="#">
-                        <img src="/ItemSlider/images/1.jpg" alt="img01"><h4>Boots</h4>
-                    </a></li>
-                <li><a href="#">
-                        <img src="/ItemSlider/images/2.jpg" alt="img02"><h4>Oxfords</h4>
-                    </a></li>
-                <li><a href="#">
-                        <img src="/ItemSlider/images/3.jpg" alt="img03"><h4>Loafers</h4>
-                    </a></li>
-                <li><a href="#">
-                        <img src="/ItemSlider/images/4.jpg" alt="img04"><h4>Sneakers</h4>
-                    </a></li>
-            </ul>
-            <ul>
-                <li><a href="#">
-                        <img src="/ItemSlider/images/5.jpg" alt="img05"><h4>Belts</h4>
-                    </a></li>
-                <li><a href="#">
-                        <img src="/ItemSlider/images/6.jpg" alt="img06"><h4>Hats &amp; Caps</h4>
-                    </a></li>
-                <li><a href="#">
-                        <img src="/ItemSlider/images/7.jpg" alt="img07"><h4>Sunglasses</h4>
-                    </a></li>
-                <li><a href="#">
-                        <img src="/ItemSlider/images/8.jpg" alt="img08"><h4>Scarves</h4>
-                    </a></li>
-            </ul>
-            <ul>
-                <li><a href="#">
-                        <img src="/ItemSlider/images/9.jpg" alt="img09"><h4>Casual</h4>
-                    </a></li>
-                <li><a href="#">
-                        <img src="/ItemSlider/images/10.jpg" alt="img10"><h4>Luxury</h4>
-                    </a></li>
-                <li><a href="#">
-                        <img src="/ItemSlider/images/11.jpg" alt="img11"><h4>Sport</h4>
-                    </a></li>
-            </ul>
-            <ul>
-                <li><a href="#">
-                        <img src="/ItemSlider/images/12.jpg" alt="img12"><h4>Carry-Ons</h4>
-                    </a></li>
-                <li><a href="#">
-                        <img src="/ItemSlider/images/13.jpg" alt="img13"><h4>Duffel Bags</h4>
-                    </a></li>
-                <li><a href="#">
-                        <img src="/ItemSlider/images/14.jpg" alt="img14"><h4>Laptop Bags</h4>
-                    </a></li>
-                <li><a href="#">
-                        <img src="/ItemSlider/images/15.jpg" alt="img15"><h4>Briefcases</h4>
-                    </a></li>
-            </ul>
-            <nav>
-                <a href="#">Shoes</a>
-                <a href="#">Accessories</a>
-                <a href="#">Watches</a>
-                <a href="#">Bags</a>
-            </nav>
-        </div>
-
+    <div class="mis-stage">
+        <ol class="mis-slider">
+            @foreach(\App\Model\ProductGift::get_all_gifts() as $item)
+            <li class="mis-slide">
+                <a href="#" class="mis-container">
+                    <figure>
+                        <img src="{{ $item->product->img }}" onerror="this.src='/img/product.png';">
+                        <figcaption> {{ $item->product->name }} </figcaption>
+                    </figure>
+                </a>
+            </li>
+            @endforeach
+            {{--<li class="mis-slide">--}}
+                {{--<a href="#" class="mis-container">--}}
+                    {{--<figure>--}}
+                        {{--<img src="/img/garden02.jpg" alt="Pond with Lillies">--}}
+                        {{--<figcaption>Pond with Lillies</figcaption>--}}
+                    {{--</figure>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li class="mis-slide">--}}
+                {{--<a href="#" class="mis-container">--}}
+                    {{--<figure>--}}
+                        {{--<img src="/img/garden03.jpg" alt="Hidden Pond">--}}
+                        {{--<figcaption>Hidden Pond</figcaption>--}}
+                    {{--</figure>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li class="mis-slide">--}}
+                {{--<a href="#" class="mis-container">--}}
+                    {{--<figure>--}}
+                        {{--<img src="/img/garden04.jpg" alt="Shrine">--}}
+                        {{--<figcaption>Shrine</figcaption>--}}
+                    {{--</figure>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li class="mis-slide">--}}
+                {{--<a href="#" class="mis-container">--}}
+                    {{--<figure>--}}
+                        {{--<img src="/img/garden05.jpg" alt="White Water Lillies">--}}
+                        {{--<figcaption>White Water Lillies</figcaption>--}}
+                    {{--</figure>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li class="mis-slide">--}}
+                {{--<a href="#" class="mis-container">--}}
+                    {{--<figure>--}}
+                        {{--<img src="/img/garden06.jpg" alt="Garden Walkway">--}}
+                        {{--<figcaption>Garden Walkway</figcaption>--}}
+                    {{--</figure>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li class="mis-slide">--}}
+                {{--<a href="#" class="mis-container">--}}
+                    {{--<figure>--}}
+                        {{--<img src="/img/garden07.jpg" alt="Lilly with Bee">--}}
+                        {{--<figcaption>Lilly with Bee</figcaption>--}}
+                    {{--</figure>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+        </ol>
     </div>
-    <br />
 </div>
-<script src="/ItemSlider/js/modernizr.custom.63321.js"></script>
-<script src="/ItemSlider/js/jquery.catslider.js"></script>
 <script>
-    $(function () {
-        $('#mi-slider').catslider();
-
+    $(document).ready(function () {
+        $('.mis-stage').miSlider({
+            slidesOnStage: false,
+            slidePosition: 'center',
+            slideStart: 'mid',
+            slideScaling: 150,
+            offsetV: -5,
+            centerV: true,
+            navButtonsOpacity: 1
+        });
     });
 </script>
