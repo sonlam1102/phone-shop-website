@@ -14,54 +14,6 @@
                 </a>
             </li>
             @endforeach
-            {{--<li class="mis-slide">--}}
-                {{--<a href="#" class="mis-container">--}}
-                    {{--<figure>--}}
-                        {{--<img src="/img/garden02.jpg" alt="Pond with Lillies">--}}
-                        {{--<figcaption>Pond with Lillies</figcaption>--}}
-                    {{--</figure>--}}
-                {{--</a>--}}
-            {{--</li>--}}
-            {{--<li class="mis-slide">--}}
-                {{--<a href="#" class="mis-container">--}}
-                    {{--<figure>--}}
-                        {{--<img src="/img/garden03.jpg" alt="Hidden Pond">--}}
-                        {{--<figcaption>Hidden Pond</figcaption>--}}
-                    {{--</figure>--}}
-                {{--</a>--}}
-            {{--</li>--}}
-            {{--<li class="mis-slide">--}}
-                {{--<a href="#" class="mis-container">--}}
-                    {{--<figure>--}}
-                        {{--<img src="/img/garden04.jpg" alt="Shrine">--}}
-                        {{--<figcaption>Shrine</figcaption>--}}
-                    {{--</figure>--}}
-                {{--</a>--}}
-            {{--</li>--}}
-            {{--<li class="mis-slide">--}}
-                {{--<a href="#" class="mis-container">--}}
-                    {{--<figure>--}}
-                        {{--<img src="/img/garden05.jpg" alt="White Water Lillies">--}}
-                        {{--<figcaption>White Water Lillies</figcaption>--}}
-                    {{--</figure>--}}
-                {{--</a>--}}
-            {{--</li>--}}
-            {{--<li class="mis-slide">--}}
-                {{--<a href="#" class="mis-container">--}}
-                    {{--<figure>--}}
-                        {{--<img src="/img/garden06.jpg" alt="Garden Walkway">--}}
-                        {{--<figcaption>Garden Walkway</figcaption>--}}
-                    {{--</figure>--}}
-                {{--</a>--}}
-            {{--</li>--}}
-            {{--<li class="mis-slide">--}}
-                {{--<a href="#" class="mis-container">--}}
-                    {{--<figure>--}}
-                        {{--<img src="/img/garden07.jpg" alt="Lilly with Bee">--}}
-                        {{--<figcaption>Lilly with Bee</figcaption>--}}
-                    {{--</figure>--}}
-                {{--</a>--}}
-            {{--</li>--}}
         </ol>
     </div>
 </div>
