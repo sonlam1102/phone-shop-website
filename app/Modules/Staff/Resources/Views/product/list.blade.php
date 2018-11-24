@@ -16,7 +16,7 @@
                         <th> Mã sản phẩm </th>
                         <th> Giá nhập vào </th>
                         <th> Thời gian bảo hành </th>
-                        <th></th>
+                        <th> Tình trạng </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -26,6 +26,7 @@
                                 <td> {{ $item->code }} </td>
                                 <td> {{ $item->product->original_price }} </td>
                                 <td> {{ $item->product->warranty_month }}</td>
+                                <td> {{ $item->sold_status() }}</td>
                             </tr>
                         @endforeach
                     @endif

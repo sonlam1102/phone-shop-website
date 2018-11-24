@@ -16,7 +16,7 @@
                         <th> Mã sản phẩm </th>
                         <th> Giá nhập vào </th>
                         <th> Thời gian bảo hành </th>
-                        <th></th>
+                        <th> Tình trạng </th>
                     </tr>
                     </thead>
                     <tbody>

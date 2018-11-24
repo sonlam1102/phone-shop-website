@@ -77,9 +77,9 @@ class OrderController extends ManagerController
                 }
             }
             $order->confirm();
+            return redirect('/manager/order');
         }
-
-        return redirect('/manager/order');
+         return redirect()->back()->with('message', 'Sản phẩm nhập đã bán hoặc không có sẵn. Vui lòng nhập lại');
     }
 
     public function review($id) {

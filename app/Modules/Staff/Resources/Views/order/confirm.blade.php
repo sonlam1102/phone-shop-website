@@ -37,6 +37,7 @@
 
                             </div>
                         @endforeach
+                        <h5 class="text-danger"> {!! \Session::get('message', '') !!}  </h5>
                     </div>
 
                     <div class="modal-footer">

@@ -34,9 +34,9 @@
                                             <input type="text" class="form-control validate p_codes" required>
                                         </div>
                                     @endfor
-
                             </div>
                         @endforeach
+                        <h5 class="text-danger"> {!! \Session::get('message', '') !!}  </h5>
                     </div>
 
                     <div class="modal-footer">
@@ -49,7 +49,8 @@
         </div>
         <!-- /.col-lg-4 (nested) -->
         <div class="col-lg-8">
-            <div id="morris-bar-chart"></div>
+            <div id="morris-bar-chart">
+            </div>
         </div>
         <!-- /.col-lg-8 (nested) -->
     </div>

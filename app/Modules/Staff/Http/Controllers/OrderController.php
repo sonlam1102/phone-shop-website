@@ -79,9 +79,9 @@ class OrderController extends StaffController
                 }
             }
             $order->confirm();
+            return redirect('/staff/order');
         }
-
-        return redirect('/staff/order');
+        return redirect()->back()->with('message', 'Sản phẩm nhập đã bán hoặc không có sẵn. Vui lòng nhập lại');
     }
 
     public function review($id) {
