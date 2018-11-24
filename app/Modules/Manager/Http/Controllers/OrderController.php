@@ -76,8 +76,8 @@ class OrderController extends ManagerController
                     ProductWarranty::add_Warranty($product_code->id, date('Y-m-d'));
                 }
             }
+            $order->confirm();
         }
-        $order->confirm();
 
         return redirect('/manager/order');
     }

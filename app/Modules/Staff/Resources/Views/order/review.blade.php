@@ -28,11 +28,6 @@
                             </div>
                         @endforeach
                     </div>
-
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-default" >Cập nhật  </button>
-                    </div>
-
                 </div>
             </form>
             <!-- /.table-responsive -->

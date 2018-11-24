@@ -23,7 +23,7 @@
                         @foreach($order->cart->products as $item)
                             <div class="md-form mb-5 product_item">
                                 <label data-error="wrong" data-success="right" for="defaultForm-email">
-                                    <a href="/staff/product/{{ $item->product->id }}/list">
+                                    <a href="/staff/product/{{ $item->product->id }}/list" target="_blank">
                                         {{ $item->product->name }} (Bấm vào đây để xem danh sách mã)
                                     </a>
                                 </label>

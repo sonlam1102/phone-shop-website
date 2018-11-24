@@ -78,8 +78,8 @@ class OrderController extends StaffController
                     ProductWarranty::add_Warranty($product_code->id, date('Y-m-d'));
                 }
             }
+            $order->confirm();
         }
-        $order->confirm();
 
         return redirect('/staff/order');
     }
