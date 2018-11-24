@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Danh sách các phiếu xuất </h1>
+            <h1 class="page-header">Danh sách các phiếu chi </h1>
         </div>
     </div>
 

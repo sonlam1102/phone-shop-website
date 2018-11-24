@@ -101,7 +101,7 @@
                     </li>
 
                     <li>
-                        <a href="/manager/export"><i class="fa fa-dashboard fa-fw"></i> Danh sách phiếu xuất </a>
+                        <a href="/manager/export"><i class="fa fa-dashboard fa-fw"></i> Danh sách phiếu chi </a>
                     </li>
 
                     <li>

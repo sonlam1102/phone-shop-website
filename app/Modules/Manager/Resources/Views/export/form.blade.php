@@ -21,7 +21,7 @@
             </div>
             <div class="row">
                 <div class="text-center">
-                    <h1>Phiếu xuất </h1>
+                    <h1>Phiếu chi </h1>
                 </div>
                 <div class="text-lg-left">
                     {{--<p>Họ tên người đặt: {{ $order->name }}</p>--}}
