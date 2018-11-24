@@ -38,7 +38,9 @@
                                 <td> {{ $item->status() }} </td>
                                 <td> {{ $item->method() }} </td>
                                 <td>
-                                    @if(!$item->check || ($item->check && $item->check->user->id == \Auth::user()->id))
+                                    @if ($item->status == \App\Model\Order::CANCEL)
+                                        <p> Đơn hàng đã bị huỷ </p>
+                                    @else
                                         @if($item->status == \App\Model\Order::PENDING)
                                             <a href="/manager/order/{{$item->id}}/review">
                                                 <button type="button" class="btn btn-warning">
@@ -52,8 +54,6 @@
                                                 </button>
                                             </a>
                                         @endif
-                                    @else
-                                        <p> Xác nhận bởi: {{ $item->check->user->userinfo ? $item->check->user->userinfo->fullname : $item->check->user->name }}</p>
                                     @endif
                                 </td>
                             </tr>

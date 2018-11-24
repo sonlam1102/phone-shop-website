@@ -79,6 +79,10 @@ class OrderController extends StaffController
                 }
             }
             $order->confirm();
+
+            if (!$order->check) {
+                OrderCheck::addOrderCheck(\Auth::user()->id, $order->id);
+            }
             return redirect('/staff/order');
         }
         return redirect()->back()->with('message', 'Sản phẩm nhập đã bán hoặc không có sẵn. Vui lòng nhập lại');

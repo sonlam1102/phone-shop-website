@@ -32,6 +32,14 @@
                                             <a href="/customer/order/{{$item->id}}/info">
                                                 <button class="btn btn-info">Chi tiết hoá đơn</button>
                                             </a>
+
+                                            @if ($item->status == \App\Model\Order::PENDING)
+                                                <form method="post" action="/customer/order/{{ $item->id }}/cancel">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <button type="submit" class="btn btn-danger">Huỷ hoá đơn</button>
+                                                </form>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

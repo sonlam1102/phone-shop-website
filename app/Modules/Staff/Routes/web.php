@@ -26,6 +26,5 @@ Route::group(['prefix' => 'staff', 'middleware' => ['auth', 'staff', ]], functio
         Route::get('/{id}/review', 'OrderController@confirmOrder')->where('id', '[0-9]+');
         Route::get('/{id}/check', 'OrderController@review')->where('id', '[0-9]+');
         Route::post('/{id}/confirm', 'OrderController@confirm')->where('id', '[0-9]+');
-        Route::put('/{id}/confirm', 'OrderController@checkOrder')->where('id', '[0-9]+');
     });
 });

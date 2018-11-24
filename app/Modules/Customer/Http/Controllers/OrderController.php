@@ -4,6 +4,7 @@ namespace App\Modules\Customer\Http\Controllers;
 
 use App\Model\CartOrder;
 use App\Model\Order;
+use App\Model\OrderCheck;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
@@ -46,5 +47,17 @@ class OrderController extends CustomerController
         $order = Order::find($id);
 
         return view('customer::order.receipt')->with('order', $order);
+    }
+
+    public function cancel($id) {
+        $order = Order::find($id);
+
+        $order->cancel();
+
+        if (!$order->check) {
+            OrderCheck::addOrderCheck(\Auth::user()->id, $order->id);
+        }
+
+        return redirect()->back();
     }
 }

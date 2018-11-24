@@ -18,10 +18,10 @@ class Order extends Model
 
     protected $order_status = [
         self::PENDING => "Đang chờ",
-        self::CONFIRM => "Xác nhận",
+        self::CONFIRM => "Đã Xác nhận",
         self::SHIPPING => "Giao hàng",
         self::SUCCESS => "Thành công",
-        self::CANCEL => "Huỷ"
+        self::CANCEL => "Đã Huỷ"
     ];
 
     protected $methods = [
@@ -100,6 +100,11 @@ class Order extends Model
 
     public function confirm() {
         $this->status = self::CONFIRM;
+        $this->save();
+    }
+
+    public function cancel() {
+        $this->status = self::CANCEL;
         $this->save();
     }
 }
