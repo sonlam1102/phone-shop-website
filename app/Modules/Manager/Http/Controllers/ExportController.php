@@ -3,6 +3,7 @@
 namespace App\Modules\Manager\Http\Controllers;
 
 use App\Model\Export;
+use App\Model\Import;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
@@ -36,5 +37,10 @@ class ExportController extends ManagerController
         Export::add_export($data);
 
         return redirect()->back();
+    }
+
+    public function show($id) {
+        $export = Export::find($id);
+        return view('manager::export/form')->with('export', $export);
     }
 }

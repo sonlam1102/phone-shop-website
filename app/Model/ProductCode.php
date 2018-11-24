@@ -39,6 +39,6 @@ class ProductCode extends Model
     }
 
     public function sold_status() {
-        return !$this->is_sold ? "có sẵn" : "không có sẵn";
+        return !$this->is_sold ? "có sẵn" : "đã bán";
     }
 }

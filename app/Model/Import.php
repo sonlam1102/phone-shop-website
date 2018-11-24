@@ -21,6 +21,10 @@ class Import extends Model
         return $this->hasMany('App\Model\ProductImport', 'import_id');
     }
 
+    public function export() {
+        return $this->hasOne('App\Model\Export', 'import_id');
+    }
+
     public function total_price() {
         $products = $this->products;
 

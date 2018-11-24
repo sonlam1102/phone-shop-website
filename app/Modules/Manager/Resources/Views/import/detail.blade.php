@@ -43,13 +43,15 @@
             <p>Total: {{ $import->total_price() }}</p>
         </div>
         <div class="col-lg-8">
-            <button type="button"
-                    class="btn btn-primary"
-                    data-toggle="modal"
-                    data-target="#add_export"
-                    data-import="{{ $import->id }}">
-                Tạo phiếu xuất
-            </button>
+            @if(!$import->export)
+                <button type="button"
+                        class="btn btn-primary"
+                        data-toggle="modal"
+                        data-target="#add_export"
+                        data-import="{{ $import->id }}">
+                    Tạo phiếu xuất
+                </button>
+            @endif
         </div>
         <!-- /.col-lg-8 (nested) -->
     </div>

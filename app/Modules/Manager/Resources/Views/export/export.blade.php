@@ -28,13 +28,13 @@
                         @foreach ($export as $item)
                             <tr>
                                 <td> {{ $item->id }} </td>
-                                <td> {{ $item->user->fullname() }} </td>
+                                <td> {{ $item->import->user->fullname() }} </td>
                                 <td> {{ $item->receiver }} </td>
                                 <td> {{ $item->created_at }} </td>
                                 <td> {{ $item->import->products->count() }} </td>
                                 <td> {{ $item->import->total_price() }} </td>
                                 <td>
-                                    <a href="#">
+                                    <a href="/manager/export/{{ $item->id }}/info">
                                         <button type="button" class="btn btn-info">
                                             Chi tiết
                                         </button>

@@ -43,6 +43,7 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'manager', ]], fun
 
     Route::group(['prefix' => 'export'], function() {
         Route::get('/', 'ExportController@index');
+        Route::get('/{id}/info', 'ExportController@show')->where('id', '[0-9]+');
         Route::post('/create', 'ExportController@add');
     });
 

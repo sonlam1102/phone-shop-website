@@ -13,6 +13,10 @@ class Export extends Model
         return $this->belongsTo('App\Model\Import', 'import_id');
     }
 
+    public function company() {
+        return $this->belongsTo('App\Model\Company', 'company_id');
+    }
+
     public function user() {
         return $this->belongsTo('App\User', 'user_id');
     }
