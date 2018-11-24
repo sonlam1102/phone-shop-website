@@ -68,6 +68,11 @@
                 </div>
 
                 <div class="md-form mb-5">
+                    <label data-error="wrong" data-success="right" for="defaultForm-email">Loại sản phẩm: </label>
+                    <p> {{ $product->category->name }} </p>
+                </div>
+
+                <div class="md-form mb-5">
                     <label data-error="wrong" data-success="right" for="defaultForm-email">Ngày sản xuất: </label>
                     <p> {{ $product->manufacture_date }} </p>
                 </div>
