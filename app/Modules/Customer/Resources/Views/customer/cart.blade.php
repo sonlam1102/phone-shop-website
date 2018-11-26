@@ -13,12 +13,17 @@
                             <tr>
                                 <td hidden><input class="id" type="number" value="{{ $item->id }}" hidden></td>
                                 <td hidden><input class="product_id" type="number" value="{{ $item->product->id }}" hidden></td>
-                                <td class="product_item_table">{{ $item->product->name }}</td>
+                                <td class="product_item_table">
+                                    {{ $item->product->name }}
+                                    @if($item->product->gift)
+                                        KM: {{ $item->product->gift->discount }} %
+                                    @endif
+                                </td>
                                 <td class="product_item_table"><img class="product_cart_img" src="{{ $item->product->img }}" onerror="this.src='/img/product.png'"></td>
                                 <td class="product_item_table">
                                     <input class="quantity" type="number" value="{{ $item->quantity }}" style="max-width: 60px;">
                                 </td>
-                                <td class="product_item_table">{{ $item->product->price }}</td>
+                                <td class="product_item_table">{{ $item->product->product_price() }}</td>
                                 <td class="product_item_table">
                                     <button class="btn btn-danger delete_cart_product"> Delete
                                         <input class="id" type="number" value="{{ $item->id }}" hidden>

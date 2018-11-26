@@ -12,6 +12,10 @@ class ProductGiftAccessories extends Model
         return $this->belongsTo('App\Model\Product', 'product_id');
     }
 
+    public function product_gift() {
+        return $this->belongsTo('App\Model\ProductGift', 'product_gift_id');
+    }
+
     public static function add_accessories($product_gift_id, $product_id, $quantity) {
         $accessories = new ProductGiftAccessories();
 

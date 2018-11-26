@@ -34,7 +34,7 @@ class Product extends Model
     }
 
     public function gift() {
-        return $this->hasOne('App\Model\ProductGift', 'product_id');
+        return $this->hasOne('App\Model\ProductGift', 'product_id')->where('is_active', '=', true);
     }
 
     public static function addProduct($data) {
@@ -121,7 +121,7 @@ class Product extends Model
 
     public function product_price() {
         if ($this->gift) {
-            return ($this->price * $this->gift->discount) / 100;
+            return $this->price - (($this->price * $this->gift->discount) / 100);
         }
         return $this->price;
     }

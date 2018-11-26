@@ -42,11 +42,29 @@
                                     <table class="table" border="1">
                                         @foreach(\Auth::user()->current_cart()->products as $item)
                                             <tr>
-                                                <td>{{ $item->product->name }}</td>
+                                                <td>
+                                                    {{ $item->product->name }}
+                                                    @if($item->product->gift)
+                                                        KM: {{ $item->product->gift->discount }} %
+                                                    @endif
+                                                </td>
                                                 <td><img class="product_cart_img" src="{{ $item->product->img }}" onerror="this.src='/img/product.png'"></td>
-                                                <td>{{ $item->product->price }}</td>
+                                                <td>{{ $item->product->product_price() }}</td>
                                                 <td>{{ $item->quantity }}</td>
                                             </tr>
+                                            @if($item->product->gift)
+                                                @foreach($item->product->gift->accessories as $it_gift)
+                                                    Sản phẩm khuyến mãi
+                                                    <tr>
+                                                        <td>
+                                                            {{ $it_gift->product->name }}
+                                                        </td>
+                                                        <td><img class="product_cart_img" src="{{ $it_gift->product->img }}" onerror="this.src='/img/product.png'"></td>
+                                                        <td>0</td>
+                                                        <td>{{ $item->quantity }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            @endif
                                         @endforeach
                                     </table>
                                 </div>

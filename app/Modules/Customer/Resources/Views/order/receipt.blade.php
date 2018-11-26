@@ -53,9 +53,23 @@
                         <tr>
                             <td class="col-md-9"><em>{{ $item->product->name }}</em></td>
                             <td class="col-md-1" style="text-align: center"> {{ $item->quantity }} </td>
-                            <td class="col-md-1 text-center">{{ $item->product->price }}</td>
-                            <td class="col-md-1 text-center">{{ ($item->product->price)*($item->quantity) }}</td>
+                            <td class="col-md-1 text-center">{{ $item->product->price }}
+                                @if($item->product->gift)
+                                    - ({{ $item->product->gift->discount }} %)
+                                @endif
+                            </td>
+                            <td class="col-md-1 text-center">{{ ($item->product->product_price())*($item->quantity) }}</td>
                         </tr>
+                        @if($item->product->gift)
+                            @foreach($item->product->gift->accessories as $it_gift)
+                                <tr>
+                                    <td class="col-md-9"><em>{{ $it_gift->product->name }}</em></td>
+                                    <td class="col-md-1" style="text-align: center">{{ $item->quantity }} </td>
+                                    <td class="col-md-1 text-center">0</td>
+                                    <td class="col-md-1 text-center">0</td>
+                                </tr>
+                            @endforeach
+                        @endif
                     @endforeach
                     {{--<tr>--}}
                         {{--<td>   </td>--}}
@@ -82,13 +96,21 @@
                         <td class="text-center text-danger"><h4><strong>{{ $order->method() }}</strong></h4></td>
                     </tr>
 
-                    @if($order->check and $order->status != \App\Model\Order::PENDING)
+                    @if($order->check and ($order->status != \App\Model\Order::PENDING && $order->status != \App\Model\Order::CANCEL))
                         <tr>
                             <td class="text-right"><h4><strong>Nhân viên xác nhận: </strong></h4></td>
                             <td>   </td>
                             <td>   </td>
                             <td class="text-center text-danger"><h4><strong>{{ $order->check->user->userinfo ? $order->check->user->userinfo->fullname : $order->check->user->name }}</strong></h4></td>
                         </tr>
+                    @endif
+
+                    @if ($order->check and $order->status == \App\Model\Order::CANCEL)
+                        <tr>
+                            <td class="text-right"><strong class="text-info"> Đơn hàng đã huỷ </strong></td>
+                            <td>  </td>
+                            <td> </td>
+                            <td>   </td>
                     @endif
                     </tbody>
                 </table>

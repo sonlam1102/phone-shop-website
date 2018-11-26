@@ -35,7 +35,27 @@
                                         </div>
                                     @endfor
                             </div>
+                            @if($item->product->gift)
+                                @foreach($item->product->gift->accessories as $it_gift)
+                                    <div class="md-form mb-5 product_item">
+                                        <label data-error="wrong" data-success="right" for="defaultForm-email">
+                                            <a href="/manager/product/{{ $it_gift->product->id }}/list" target="_blank">
+                                                {{ $it_gift->product->name }} (Bấm vào đây để xem danh sách mã)
+                                            </a>
+                                        </label>
+                                        <input type="text" class="product_id" value="{{ $it_gift->product->id }}" hidden>
+
+                                        @for($i=0;$i<$item->quantity;$i++)
+                                            <div class="product_codes">
+                                                <input type="text" class="form-control validate p_codes" required>
+                                            </div>
+                                        @endfor
+
+                                    </div>
+                                @endforeach
+                            @endif
                         @endforeach
+
                         <h5 class="text-danger"> {!! \Session::get('message', '') !!}  </h5>
                     </div>
 
