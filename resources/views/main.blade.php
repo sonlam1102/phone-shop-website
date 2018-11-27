@@ -25,6 +25,8 @@
     @include('customer::customer.order')
     @include('layouts.update_info')
     @include('customer::customer.order_check')
+    @include('customer::warranty.warranty')
+
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <!-- Company and toggle get grouped for better mobile display -->

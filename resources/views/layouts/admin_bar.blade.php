@@ -22,6 +22,10 @@
                     </li>
 
                     <li>
+                        <a href="javascript:void(0)" data-toggle="modal" data-target="#warranty_check"><strong> Tra cứu bảo hành </strong></a>
+                    </li>
+
+                    <li>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                             <strong>Đăng xuất  </strong>

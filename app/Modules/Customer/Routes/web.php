@@ -25,4 +25,8 @@ Route::group(['prefix' => 'customer', 'middleware' => ['auth', 'customer', ]], f
         Route::get('/{id}/info', 'OrderController@receipt')->where('id', '[0-9]+');
         Route::put('/{id}/cancel', 'OrderController@cancel')->where('id', '[0-9]+');
     });
+
+    Route::group(['prefix' => 'warranty'], function () {
+        Route::post('/check', 'WarrantyController@warranty_check');
+    });
 });
