@@ -53,7 +53,14 @@ class WarrantyRequest extends Model
     }
 
     public function status() {
-        return $this->request_status[$this->status];
+        return $this->request_status[(int)$this->status];
     }
 
+    public function getStatus() {
+        return $this->request_status;
+    }
+
+    public static function get_request_status() {
+        return (new WarrantyRequest)->getStatus();
+    }
 }

@@ -27,4 +27,9 @@ Route::group(['prefix' => 'staff', 'middleware' => ['auth', 'staff', ]], functio
         Route::get('/{id}/check', 'OrderController@review')->where('id', '[0-9]+');
         Route::post('/{id}/confirm', 'OrderController@confirm')->where('id', '[0-9]+');
     });
+
+    Route::group(['prefix' => 'warranty'], function() {
+        Route::get('/', 'WarrantyController@index');
+        Route::put('/request/{id}/confirm', 'WarrantyController@confirm')->where('id', '[0-9]+');
+    });
 });

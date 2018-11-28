@@ -92,6 +92,10 @@
                         <a href="/staff/order"><i class="fa fa-dashboard fa-fw"></i> Các đơn hàng </a>
                     </li>
 
+                    <li>
+                        <a href="/staff/warranty"><i class="fa fa-dashboard fa-fw"></i> Bảo hành </a>
+                    </li>
+
                 </ul>
             </div>
         </div>
