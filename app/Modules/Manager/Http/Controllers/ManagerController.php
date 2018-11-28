@@ -10,8 +10,10 @@ use App\Http\Controllers\HomeController;
 class ManagerController extends HomeController
 {
     public function index() {
-
-        return view('manager::main/main')->with('data', $this->getUserInfo());
+        $company = \Auth::user()->manager->company;
+        return view('manager::main/main')
+            ->with('company', $company)
+            ->with('data', $this->getUserInfo());
     }
 
     public function getCompany() {

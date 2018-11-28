@@ -9,6 +9,10 @@ class City extends Model
 {
     protected $table = 'cities';
 
+    public function company() {
+        return $this->hasMany('App\Model\Company', 'city_id');
+    }
+
     public function update_city($data) {
         $this->name = $data['name'];
         $this->code = $data['code'];

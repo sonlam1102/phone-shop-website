@@ -13,6 +13,10 @@ class Brand extends Model
         return $this->belongsTo('App\Model\Category', 'category_id');
     }
 
+    public function products() {
+        return $this->hasMany('App\Model\Product', 'brand_id');
+    }
+
     public static function addBrand($data) {
         $brand = new Brand();
 

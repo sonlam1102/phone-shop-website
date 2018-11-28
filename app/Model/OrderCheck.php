@@ -13,6 +13,10 @@ class OrderCheck extends Model
         return $this->belongsTo('App\User', 'user_id');
     }
 
+    public function order() {
+        return $this->belongsTo('App\Model\Order', 'order_id');
+    }
+
     public static function addOrderCheck($user_id, $order_id) {
         $order_check = new OrderCheck();
 

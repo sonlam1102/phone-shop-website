@@ -60,4 +60,41 @@ class Company extends Model
 
         return $this->save();
     }
+
+    public function total_checked_order() {
+        $total = 0;
+        $total = $total + $this->manager->user->checked_order->count();
+
+        foreach ($this->staffs as $item) {
+            $total = $total + $item->user->checked_order->count();
+        }
+
+        return $total;
+    }
+
+    public function total_price_orders() {
+        $total = 0;
+
+        foreach ($this->manager->user->checked_order as $item) {
+            if ($item->order->status != Order::PENDING && $item->order->status != Order::CANCEL) {
+                $total = $total + $item->order->price();
+            }
+        }
+
+        foreach ($this->staffs as $item) {
+            $total = $total + $item->user->checked_order->count();
+        }
+
+        return $total;
+    }
+
+    public function total_product_ready() {
+        $total = 0;
+
+        foreach ($this->products as $item) {
+            $total = $total + $item->codes->where('is_sold', '=', false)->count();
+        }
+
+        return $total;
+    }
 }

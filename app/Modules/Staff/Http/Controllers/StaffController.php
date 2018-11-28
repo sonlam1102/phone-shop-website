@@ -10,8 +10,10 @@ use App\Http\Controllers\Controller;
 class StaffController extends HomeController
 {
     public function index() {
-
-        return view('staff::main/main')->with('data', $this->getUserInfo());
+        $company = \Auth::user()->staff_info->company;
+        return view('staff::main/main')
+            ->with('company', $company)
+            ->with('data', $this->getUserInfo());
     }
 
     public function getStaffInfo() {

@@ -107,4 +107,8 @@ class Order extends Model
         $this->status = self::CANCEL;
         $this->save();
     }
+
+    public function price() {
+        return $this->cart->total_price();
+    }
 }

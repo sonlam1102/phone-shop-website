@@ -25,4 +25,15 @@ class Staff extends Model
 
         return $staff->save();
     }
+
+    public function total_confirm_order() {
+        $total = 0;
+
+        foreach ($this->user->checked_order as $item) {
+            if ($item->order->status == Order::CONFIRM) {
+                $total = $total + 1;
+            }
+        }
+        return $total;
+    }
 }
