@@ -8,17 +8,17 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Cập nhật nhãn hiệu  </h4>
+                        <h4 class="modal-title">Cập nhật Nhà sản xuất  </h4>
                     </div>
 
                     <div class="modal-body">
                         <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">Tên nhãn hiệu </label>
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Tên Nhà sản xuất </label>
                             <input type="text" name="name" id="name" class="form-control validate">
                         </div>
 
                         <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">Thể loại </label>
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Loại sản phẩm </label>
                             <select class="form-control form-control-sm" name="category" id="category">
                                 <option value="" selected>-----------</option>
                                 @foreach(\App\Model\Category::all() as $item)

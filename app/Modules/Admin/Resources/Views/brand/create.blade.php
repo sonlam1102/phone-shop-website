@@ -7,7 +7,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Thêm nhãn hiệu  </h4>
+                        <h4 class="modal-title">Thêm Nhà sản xuất  </h4>
                     </div>
 
                     <div class="modal-body">
@@ -17,7 +17,7 @@
                         </div>
 
                         <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="defaultForm-email">Thể loại </label>
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Loại sản phẩm </label>
                             <select class="form-control form-control-sm" name="category">
                                 <option value="" selected>-----------</option>
                                 @foreach(\App\Model\Category::all() as $item)

@@ -8,7 +8,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Xoá nhãn hiệu </h4>
+                        <h4 class="modal-title">Xoá Nhà sản xuất </h4>
                     </div>
 
                     <div class="modal-body">
@@ -29,7 +29,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('button[data-target="#delete_brand"]').click(function () {
-            $('#delete_brand .modal-body #warning_message').html("Bạn chắc chắn muốn xoá nhãn hiệu này: " + $(this).data('name') + " của: " + $(this).data('category'));
+            $('#delete_brand .modal-body #warning_message').html("Bạn chắc chắn muốn xoá Nhà sản xuất này: " + $(this).data('name') + " của: " + $(this).data('category'));
             $('#delete_brand #delete_form').attr("action", "/admin/brand/" + $(this).data('id') + "/delete");
         })
     });

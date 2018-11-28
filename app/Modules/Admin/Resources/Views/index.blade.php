@@ -104,7 +104,7 @@
                         </li>
 
                         <li>
-                            <a href="/admin/brand"> <i class="fa fa-dashboard fa-fw"></i> Nhãn hiệu </a>
+                            <a href="/admin/brand"> <i class="fa fa-dashboard fa-fw"></i> Nhà sản xuất </a>
                         </li>
 
                     </ul>

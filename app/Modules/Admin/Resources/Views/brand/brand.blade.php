@@ -7,7 +7,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Nhãn hiệu</h1>
+            <h1 class="page-header">Nhà sản xuất</h1>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_brand" >Thêm </button>
         </div>
     </div>
@@ -19,8 +19,8 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Tên nhãn hiệu  </th>
-                        <th> Thể loại </th>
+                        <th>Tên Nhà sản xuất  </th>
+                        <th> Loại sản phẩm sản xuất </th>
                         <th></th>
                     </tr>
                     </thead>
