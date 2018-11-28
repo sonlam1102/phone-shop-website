@@ -1,13 +1,13 @@
 <div class="container">
-    <div class="modal fade" id="warranty_check" role="dialog">
+    <div class="modal fade" id="warranty_request" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
-            <form method="post" action="/customer/warranty/check" id="warranty_check_form">
+            <form method="post" action="#" id="warranty_request_form">
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Tra cứu bảo hành </h4>
+                        <h4 class="modal-title">Form yêu cầu bảo hành </h4>
                     </div>
 
                     <div class="modal-body">
@@ -24,7 +24,7 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng </button>
-                        <button type="submit" class="btn btn-default" > Tra cứu  </button>
+                        <button type="submit" class="btn btn-default" > Yêu cầu bảo hành </button>
                     </div>
 
                 </div>
@@ -33,15 +33,15 @@
     </div>
 </div>
 <script>
-    $("#warranty_check_form").submit(function (e) {
+    $("#warranty_request_form").submit(function (e) {
         e.preventDefault();
 
         $.ajax({
-            url: "/customer/warranty/check",
-            data: $("#warranty_check_form").serialize(),
+            url: "/customer/warranty/request",
+            data: $("#warranty_request_form").serialize(),
             type: 'POST',
             success: function (response) {
-                $("#warranty_info").text(response);
+                $("#warranty_request_form #warranty_info").text(response);
             }
         });
     });

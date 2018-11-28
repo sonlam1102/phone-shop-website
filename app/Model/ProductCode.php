@@ -21,6 +21,10 @@ class ProductCode extends Model
         return $this->hasOne('App\Model\SubscribedProduct', 'product_code_id');
     }
 
+    public function warranty_request() {
+        return $this->hasOne('App\Model\WarrantyRequest', 'product_code_id');
+    }
+
     public static function add_products($product_id, $code) {
         $product_code = new ProductCode();
 

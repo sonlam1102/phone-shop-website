@@ -66,6 +66,10 @@ class User extends Authenticatable
         return $this->carts->first() ? !$this->carts->first()->ordered ? $this->carts->first() : null : null;
     }
 
+    public function warranty_request() {
+        return $this->hasMany('App\Model\WarrantyRequest', 'user_id');
+    }
+
     public static function getManager() {
         $data = self::select()->where('type', '=', self::TYPE_MANAGER);
         return $data ? $data->get() : null;

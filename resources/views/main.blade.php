@@ -26,6 +26,8 @@
     @include('layouts.update_info')
     @include('customer::customer.order_check')
     @include('customer::warranty.warranty')
+    @include('customer::warranty.request')
+    @include('customer::warranty.request_list')
 
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">

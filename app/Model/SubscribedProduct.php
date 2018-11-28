@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-//Product that has been sold by order
+//Nhung san pham da duoc ban di theo order
 class SubscribedProduct extends Model
 {
     protected $table = "subscribed_product";

@@ -2,6 +2,19 @@
     <ul class="nav navbar-nav navbar-right">
         @include('customer::customer.cart')
 
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Bảo hành sản phẩm
+                <b class="caret"></b>
+            </a>
+
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="javascript:void(0)" data-toggle="modal" data-target="#warranty_check"><strong> Tra cứu bảo hành </strong></a>
+                </li>
+            </ul>
+        </li>
+
         @if (!\Auth::check())
             <li><a href="{{ route('login') }}">Đăng nhập </a></li>
             <li><a href="{{ route('register') }}">Đăng ký </a></li>
@@ -22,7 +35,11 @@
                     </li>
 
                     <li>
-                        <a href="javascript:void(0)" data-toggle="modal" data-target="#warranty_check"><strong> Tra cứu bảo hành </strong></a>
+                        <a href="javascript:void(0)" data-toggle="modal" data-target="#warranty_request"><strong> Yêu cầu bảo hành </strong></a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:void(0)" data-toggle="modal" data-target="#customer_warranty_request_check"><strong> Danh sách yêu cầu bảo hành </strong></a>
                     </li>
 
                     <li>

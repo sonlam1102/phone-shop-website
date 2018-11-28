@@ -5,7 +5,7 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
-//Bao hanh san pham (theo ma san pham)
+//Thong tin Bao hanh san pham (theo ma san pham)
 class ProductWarranty extends Model
 {
     protected $table = "warranty";
