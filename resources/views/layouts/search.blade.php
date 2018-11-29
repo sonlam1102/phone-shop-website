@@ -13,32 +13,25 @@
 
                 <div class="input-group-btn">
                     <div class="btn-group" role="group">
-                        {{--<div class="dropdown dropdown-lg">--}}
-                            {{--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>--}}
-                            {{--<div class="dropdown-menu dropdown-menu-right" role="menu">--}}
-                                {{--<form class="form-horizontal" role="form">--}}
-                                    {{--<div class="form-group">--}}
-                                        {{--<label for="filter">Filter by</label>--}}
-                                        {{--<select class="form-control">--}}
-                                            {{--<option value="0" selected>All Snippets</option>--}}
-                                            {{--<option value="1">Featured</option>--}}
-                                            {{--<option value="2">Most popular</option>--}}
-                                            {{--<option value="3">Top rated</option>--}}
-                                            {{--<option value="4">Most commented</option>--}}
-                                        {{--</select>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="form-group">--}}
-                                        {{--<label for="contain">Author</label>--}}
-                                        {{--<input class="form-control" type="text" />--}}
-                                    {{--</div>--}}
-                                    {{--<div class="form-group">--}}
-                                        {{--<label for="contain">Contains the words</label>--}}
-                                        {{--<input class="form-control" type="text" />--}}
-                                    {{--</div>--}}
-                                    {{--<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>--}}
-                                {{--</form>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
+                        <div class="dropdown dropdown-lg">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                <form class="form-horizontal" role="form" action="/" method="GET">
+                                    <div class="form-group">
+                                        <label for="filter">Tìm theo khoảng giá</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contain">Từ</label>
+                                        <input class="form-control" type="text" name="price_from" value="{{ app('request')->input('price_from') }}" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contain">Đến</label>
+                                        <input class="form-control" type="text" name="price_to" value="{{ app('request')->input('price_to') }}" />
+                                    </div>
+                                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

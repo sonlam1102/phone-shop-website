@@ -44,6 +44,8 @@ class HomeController extends Controller
     {
         $category = $request->get('category');
         $name = $request->get('name');
+        $price_from = $request->get('price_from');
+        $price_to = $request->get('price_to');
 
         $data = $this->getUserInfo();
         $product = Product::select();
@@ -53,6 +55,12 @@ class HomeController extends Controller
 
         if ($name)
             $product = $product->where('name', 'like', '%'.$name.'%');
+
+        if ($price_from)
+            $product = $product->where('price', '>=', $price_from);
+
+        if ($price_to)
+            $product = $product->where('price', '<=', $price_to);
 
         $product = $product->paginate(9);
 
