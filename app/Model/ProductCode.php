@@ -22,7 +22,11 @@ class ProductCode extends Model
     }
 
     public function warranty_request() {
-        return $this->hasOne('App\Model\WarrantyRequest', 'product_code_id');
+        return $this->hasMany('App\Model\WarrantyRequest', 'product_code_id');
+    }
+
+    public function current_request() {
+        return $this->warranty_request ? $this->warranty_request->last() : null;
     }
 
     public static function add_products($product_id, $code) {

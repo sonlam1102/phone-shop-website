@@ -37,7 +37,7 @@
                                 <td> {{ $item->reason }} </td>
                                 <td> {{ $item->status() }} </td>
                                 <td>
-                                    @if ($item->status != \App\Model\WarrantyRequest::CANCEL)
+                                    @if (!in_array($item->status, [\App\Model\WarrantyRequest::SUCCESS, \App\Model\WarrantyRequest::CANCEL]))
                                         <button type="button"
                                                 class="btn btn-info"
                                                 data-id = "{{ $item->id }}"

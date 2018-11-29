@@ -38,7 +38,7 @@ class WarrantyController extends CustomerController
 
         if ($code) {
             if ($code->warranty) {
-                if ($code->warranty_request && ($code->warranty_request->status == WarrantyRequest::PENDING || $code->warranty_request->status == WarrantyRequest::CONFIRM)) {
+                if ($code->warranty_request && in_array($code->current_request()->status, [WarrantyRequest::PENDING, WarrantyRequest::CONFIRM])) {
                     $data = "Sản phẩm Đã yêu cầu bảo hành";
                 }
                 elseif (date('Y-m-d') >= $code->warranty->from and date('Y-m-d') <= $code->warranty->to) {
