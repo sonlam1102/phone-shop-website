@@ -41,7 +41,6 @@
                 </button>
                 <a class="navbar-brand" href="#"><strong>Điện thoại Online</strong></a>
             </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
             @include('layouts.admin_bar')
             <!-- /.navbar-collapse -->
@@ -49,6 +48,10 @@
         <!-- /.container-fluid -->
     </nav>
     <div class="container">
+        <div class="row">
+            @include('layouts.search')
+        </div>
+
         <div class="row">
             @include('layouts.slider')
         </div>

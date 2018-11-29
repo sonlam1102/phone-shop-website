@@ -43,12 +43,16 @@ class HomeController extends Controller
     public function main(Request $request)
     {
         $category = $request->get('category');
+        $name = $request->get('name');
 
         $data = $this->getUserInfo();
         $product = Product::select();
 
         if ($category)
             $product = $product->where('category_id', '=', $category);
+
+        if ($name)
+            $product = $product->where('name', 'like', '%'.$name.'%');
 
         $product = $product->paginate(9);
 
