@@ -31,7 +31,7 @@
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td> {{ $company->staffs->count() }} </td>
+                                        <td> {{ $company->products->count() }} </td>
                                         <td> {{ $company->total_checked_order() }} </td>
                                         <td> {{ $company->imports->count() }} </td>
                                         <td> {{ $company->total_product_ready() }} </td>
