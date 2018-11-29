@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Product;
 use Illuminate\Http\Request;
-use App\Model\Userinfo;
-use Illuminate\Support\Facades\Auth;
+use App\Model\ProductCode;
 
 class HomeController extends Controller
 {
@@ -44,6 +43,25 @@ class HomeController extends Controller
     {
         $data = $this->getUserInfo();
         return view('main')->with('data', $data);
+    }
+
+    public function warranty_check(Request $request) {
+        $product_code = $request->post('product_code');
+
+        $code = ProductCode::findIdByCode($product_code);
+
+        if ($code) {
+            if ($code->warranty) {
+                $data = "Sản phẩm: ".$code->warranty->product->product->name." - "."Thời hạn bảo hành từ: ".$code->warranty->from." đến: ".$code->warranty->to;
+            }
+            else {
+                $data = "Không có thông tin BH";
+            }
+        } else {
+            $data = "Không có thông tin SP";
+        }
+
+        return $data;
     }
 
     public function info($id) {

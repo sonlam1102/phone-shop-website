@@ -2,7 +2,7 @@
     <div class="modal fade" id="warranty_check" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
-            <form method="post" action="/customer/warranty/check" id="warranty_check_form">
+            <form method="post" action="/warranty/check" id="warranty_check_form">
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">

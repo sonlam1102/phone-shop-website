@@ -20,3 +20,4 @@ Auth::routes();
 Route::get('/', 'HomeController@main')->name('home')->middleware('user_type');
 Route::get('/product/{id}/info', 'HomeController@info')->where('id', '[0-9]+');
 Route::post('/update_info', 'UserinfoController@update')->name('update_info')->middleware('auth');
+Route::post('/customer/warranty/check', 'HomeController@warranty_check');

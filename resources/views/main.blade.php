@@ -25,7 +25,7 @@
     @include('customer::customer.order')
     @include('layouts.update_info')
     @include('customer::customer.order_check')
-    @include('customer::warranty.warranty')
+    @include('layouts.warranty')
     @include('customer::warranty.request')
     @include('customer::warranty.request_list')
 

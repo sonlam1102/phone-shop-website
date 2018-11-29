@@ -11,25 +11,6 @@ use App\Http\Controllers\Controller;
 
 class WarrantyController extends CustomerController
 {
-    public function warranty_check(Request $request) {
-        $product_code = $request->post('product_code');
-
-        $code = ProductCode::findIdByCode($product_code);
-
-        if ($code) {
-            if ($code->warranty) {
-                $data = "Sản phẩm: ".$code->warranty->product->product->name." - "."Thời hạn bảo hành từ: ".$code->warranty->from." đến: ".$code->warranty->to;
-            }
-            else {
-                $data = "Không có thông tin BH";
-            }
-        } else {
-            $data = "Không có thông tin SP";
-        }
-
-        return $data;
-    }
-
     public function warranty_request(Request $request) {
         $product_code = $request->post('product_code');
         $reason = $request->post('reason');
