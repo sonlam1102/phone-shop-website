@@ -16,6 +16,16 @@ class Category extends Model
         return $this->hasMany('App\Model\Product', 'category_id');
     }
 
+    public function total_product_availables() {
+        $total = 0;
+
+        foreach ($this->products as $item) {
+            $total = $total + $item->product_remain_quantity();
+        }
+
+        return $total;
+    }
+
     public function update_category($data) {
         $this->name = $data['name'];
 

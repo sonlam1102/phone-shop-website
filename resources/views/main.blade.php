@@ -56,13 +56,18 @@
         <div class="row">
             <div class="col-md-3">
                 <div>
-                    <a href="#" class="list-group-item active">Sản phẩm trong cửa hàng
+                    <a href="/" class="list-group-item active">Tất cả sản phẩm trong cửa hàng
                     </a>
                     <ul class="list-group">
                         @foreach(\App\Model\Category::all() as $item)
-                            <li class="list-group-item"> {{ $item->name }}
-                                <span class="label label-primary pull-right">{{ $item->products->sum('quantity') }}</span>
-                            </li>
+                            <form method="get" action="/">
+                                <input type="text" value="{{ $item->id }}" name="category" hidden>
+                                <li class="list-group-item">
+                                    <button class="btn-info" type="submit"> {{ $item->name }} </button>
+                                    <span type="submit" class="label label-primary pull-right">{{ $item->products->count() }}</span>
+                                </li>
+                            </form>
+
                         @endforeach
                     </ul>
                 </div>
@@ -94,10 +99,10 @@
                     @if(\App\Model\Product::all())
                         <div>
                             <ol class="breadcrumb">
-                                <li class="active">Dummy Product</li>
+                                <li class="active">{{ app('request')->input('category') ? \App\Model\Category::find(app('request')->input('category'))->name : "Tất cả" }}</li>
                             </ol>
                         </div>
-                        @foreach(\App\Model\Product::all() as $item)
+                        @foreach($product as $item)
                             <div class="col-md-4 text-center col-sm-6 col-xs-6">
                                 <div class="thumbnail product-box">
                                     <img class="product_img" src="{{ $item->img ? $item->img : null }}"  onerror="this.src='/img/product.png';"/>
@@ -123,15 +128,16 @@
                 </div>
                 <!-- /.row -->
                 <div class="row">
-                    <ul class="pagination alg-right-pad">
-                        <li><a href="#">&laquo;</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>
-                    </ul>
+                    {{--<ul class="pagination alg-right-pad">--}}
+                        {{--<li><a href="#">&laquo;</a></li>--}}
+                        {{--<li><a href="#">1</a></li>--}}
+                        {{--<li><a href="#">2</a></li>--}}
+                        {{--<li><a href="#">3</a></li>--}}
+                        {{--<li><a href="#">4</a></li>--}}
+                        {{--<li><a href="#">5</a></li>--}}
+                        {{--<li><a href="#">&raquo;</a></li>--}}
+                    {{--</ul>--}}
+                    {{ $link }}
                 </div>
                 <!-- /.row -->
                 {{--<!-- /.div -->--}}

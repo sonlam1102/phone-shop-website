@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\Product;
 use Illuminate\Http\Request;
 use App\Model\ProductCode;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -39,10 +40,22 @@ class HomeController extends Controller
         return $userinfo;
     }
 
-    public function main()
+    public function main(Request $request)
     {
+        $category = $request->get('category');
+
         $data = $this->getUserInfo();
-        return view('main')->with('data', $data);
+        $product = Product::select();
+
+        if ($category)
+            $product = $product->where('category_id', '=', $category);
+
+        $product = $product->paginate(9);
+
+        return view('main')
+            ->with('product', $product)
+            ->with('link', $product->appends(request()->input())->links())
+            ->with('data', $data);
     }
 
     public function warranty_check(Request $request) {
