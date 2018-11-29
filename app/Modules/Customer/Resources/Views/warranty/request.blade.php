@@ -17,6 +17,11 @@
                         </div>
 
                         <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Lý do</label>
+                            <input type="text" name="reason" class="form-control validate">
+                        </div>
+
+                        <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" id="warranty_info" ></label>
                         </div>
 

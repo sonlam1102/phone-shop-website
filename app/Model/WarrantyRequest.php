@@ -28,11 +28,12 @@ class WarrantyRequest extends Model
         return $this->belongsTo('App\Model\ProductCode', 'product_code_id');
     }
 
-    public static function addRequest($user_id, $product_code_id) {
+    public static function addRequest($user_id, $product_code_id, $reason) {
         $warranty_request = new WarrantyRequest();
 
         $warranty_request->user_id = $user_id;
         $warranty_request->product_code_id = $product_code_id;
+        $warranty_request->reason = $reason;
 
         return $warranty_request->save();
     }

@@ -19,7 +19,7 @@ class CreateWarrantyRequestTable extends Migration
             $table->foreign('product_code_id')->references('id')->on('product_code')->onDelete('cascade');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('status')->default(0);
+            $table->unsignedInteger('status')->default(0);
             $table->timestamps();
         });
     }

@@ -18,7 +18,9 @@
                         <th>#</th>
                         <th>Tên sản phẩm </th>
                         <th>Mã sản phẩm </th>
+                        <th>Khách hàng yêu cầu </th>
                         <th> Ngày yêu cầu </th>
+                        <th> Nguyên nhân </th>
                         <th> Tình trạng </th>
                         <th></th>
                     </tr>
@@ -30,7 +32,9 @@
                                 <td> {{ $item->id }} </td>
                                 <td> {{ $item->code->product->name }} </td>
                                 <td> {{ $item->code->code }} </td>
+                                <td> {{ $item->user->fullname() }} </td>
                                 <td> {{ $item->created_at }} </td>
+                                <td> {{ $item->reason }} </td>
                                 <td> {{ $item->status() }} </td>
                                 <td>
                                     @if ($item->status != \App\Model\WarrantyRequest::CANCEL)

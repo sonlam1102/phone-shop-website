@@ -32,16 +32,17 @@ class WarrantyController extends CustomerController
 
     public function warranty_request(Request $request) {
         $product_code = $request->post('product_code');
+        $reason = $request->post('reason');
 
         $code = ProductCode::findIdByCode($product_code);
 
         if ($code) {
             if ($code->warranty) {
-                if ($code->warranty_request) {
+                if ($code->warranty_request && ($code->warranty_request->status == WarrantyRequest::PENDING || $code->warranty_request->status == WarrantyRequest::CONFIRM)) {
                     $data = "Sản phẩm Đã yêu cầu bảo hành";
                 }
                 elseif (date('Y-m-d') >= $code->warranty->from and date('Y-m-d') <= $code->warranty->to) {
-                    WarrantyRequest::addRequest(\Auth::user()->id, $code->id);
+                    WarrantyRequest::addRequest(\Auth::user()->id, $code->id, $reason);
                     $data = "Sản phẩm trong thời gian bảo hành. Đã yêu cầu bảo hành";
                 }
                 else {
