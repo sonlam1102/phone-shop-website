@@ -38,8 +38,8 @@
                                             data-id = "{{ $item->id }}"
                                             data-email = "{{ $item->email }}"
                                             data-name = "{{ $item->fullname() }}"
-                                            data-address = "{{ $item->userinfo->address }}"
-                                            data-phone = "{{ $item->userinfo->phone }}"
+                                            data-address = "{{ $item->userinfo ? $item->userinfo->address : '' }}"
+                                            data-phone = "{{ $item->userinfo ? $item->userinfo->phone : '' }}"
                                             data-toggle="modal"
                                             data-target="#customer_change_type">
                                         Chuyển đổi khách hàng
