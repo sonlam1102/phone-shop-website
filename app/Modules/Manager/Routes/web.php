@@ -52,4 +52,9 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'manager', ]], fun
         Route::post('/create', 'GiftController@add');
         Route::put('/{id}/update', 'GiftController@update')->where('id', '[0-9]+');
     });
+
+    Route::group(['prefix' => 'customer'], function() {
+        Route::get('/', 'CustomerController@index');
+        Route::put('/{id}/change', 'CustomerController@change')->where('id', '[0-9]+');
+    });
 });

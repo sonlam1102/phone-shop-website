@@ -108,6 +108,10 @@
                         <a href="/manager/gift"><i class="fa fa-dashboard fa-fw"></i> Danh sách khuyến mãi </a>
                     </li>
 
+                    <li>
+                        <a href="/manager/customer"><i class="fa fa-dashboard fa-fw"></i> Danh sách khách hàng </a>
+                    </li>
+
                 </ul>
             </div>
         </div>
