@@ -29,8 +29,8 @@
                             <tr>
                                 <td> {{ $item->id }} </td>
                                 <td> {{ $item->fullname() }} </td>
-                                <td> {{ $item->userinfo->address }} </td>
-                                <td> {{ $item->userinfo->phone }} </td>
+                                <td> {{ $item->userinfo ? $item->userinfo->address : ''}} </td>
+                                <td> {{ $item->userinfo ? $item->userinfo->phone : '' }} </td>
                                 <td> {{ $item->customer ? $item->customer->kind() : 'chưa phân loại' }} </td>
                                 <td>
                                     <button type="button"
