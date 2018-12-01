@@ -32,4 +32,9 @@ Route::group(['prefix' => 'staff', 'middleware' => ['auth', 'staff', ]], functio
         Route::get('/', 'WarrantyController@index');
         Route::put('/request/{id}/confirm', 'WarrantyController@confirm')->where('id', '[0-9]+');
     });
+
+    Route::group(['prefix' => 'customer'], function() {
+        Route::get('/', 'CustomerController@index');
+        Route::put('/{id}/change', 'CustomerController@change')->where('id', '[0-9]+');
+    });
 });

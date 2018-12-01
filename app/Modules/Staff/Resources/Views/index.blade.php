@@ -96,6 +96,10 @@
                         <a href="/staff/warranty"><i class="fa fa-dashboard fa-fw"></i> Bảo hành </a>
                     </li>
 
+                    <li>
+                        <a href="/staff/customer"><i class="fa fa-dashboard fa-fw"></i> Danh sách khách hàng </a>
+                    </li>
+
                 </ul>
             </div>
         </div>

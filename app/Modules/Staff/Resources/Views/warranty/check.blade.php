@@ -11,14 +11,16 @@
                         <h4 class="modal-title">Xác nhận yêu cầu </h4>
                     </div>
 
-                    <div class="md-form mb-5">
-                        <label data-error="wrong" data-success="right" for="defaultForm-email">Trạng thái </label>
-                        <select class="form-control form-control-sm" name="status">
-                            <option value="" selected> ------- </option>
-                            @foreach(\App\Model\WarrantyRequest::get_request_status() as $key => $value)
-                                <option value="{{$key}}"> {{ $value }}</option>
-                            @endforeach
-                        </select>
+                    <div class="modal-body">
+                        <div class="md-form mb-5">
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Trạng thái </label>
+                            <select class="form-control form-control-sm" name="status">
+                                <option value="" selected> ------- </option>
+                                @foreach(\App\Model\WarrantyRequest::get_request_status() as $key => $value)
+                                    <option value="{{$key}}"> {{ $value }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
 
                     <div class="modal-footer">

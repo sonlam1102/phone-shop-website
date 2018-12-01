@@ -46,6 +46,10 @@ class User extends Authenticatable
         return $this->hasOne('App\Model\Manager', 'user_id');
     }
 
+    public function customer() {
+        return $this->hasOne('App\Model\Customer', 'user_id');
+    }
+
     public function orders() {
         return $this->hasMany('App\Model\Order', 'user_id');
     }
@@ -108,5 +112,9 @@ class User extends Authenticatable
 
     public function fullname() {
         return $this->userinfo ? $this->userinfo->fullname : $this->name;
+    }
+
+    public static function getAllCustomer() {
+        return self::where('type', '=', User::TYPE_USER) ? self::where('type', '=', User::TYPE_USER)->get() : null;
     }
 }

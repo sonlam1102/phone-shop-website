@@ -21,6 +21,14 @@
                             </div>
                         </div>
 
+                        @if(\Auth::check() && \Auth::user()->customer)
+                            <div class="md-form mb-5">
+                                <span class="text-info">
+                                    {{ \Auth::user()->customer->kind() }}
+                                </span>
+                            </div>
+                        @endif
+
                         @if(\Auth::check() && \Auth::user()->type == \App\User::TYPE_MANAGER)
                             <div class="md-form mb-5">
                                 <label data-error="wrong" data-success="right" for="defaultForm-email">Công ty đang quản lý:  </label>
