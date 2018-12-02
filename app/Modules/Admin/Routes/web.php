@@ -55,5 +55,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', ]], functio
         Route::delete('/{id}/delete', 'BrandController@delete')->where('id', '[0-9]+');
     });
 
+    Route::group(['prefix' => 'attribute_form'], function () {
+        Route::get('/', 'AttributeFormController@index');
+        Route::post('/create', 'AttributeFormController@create');
+        Route::put('/{id}/update', 'AttributeFormController@update')->where('id', '[0-9]+');
+    });
+
 });
 

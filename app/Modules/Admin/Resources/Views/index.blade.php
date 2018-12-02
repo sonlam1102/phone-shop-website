@@ -104,6 +104,10 @@
                         </li>
 
                         <li>
+                            <a href="/admin/attribute_form"> <i class="fa fa-dashboard fa-fw"></i> THuộc tính theo form </a>
+                        </li>
+
+                        <li>
                             <a href="/admin/brand"> <i class="fa fa-dashboard fa-fw"></i> Nhà sản xuất </a>
                         </li>
 
