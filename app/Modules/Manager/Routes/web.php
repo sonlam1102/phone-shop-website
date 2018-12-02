@@ -20,6 +20,7 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'manager', ]], fun
         Route::put('/{id}/update', 'ProductController@update')->where('id', '[0-9]+');
         Route::delete('/{id}/delete', 'ProductController@delete')->where('id', '[0-9]+');
         Route::get('/{id}/list', 'ProductController@list_products')->where('id', '[0-9]+');
+        Route::get('/category/{id}/form', 'ProductController@list_attribute_form')->where('id', '[0-9]+');
     });
 
     Route::group(['prefix' => 'order'], function() {

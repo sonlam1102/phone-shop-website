@@ -47,7 +47,7 @@
 
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="defaultForm-email">Loại sản phẩm </label>
-                            <select class="form-control form-control-sm" name="category">
+                            <select class="form-control form-control-sm" name="category" id="category_id">
                                 <option value="" selected>-----------</option>
                                 @foreach(\App\Model\Category::all() as $item)
                                     <option value="{{$item->id}}"> {{ $item->name }}</option>
@@ -73,6 +73,7 @@
 
                         <div class="md-form mb-5">
                             <a href="javascript:void(0)" id="add-attribute"> Thêm thuộc tính </a>
+                            <a href="javascript:void(0)" id="add-attribute-by-form"> Thêm thuộc theo form </a>
                         </div>
 
                         <div class="md-form mb-5" id="attribute_field">
@@ -153,5 +154,26 @@
     $(document).on('click', '.delete_attribute', function () {
         let attr_obj = $(this).closest('.attributes');
         attr_obj.remove();
+    });
+
+    $(document).on('click', '#add-attribute-by-form', function () {
+        $.ajax({
+            url: "/manager/product/category/" + $('#category_id').find(":selected").val() +"/form",
+            type: 'GET',
+            success: function (response) {
+                let json = JSON.parse(response);
+                console.log(json);
+                for(let i=0; i<json.length; i++) {
+                    $('#create-product #attribute_field').append(attribute_choose_create);
+                }
+                let i=0;
+                $('.attributes').each(function () {
+                    $(this).find('.attribute_id').each(function() {
+                        $(this).find("option[value=" + json[i].attribute + "]").prop("selected",true);
+                    });
+                    i++;
+                });
+            }
+        });
     });
 </script>

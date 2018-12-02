@@ -61,4 +61,8 @@ class ProductAttributeForm extends Model
         $this->category_id = $category;
         return $this->save();
     }
+
+    public static function getByCategory($category) {
+        return self::where('category_id', '=', $category) ? self::where('category_id', '=', $category)->first() : null;
+    }
 }

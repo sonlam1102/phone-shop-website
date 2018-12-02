@@ -2,6 +2,7 @@
 
 namespace App\Modules\Manager\Http\Controllers;
 
+use App\Model\ProductAttributeForm;
 use Illuminate\Http\Request;
 use App\Model\Product;
 
@@ -111,5 +112,19 @@ class ProductController extends ManagerController
         return view('manager::product/list')
             ->with('data', $data)
             ->with('product', $product);
+    }
+
+    public function list_attribute_form($id) {
+        $form = ProductAttributeForm::getByCategory($id);
+
+        $data = [];
+        if ($form) {
+            foreach ($form->attribute_items as $item) {
+                $temp = ['attribute' => $item->attribute_id];
+                array_push($data, $temp);
+            }
+        }
+
+        return json_encode($data);
     }
 }
