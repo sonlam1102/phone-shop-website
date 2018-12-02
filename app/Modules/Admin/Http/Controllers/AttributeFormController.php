@@ -26,8 +26,11 @@ class AttributeFormController extends AdminController
 
         $form = ProductAttributeForm::makeForm(Category::find($category)->name, $category);
 
-        foreach (json_decode($data) as $item) {
-            AttributeFormItem::addItem($form, $item->attribute);
+        $data = json_decode($data);
+
+        foreach ($data as $item) {
+            if ($item->attribute != '')
+                AttributeFormItem::addItem($form, $item->attribute);
         }
 
         return redirect()->back();
@@ -39,6 +42,13 @@ class AttributeFormController extends AdminController
 
         $attr_form = ProductAttributeForm::find($id);
         $attr_form->editItem($category, json_decode($attributes));
+
+        return redirect()->back();
+    }
+
+    public function delete($id) {
+        $attr_form = ProductAttributeForm::find($id);
+        $attr_form->delete();
 
         return redirect()->back();
     }

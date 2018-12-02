@@ -3,6 +3,7 @@
 @section('content')
     @include('admin::attribute_form.create')
     @include('admin::attribute_form.update')
+    @include('admin::attribute_form.delete')
 
     <div class="row">
         <div class="col-lg-12">
@@ -38,6 +39,15 @@
                                             data-toggle="modal"
                                             data-target="#update_attribute_form">
                                         Cập nhật
+                                    </button>
+
+                                    <button
+                                            type="button"
+                                            class="btn btn-danger "
+                                            data-id = "{{ $item->id }}"
+                                            data-toggle="modal"
+                                            data-target="#delete_attribute_form">
+                                        Xoá
                                     </button>
                                 </td>
                             </tr>
