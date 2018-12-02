@@ -2,28 +2,28 @@
 
     <div class="row">
         <div class="col-md-4">
-            <strong>Send a Quick Query </strong>
+            <strong> Gửi phản hồi </strong>
             <hr>
             <form>
                 <div class="row">
                     <div class="col-md-6 col-sm-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" required="required" placeholder="Name">
+                            <input type="text" class="form-control" required="required" placeholder="Họ tên">
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" required="required" placeholder="Email address">
+                            <input type="text" class="form-control" required="required" placeholder="Email">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
-                            <textarea name="message" id="message" required="required" class="form-control" rows="3" placeholder="Message"></textarea>
+                            <textarea name="message" id="message" required="required" class="form-control" rows="3" placeholder="Nội dung"></textarea>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Submit Request</button>
+                            <button type="submit" class="btn btn-primary">Gửi</button>
                         </div>
                     </div>
                 </div>
@@ -31,27 +31,20 @@
         </div>
 
         <div class="col-md-4">
-            <strong>Our Location</strong>
+            <strong>ĐẠI HỌC CẦN THƠ</strong>
             <hr>
             <p>
-                234, New york Street,<br />
-                Just Location, USA<br />
-                Call: +09-456-567-890<br>
-                Email: info@yourdomain.com<br>
+                Khu II, Đường 3/2,<br />
+                Phường Xuân Khánh, Quận Ninh Kiều<br />
+                Thành phố Cần Thơ <br/>
             </p>
 
-            2014 www.yourdomain.com | All Right Reserved
+            2014 http://phoneonline.herokuapp.com | All Right Reserved
         </div>
         <div class="col-md-4 social-box">
-            <strong>We are Social </strong>
-            <hr>
-            <a href="#"><i class="fa fa-facebook-square fa-3x "></i></a>
-            <a href="#"><i class="fa fa-twitter-square fa-3x "></i></a>
-            <a href="#"><i class="fa fa-google-plus-square fa-3x c"></i></a>
-            <a href="#"><i class="fa fa-linkedin-square fa-3x "></i></a>
-            <a href="#"><i class="fa fa-pinterest-square fa-3x "></i></a>
+            <strong>KHOÁ LUẬN TỐT NGHIỆP @2018 </strong>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec nisl odio. Mauris vehicula at nunc id posuere. Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+                Ngành Hệ thống thông tin
             </p>
         </div>
     </div>
