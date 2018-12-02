@@ -57,10 +57,10 @@ class HomeController extends Controller
             $product = $product->where('name', 'like', '%'.$name.'%');
 
         if ($price_from)
-            $product = $product->where('price', '>=', $price_from);
+            $product = $product->where('price', '>=', (int)$price_from);
 
         if ($price_to)
-            $product = $product->where('price', '<=', $price_to);
+            $product = $product->where('price', '<=', (int)$price_to);
 
         $product = $product->paginate(9);
 
