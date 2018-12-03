@@ -104,7 +104,7 @@
                         </li>
 
                         <li>
-                            <a href="/admin/attribute_form"> <i class="fa fa-dashboard fa-fw"></i> THuộc tính theo form </a>
+                            <a href="/admin/attribute_form"> <i class="fa fa-dashboard fa-fw"></i> Thuộc tính theo form </a>
                         </li>
 
                         <li>

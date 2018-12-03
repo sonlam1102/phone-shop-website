@@ -7,7 +7,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Form thuộc tính tính sản phẩm</h1>
+            <h1 class="page-header">Form thuộc tính sản phẩm</h1>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_attribute_form" >Thêm </button>
         </div>
     </div>
