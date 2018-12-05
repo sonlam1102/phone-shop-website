@@ -12,7 +12,9 @@
         "laravel/tinker": "^1.0",
         "folklore/graphql": "~1.0.0",
         "doctrine/dbal": "2.7.*",
-        "nesbot/carbon": "1.32.0 as 1.25"
+        "nesbot/carbon": "1.32.0 as 1.25",
+        "pusher/pusher-php-server": "~3.0",
+        "predis/predis": "*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
