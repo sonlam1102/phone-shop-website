@@ -43,6 +43,10 @@
                     </li>
 
                     <li>
+                        <a href="/customer/message" data-toggle="modal"><strong> Chat với nhân viên</strong></a>
+                    </li>
+
+                    <li>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                             <strong>Đăng xuất  </strong>

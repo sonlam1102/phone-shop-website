@@ -92,6 +92,10 @@ class User extends Authenticatable
         return $this->save();
     }
 
+    public function customer_channel() {
+        return $this->hasOne('App\Model\CustomerChannel', 'user_id');
+    }
+
     public static function addManager($data) {
         return User::create([
             'email' => $data['email'],

@@ -77,26 +77,6 @@
             </div>
             <!-- /.col -->
             <div class="col-md-9">
-                <div class="row">
-                    <div class="btn-group alg-right-pad">
-                        {{--<button type="button" class="btn btn-default"><strong>1235  </strong>items</button>--}}
-                        <div class="btn-group">
-                            {{--<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">--}}
-                                {{--Sort Products &nbsp;--}}
-                                {{--<span class="caret"></span>--}}
-                            {{--</button>--}}
-                            {{--<ul class="dropdown-menu">--}}
-                                {{--<li><a href="#">By Price Low</a></li>--}}
-                                {{--<li class="divider"></li>--}}
-                                {{--<li><a href="#">By Price High</a></li>--}}
-                                {{--<li class="divider"></li>--}}
-                                {{--<li><a href="#">By Popularity</a></li>--}}
-                                {{--<li class="divider"></li>--}}
-                                {{--<li><a href="#">By Reviews</a></li>--}}
-                            {{--</ul>--}}
-                        </div>
-                    </div>
-                </div>
                 <!-- /.row -->
                 <div class="row" id="products_field">
                     @if(\App\Model\Product::all())
