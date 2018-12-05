@@ -12,11 +12,15 @@ class CustomerChannel extends Model
         return $this->belongsTo('App\User', 'user_id');
     }
 
+    public function messages() {
+        return $this->hasMany('App\Model\ChannelMessage', 'customer_channel_id');
+    }
+
     public static function make_channel($user) {
         $channel = new CustomerChannel();
 
         $channel->user_id = $user;
-        $channel->name = "channel-user-".$user;
+        $channel->channel = "channel-user-".$user;
 
         return $channel->save();
     }

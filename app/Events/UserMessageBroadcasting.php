@@ -32,6 +32,6 @@ class UserMessageBroadcasting implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel($this->channel);
+        return [$this->channel];
     }
 }

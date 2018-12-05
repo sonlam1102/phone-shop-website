@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -42,11 +43,22 @@
 </nav>
 <div class="container">
     <div class="row">
-        <textarea class="container" rows="20" id="content" > </textarea>
-        <p> Nhập nội dung: </p>
-        <input class="container" id="input">
-        <br>
-        <button class="btn btn-info"> Gửi </button>
+        <input type="text" id="channel" value="{{ $channel }}">
+        <form method="POST" action="/customer/message/push" id="message_form">
+            @csrf
+            <textarea class="container" rows="20" id="content" disabled>
+                @if (isset($message) and $message)
+                    @foreach($message as $item)
+                        {{ $item->user->fullname().': '. $item->message }}
+                        {{--<br>--}}
+                    @endforeach
+                @endif
+            </textarea>
+            <p> Nhập nội dung: </p>
+            <input class="container" id="input" name="message">
+            <br>
+            <button type="submit" class="btn btn-info"> Gửi </button>
+        </form>
     </div>
     <!-- /.row -->
 </div>
@@ -60,5 +72,36 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/js/fileinput.min.js"></script>
 <script src="/js/mislider.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script>
+    $("#message_form").submit(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: "/customer/message/push/",
+            data: $("#message_form").serialize(),
+            type: 'POST',
+            success: function (response) {
+                $("#input").val("");
+            }
+        });
+    });
+</script>
+<!-- receive notifications -->
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="https://js.pusher.com/4.3/pusher.min.js"></script>
+
+<script>
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('86ab714455d982a05f8e', {
+        cluster: 'ap1',
+        forceTLS: true
+    });
+
+    var channel = pusher.subscribe('channel-user-6');
+    channel.bind('my-event', function(data) {
+        alert(JSON.stringify(data));
+    });
+</script>
 </body>
 </html>

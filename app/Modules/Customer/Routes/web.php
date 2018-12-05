@@ -33,5 +33,6 @@ Route::group(['prefix' => 'customer', 'middleware' => ['auth', 'customer', ]], f
 
     Route::group(['prefix' => 'message'], function () {
         Route::get('/', 'MessageController@index');
+        Route::post('/push', 'MessageController@push');
     });
 });
