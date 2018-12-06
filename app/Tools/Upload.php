@@ -2,6 +2,7 @@
 namespace App\Tools;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Imgur;
 
 class Upload {
     public static function imageUploadProfile($request, $user_id)
@@ -58,5 +59,22 @@ class Upload {
         } catch (\Exception $e) {
             return null;
         }
+    }
+
+    public static function imgurlUploadProfile($request)
+    {
+        $file = $request->file('img');
+
+        if (!$file) {
+            return null;
+        }
+
+        $request->validate([
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $img = Imgur::upload($file);
+
+        return $img->link();
     }
 }

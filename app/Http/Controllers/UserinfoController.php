@@ -24,7 +24,7 @@ class UserinfoController extends Controller
             $isChange = 1;
         }
 
-        $imagePath = \App\Tools\Upload::imageUploadProfile($request, \Auth::user()->id);
+        $imagePath = \App\Tools\Upload::imgurlUploadProfile($request);
 
         if (!$model) {
             $model = new Userinfo();
