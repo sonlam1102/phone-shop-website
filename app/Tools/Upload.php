@@ -77,4 +77,20 @@ class Upload {
 
         return $img->link();
     }
+
+    public static function productImgurUpload($request)
+    {
+        $file = $request->file('product_img');
+        if (!$file) {
+            return null;
+        }
+
+        $request->validate([
+            'product_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $img = Imgur::upload($file);
+
+        return $img->link();
+    }
 }

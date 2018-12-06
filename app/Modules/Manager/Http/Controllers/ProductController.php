@@ -29,7 +29,7 @@ class ProductController extends ManagerController
         $warranty_month = $request->post('warranty_month');
 
         $company = \Auth::user()->manager->company->id;
-        $product_img = \App\Tools\Upload::productImageUpload($request, $name);
+        $product_img = \App\Tools\Upload::productImgurUpload($request);
         $data = [
             'name' => $name,
             'category' => $category,
@@ -66,7 +66,7 @@ class ProductController extends ManagerController
         $warranty_month = $request->post('warranty_month');
 
         $company = \Auth::user()->manager->company->id;
-        $product_img = \App\Tools\Upload::productImageUpload($request, $name);
+        $product_img = \App\Tools\Upload::productImgurUpload($request);
 
         $product = Product::find($id);
         $data = [
