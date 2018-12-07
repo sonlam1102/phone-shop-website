@@ -76,7 +76,7 @@
 
             $.ajax({
                 url: "/customer/message/push/",
-                type: 'POST',
+                method: 'POST',
                 data: $("#message_form").serialize(),
                 success: function (response) {
                     $("#input").val("");

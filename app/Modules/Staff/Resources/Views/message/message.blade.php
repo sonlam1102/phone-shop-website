@@ -37,7 +37,7 @@
         $.ajax({
             url: "/staff/message/push/",
             data: $("#message_form").serialize(),
-            type: 'POST',
+            method: 'POST',
             success: function (response) {
                 $("#input").val("");
             }
