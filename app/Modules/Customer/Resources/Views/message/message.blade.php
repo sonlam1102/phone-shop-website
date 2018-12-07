@@ -65,26 +65,25 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/js/fileinput.min.js"></script>
 <script src="/js/mislider.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-<script>
-    $("#message_form").submit(function (e) {
-        e.preventDefault();
-
-        $.ajax({
-            url: "/customer/message/push/",
-            type: 'POST',
-            data: $("#message_form").serialize(),
-            success: function (response) {
-                $("#input").val("");
-            }
-        });
-    });
-</script>
 <!-- receive notifications -->
 {{--<script src="{{ asset('js/app.js') }}"></script>--}}
 <script src="https://js.pusher.com/4.3/pusher.min.js"></script>
 
 <script>
     $(document).ready(function () {
+        $("#message_form").submit(function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: "/customer/message/push/",
+                type: 'POST',
+                data: $("#message_form").serialize(),
+                success: function (response) {
+                    $("#input").val("");
+                }
+            });
+        });
+
         Pusher.logToConsole = true;
 
         let pusher = new Pusher('{{ env('PUSHER_APP_KEY') }}', {
