@@ -16,11 +16,9 @@
     <!--Slide Show Css -->
     <link href="/ItemSlider/css/main-style.css" rel="stylesheet" />
     <!-- custom CSS here -->
-    <link href="/css/style.css" rel="stylesheet" />
     <link href="/css/main.css" rel="stylesheet" />
     <link href="/css/mislider.css" rel="stylesheet">
     <link href="/css/mislider-skin-cameo.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
 
@@ -87,21 +85,24 @@
     });
 </script>
 <!-- receive notifications -->
-<script src="{{ asset('js/app.js') }}"></script>
+{{--<script src="{{ asset('js/app.js') }}"></script>--}}
 <script src="https://js.pusher.com/4.3/pusher.min.js"></script>
 
 <script>
-    Pusher.logToConsole = true;
+    $(document).ready(function () {
+        Pusher.logToConsole = true;
 
-    var pusher = new Pusher('86ab714455d982a05f8e', {
-        cluster: 'ap1',
-        forceTLS: true
-    });
+        let pusher = new Pusher('86ab714455d982a05f8e', {
+            cluster: 'ap1',
+            forceTLS: true
+        });
 
-    var channel = pusher.subscribe('channel-user-6');
-    channel.bind('my-event', function(data) {
-        alert(JSON.stringify(data));
-    });
+        let channel = pusher.subscribe('UserMessageBroadcasting');
+
+        channel.bind($("#channel").val(), function(data) {
+            $("#content").append(data.user + ": " + data.message + "\n");
+        });
+    })
 </script>
 </body>
 </html>

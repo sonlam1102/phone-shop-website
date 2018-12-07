@@ -2,9 +2,9 @@
 
 namespace App\Modules\Customer\Http\Controllers;
 
-use App\Events\UserMessageBroadcasting;
 use App\Model\ChannelMessage;
 use App\Model\CustomerChannel;
+use App\Tools\PusherApp;
 use Illuminate\Http\Request;
 
 
@@ -41,19 +41,16 @@ class MessageController extends CustomerController
 
         ChannelMessage::make_message($user->customer_channel->id, $message, $user->id);
 
-        broadcast(new UserMessageBroadcasting($user->customer_channel->channel))->toOthers();
+        $pusher = new PusherApp($user->customer_channel->channel);
 
-        $data = [];
+        $data = [
+            'message'=> $message,
+            'user' => $user->fullname()
+        ];
 
-        foreach ($user->customer_channel->messages as $item) {
-            $temp = [
-                'message'=> $item->message,
-                'user' => $item->channel->user->fullname()
-            ];
 
-            array_push($data, $temp);
-        }
+        $pusher->push($data);
 
-        return json_encode($data);
+
     }
 }

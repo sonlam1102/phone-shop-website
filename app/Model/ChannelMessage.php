@@ -22,7 +22,8 @@ class ChannelMessage extends Model
         $message_channel->message = $message;
         $message_channel->customer_channel_id = $channel;
         $message_channel->user_id = $user;
+        $message_channel->save();
 
-        return $message_channel->save();
+        return $message_channel;
     }
 }

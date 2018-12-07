@@ -19,10 +19,11 @@ class UserMessageBroadcasting implements ShouldBroadcast
      *
      * @return void
      */
-    private $channel;
-    public function __construct($channel)
+    public $data;
+
+    public function __construct($data)
     {
-        $this->channel = $channel;
+        $this->data = $data;
     }
 
     /**
@@ -32,6 +33,6 @@ class UserMessageBroadcasting implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return [$this->channel];
+        return new PrivateChannel('channel_user');
     }
 }
