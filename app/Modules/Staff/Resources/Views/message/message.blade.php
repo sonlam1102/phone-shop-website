@@ -35,7 +35,7 @@
         e.preventDefault();
 
         $.ajax({
-            url: "/staff/message/push/",
+            url: "/staff/message/push",
             data: $("#message_form").serialize(),
             method: 'POST',
             success: function (response) {

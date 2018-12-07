@@ -75,7 +75,7 @@
             e.preventDefault();
 
             $.ajax({
-                url: "/customer/message/push/",
+                url: "/customer/message/push",
                 method: 'POST',
                 data: $("#message_form").serialize(),
                 success: function (response) {
