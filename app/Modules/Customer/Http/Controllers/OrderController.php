@@ -60,4 +60,10 @@ class OrderController extends CustomerController
 
         return redirect()->back();
     }
+
+    public function delivery($id) {
+        $order = Order::find($id);
+
+        return view('customer::order.delivery')->with('order', $order);
+    }
 }

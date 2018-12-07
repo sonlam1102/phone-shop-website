@@ -23,6 +23,7 @@ Route::group(['prefix' => 'customer', 'middleware' => ['auth', 'customer', ]], f
         Route::post('/create', 'OrderController@make_order');
         Route::put('/{id}/cancel', 'OrderController@cancel')->where('id', '[0-9]+');
         Route::get('/{id}/info', 'OrderController@receipt')->where('id', '[0-9]+');
+        Route::get('/{id}/delivery', 'OrderController@delivery')->where('id', '[0-9]+');
         Route::put('/{id}/cancel', 'OrderController@cancel')->where('id', '[0-9]+');
     });
 

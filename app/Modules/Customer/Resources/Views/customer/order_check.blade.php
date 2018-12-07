@@ -40,6 +40,12 @@
                                                     <button type="submit" class="btn btn-danger">Huỷ hoá đơn</button>
                                                 </form>
                                             @endif
+
+                                            @if ($item->status == \App\Model\Order::CONFIRM || $item->status == \App\Model\Order::SUCCESS)
+                                                <a href="/customer/order/{{$item->id}}/delivery">
+                                                    <button class="btn btn-warning">Phiếu giao hàng</button>
+                                                </a>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
