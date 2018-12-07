@@ -37,4 +37,9 @@ Route::group(['prefix' => 'staff', 'middleware' => ['auth', 'staff', ]], functio
         Route::get('/', 'CustomerController@index');
         Route::put('/{id}/change', 'CustomerController@change')->where('id', '[0-9]+');
     });
+
+    Route::group(['prefix' => 'message'], function() {
+        Route::get('/', 'MessageController@index');
+        Route::post('/push', 'MessageController@push');
+    });
 });

@@ -100,6 +100,10 @@
                         <a href="/staff/customer"><i class="fa fa-dashboard fa-fw"></i> Danh sách khách hàng </a>
                     </li>
 
+                    <li>
+                        <a href="/staff/message"><i class="fa fa-dashboard fa-fw"></i> Chat với khách </a>
+                    </li>
+
                 </ul>
             </div>
         </div>

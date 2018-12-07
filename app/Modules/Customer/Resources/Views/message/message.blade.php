@@ -16,9 +16,11 @@
     <!--Slide Show Css -->
     <link href="/ItemSlider/css/main-style.css" rel="stylesheet" />
     <!-- custom CSS here -->
+    <link href="/css/style.css" rel="stylesheet" />
     <link href="/css/main.css" rel="stylesheet" />
     <link href="/css/mislider.css" rel="stylesheet">
     <link href="/css/mislider-skin-cameo.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
 
@@ -32,7 +34,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><strong>Điện thoại Online</strong></a>
+            <a class="navbar-brand" href="/"><strong>Điện thoại Online</strong></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
     <!-- /.navbar-collapse -->
@@ -41,17 +43,10 @@
 </nav>
 <div class="container">
     <div class="row">
-        <input type="text" id="channel" value="{{ $channel }}">
+        <input type="text" id="channel" value="{{ $channel }}" hidden>
         <form method="POST" action="/customer/message/push" id="message_form">
             @csrf
-            <textarea class="container" rows="20" id="content" disabled>
-                @if (isset($message) and $message)
-                    @foreach($message as $item)
-                        {{ $item->user->fullname().': '. $item->message }}
-                        {{--<br>--}}
-                    @endforeach
-                @endif
-            </textarea>
+            <textarea class="container" rows="20" id="content" disabled></textarea>
             <p> Nhập nội dung: </p>
             <input class="container" id="input" name="message">
             <br>
@@ -92,7 +87,7 @@
     $(document).ready(function () {
         Pusher.logToConsole = true;
 
-        let pusher = new Pusher('86ab714455d982a05f8e', {
+        let pusher = new Pusher('{{ env('PUSHER_APP_KEY') }}', {
             cluster: 'ap1',
             forceTLS: true
         });

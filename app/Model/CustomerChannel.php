@@ -21,7 +21,8 @@ class CustomerChannel extends Model
 
         $channel->user_id = $user;
         $channel->channel = "channel-user-".$user;
+        $channel->save();
 
-        return $channel->save();
+        return $channel;
     }
 }

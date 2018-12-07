@@ -15,13 +15,13 @@ class MessageController extends CustomerController
         $messages = null;
 
         if (!$user->customer_channel) {
-            CustomerChannel::make_channel($user->id);
+            $user_channel = CustomerChannel::make_channel($user->id);
         }
         else {
-            $messages = \Auth::user()->customer_channel;
+            $user_channel = $user->customer_channel;
         }
 
-        $channel = $user->customer_channel->channel;
+        $channel = $user_channel->channel;
 
         if ($messages)
             return view('customer::message.message')
@@ -39,7 +39,7 @@ class MessageController extends CustomerController
             CustomerChannel::make_channel($user->id);
         }
 
-        ChannelMessage::make_message($user->customer_channel->id, $message, $user->id);
+//        ChannelMessage::make_message($user->customer_channel->id, $message, $user->id);
 
         $pusher = new PusherApp($user->customer_channel->channel);
 
@@ -48,9 +48,6 @@ class MessageController extends CustomerController
             'user' => $user->fullname()
         ];
 
-
         $pusher->push($data);
-
-
     }
 }
