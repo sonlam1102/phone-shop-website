@@ -32,8 +32,8 @@ Route::group(['prefix' => 'customer', 'middleware' => ['auth', 'customer', ]], f
         Route::put('/request/{id}/cancel', 'WarrantyController@cancel')->where('id', '[0-9]+');
     });
 
-    Route::group(['prefix' => 'message'], function () {
-        Route::get('/', 'MessageController@index');
-        Route::post('/push', 'MessageController@push');
-    });
+//    Route::group(['prefix' => 'message'], function () {
+//        Route::get('/', 'MessageController@index');
+//        Route::post('/push', 'MessageController@push');
+//    });
 });

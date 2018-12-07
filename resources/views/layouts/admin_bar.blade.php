@@ -42,9 +42,9 @@
                         <a href="javascript:void(0)" data-toggle="modal" data-target="#customer_warranty_request_check"><strong> Danh sách yêu cầu bảo hành </strong></a>
                     </li>
 
-                    <li>
-                        <a href="/customer/message" data-toggle="modal"><strong> Chat với nhân viên</strong></a>
-                    </li>
+                    {{--<li>--}}
+                        {{--<a href="/customer/message" data-toggle="modal"><strong> Chat với nhân viên</strong></a>--}}
+                    {{--</li>--}}
 
                     <li>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
