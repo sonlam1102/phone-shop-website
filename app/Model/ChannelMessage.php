@@ -26,4 +26,8 @@ class ChannelMessage extends Model
 
         return $message_channel;
     }
+
+    public static function findChannelID($channel) {
+        return self::select('id')->where('channel', '=', $channel) ? self::select('id')->where('channel', '=', $channel)->first() : null;
+    }
 }

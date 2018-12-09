@@ -21,7 +21,7 @@ class MessageController extends CustomerController
             $user_channel = $user->customer_channel;
         }
 
-        $channel = $user_channel->channel;
+        $channel = $user_channel;
 
         if ($messages)
             return view('customer::message.message')
@@ -29,6 +29,23 @@ class MessageController extends CustomerController
                 ->with('channel', $channel);
 
         return view('customer::message.message')->with('channel', $channel);
+    }
+
+    public function get_messages($id) {
+        $channel = CustomerChannel::find($id);
+
+        $data = [];
+
+        foreach ($channel->messages as $item) {
+            $temp = [
+                'user' => $item->user->fullname(),
+                'message' => $item->message
+            ];
+
+            array_push($data, $temp);
+        }
+
+        return json_encode($data);
     }
 
     public function push(Request $request) {
@@ -39,7 +56,7 @@ class MessageController extends CustomerController
             CustomerChannel::make_channel($user->id);
         }
 
-//        ChannelMessage::make_message($user->customer_channel->id, $message, $user->id);
+        ChannelMessage::make_message($user->customer_channel->id, $message, $user->id);
 
         $pusher = new PusherApp($user->customer_channel->channel);
 

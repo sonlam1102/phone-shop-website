@@ -41,5 +41,6 @@ Route::group(['prefix' => 'staff', 'middleware' => ['auth', 'staff', ]], functio
     Route::group(['prefix' => 'message'], function() {
         Route::get('/', 'MessageController@index');
         Route::post('/push', 'MessageController@push');
+        Route::get('/{id}/message', 'MessageController@get_messages')->where('id', '[0-9]+');
     });
 });

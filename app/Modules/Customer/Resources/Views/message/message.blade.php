@@ -43,7 +43,8 @@
 </nav>
 <div class="container">
     <div class="row">
-        <input type="text" id="channel" value="{{ $channel }}" hidden>
+        <input type="text" id="channel" value="{{ $channel->channel }}" hidden>
+        <input type="text" id="channel_id" value="{{ $channel->id }}" hidden>
         <form method="POST" action="/customer/message/push" id="message_form">
             @csrf
             <textarea class="container" rows="20" id="content" disabled></textarea>
@@ -71,6 +72,18 @@
 
 <script>
     $(document).ready(function () {
+        $.ajax({
+            url: "/customer/message/" + $("#channel_id").val() + "/message",
+            method: 'GET',
+            dataType: "json",
+            success: function (data) {
+                $("#content").html("");
+                for (let i=0; i< data.length; i++) {
+                    $("#content").append(data[i].user + ": " + data[i].message + "\n");
+                }
+            }
+        });
+
         $("#message_form").submit(function (e) {
             e.preventDefault();
 
