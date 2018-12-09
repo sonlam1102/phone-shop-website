@@ -15,7 +15,7 @@ Route::group(['prefix' => 'manager', 'middleware' => ['auth', 'manager', ]], fun
     Route::get('/', 'ManagerController@index')->name('index');
 
     Route::group(['prefix' => 'product'], function() {
-        Route::get('/', 'ProductController@index');
+        Route::get('/', 'ProductController@list');
         Route::post('/create', 'ProductController@add');
         Route::put('/{id}/update', 'ProductController@update')->where('id', '[0-9]+');
         Route::delete('/{id}/delete', 'ProductController@delete')->where('id', '[0-9]+');

@@ -8,8 +8,13 @@ use App\Model\Product;
 
 class ProductController extends ManagerController
 {
-    public function index() {
+    public function list(Request $request) {
+        $name = $request->get('name');
+
         $product = \Auth::user()->manager->company->products;
+        if ($name)
+            $product = $product->where('name', $name);
+
         $data = $this->getUserInfo();
 
         return view('manager::product/product')
