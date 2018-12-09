@@ -13,8 +13,14 @@ use App\Model\Product;
 
 class ProductController extends StaffController
 {
-    public function index() {
+    public function list(Request $request) {
+        $name = $request->get('name');
+
         $product = \Auth::user()->staff_info->company->products;
+
+        if ($name)
+            $product = $product->where('name', $name);
+
         $data = $this->getUserInfo();
 
         return view('staff::product/product')
