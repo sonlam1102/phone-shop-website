@@ -2,6 +2,7 @@ image: php:7.1.3
 
 stages:
   - deploy
+  - save
   - build
   - migrate
 
@@ -33,6 +34,15 @@ migrate:
   script:
     - curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
     - heroku run --app $HEROKU_APP_NAME php artisan migrate
+  only:
+    refs:
+      - master
+
+save:
+  stage: save
+  script:
+    - apt-get update -qq && apt-get install -y -qq git
+    - git push  https://$BITBUCKET_USER:$BITBUCKET_ACCESS_TOKEN@bitbucket.org/$BITBUCKET_USER/$BITBUCKET_APP_NAME.git HEAD:master
   only:
     refs:
       - master
